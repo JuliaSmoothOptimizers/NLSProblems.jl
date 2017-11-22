@@ -1,4 +1,4 @@
-using NLSModels, NLSProblems
+using NLPModels, NLSProblems
 using Base.Test
 
 # Test that every problem can be instantiated.

@@ -16,7 +16,7 @@ function mgh11(m :: Int = 100)
     error("Argument must be between 3 and 100")
   end
   t = (1:m)/100
-  y = 25 + (-50*log(t)).^(2/3)
+  y = 25 + (-50*log.(t)).^(2/3)
   F(x) = [exp(-abs(y[i] * m * i * x[2])^x[3]/x[1]) - t[i] for i = 1:m]
   x0 = [5.00; 2.50; 0.15]
 

@@ -14,7 +14,7 @@ function mgh18(m :: Int = 13)
 
   @assert m >= 6
   t = 0.1*(1:m)
-  y = exp(-t) - 5exp(-10t) + 3exp(-4t)
+  y = exp.(-t) - 5exp.(-10t) + 3exp.(-4t)
   F(x) = [x[3]*exp(-t[i]*x[1]) - x[4]*exp(-t[i]*x[2]) + x[6]*exp(-t[i]*x[5]) - y[i] for i = 1:m]
   x0 = [1.0; 2.0; 1.0; 1.0; 1.0; 1.0]
 

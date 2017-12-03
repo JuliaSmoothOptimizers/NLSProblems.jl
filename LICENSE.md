@@ -1,4 +1,4 @@
-This package in license under the MIT LICENSE.
+This package is licensed under the MIT LICENSE.
 
 > Copyright (c) 2017, Abel Soares Siqueira
 > 

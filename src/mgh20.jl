@@ -20,5 +20,5 @@ function mgh20(n :: Int = 6)
   x0 = zeros(n)
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 31)
+  return ADNLSModel(F, x0, 31, name="mgh20")
 end

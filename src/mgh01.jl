@@ -17,7 +17,7 @@ function mgh01()
   x0 = [-1.2; 1.0]
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 2)
+  return ADNLSModel(F, x0, 2, name="mgh01")
 end
 
 @doc (@doc mgh01)

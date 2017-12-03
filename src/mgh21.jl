@@ -16,5 +16,5 @@ function mgh21(n :: Int = 20)
   x0 = [j%2 == 0 ? 1.0 : -1.2 for j = 1:n]
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n)
+  return ADNLSModel(F, x0, n, name="mgh21")
 end

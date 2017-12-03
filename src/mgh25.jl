@@ -18,5 +18,5 @@ function mgh25(n :: Int = 10)
   x0 = 1 - collect(1:n)/n
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n+2)
+  return ADNLSModel(F, x0, n+2, name="mgh25")
 end

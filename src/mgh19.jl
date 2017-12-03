@@ -24,5 +24,5 @@ function mgh19()
   x0 = [1.3; 0.65; 0.65; 0.7; 0.6; 3.0; 5.0; 7.0; 2.0; 4.5; 5.5]
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 65)
+  return ADNLSModel(F, x0, 65, name="mgh19")
 end

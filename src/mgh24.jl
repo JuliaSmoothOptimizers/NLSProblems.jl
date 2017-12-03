@@ -20,5 +20,5 @@ function mgh24(n :: Int = 4)
   x0 = 0.5*ones(n)
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 2n)
+  return ADNLSModel(F, x0, 2n, name="mgh24")
 end

@@ -16,5 +16,5 @@ function mgh06(m :: Int = 10)
   x0 = [0.3; 0.4]
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, m)
+  return ADNLSModel(F, x0, m, name="mgh06")
 end

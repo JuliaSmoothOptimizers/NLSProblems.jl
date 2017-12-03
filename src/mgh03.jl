@@ -17,5 +17,5 @@ function mgh03()
   x0 = [0.0; 1.0]
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 2)
+  return ADNLSModel(F, x0, 2, name="mgh03")
 end

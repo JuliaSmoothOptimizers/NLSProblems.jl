@@ -17,5 +17,5 @@ function mgh27(n :: Int = 10)
   x0 = 0.5*ones(n)
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n)
+  return ADNLSModel(F, x0, n, name="mgh27")
 end

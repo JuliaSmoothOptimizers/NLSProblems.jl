@@ -20,5 +20,5 @@ function mgh08()
   x0 = ones(3)
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 15)
+  return ADNLSModel(F, x0, 15, name="mgh08")
 end

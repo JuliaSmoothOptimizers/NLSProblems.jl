@@ -16,5 +16,5 @@ function mgh31(n :: Int = 10)
   x0 = -ones(n)
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n)
+  return ADNLSModel(F, x0, n, name="mgh31")
 end

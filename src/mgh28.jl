@@ -20,5 +20,5 @@ function mgh28(n :: Int = 10)
   x0 = t.*(t-1)
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n)
+  return ADNLSModel(F, x0, n, name="mgh28")
 end

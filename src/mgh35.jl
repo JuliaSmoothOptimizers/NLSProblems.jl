@@ -31,5 +31,5 @@ function mgh35(m :: Int = 10, n :: Int = 10)
   x0 = collect(1:n)/(n+1)
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, m)
+  return ADNLSModel(F, x0, m, name="mgh35")
 end

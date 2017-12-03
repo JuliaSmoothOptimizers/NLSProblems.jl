@@ -17,5 +17,5 @@ function mgh23(n :: Int = 4)
   x0 = collect(1:n)
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n+1)
+  return ADNLSModel(F, x0, n+1, name="mgh23")
 end

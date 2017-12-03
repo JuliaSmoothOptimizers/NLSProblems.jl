@@ -19,5 +19,5 @@ function mgh18(m :: Int = 13)
   x0 = [1.0; 2.0; 1.0; 1.0; 1.0; 1.0]
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, m)
+  return ADNLSModel(F, x0, m, name="mgh18")
 end

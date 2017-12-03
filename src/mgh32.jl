@@ -18,5 +18,5 @@ function mgh32(m :: Int = 20, n :: Int = 10)
   x0 = ones(n)
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, m)
+  return ADNLSModel(F, x0, m, name="mgh32")
 end

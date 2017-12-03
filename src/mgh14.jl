@@ -21,5 +21,5 @@ function mgh14()
   x0 = [-3.0; -1.0; -3.0; -1.0]
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 6)
+  return ADNLSModel(F, x0, 6, name="mgh14")
 end

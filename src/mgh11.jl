@@ -21,5 +21,5 @@ function mgh11(m :: Int = 100)
   x0 = [5.00; 2.50; 0.15]
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, m)
+  return ADNLSModel(F, x0, m, name="mgh11")
 end

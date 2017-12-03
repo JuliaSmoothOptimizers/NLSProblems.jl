@@ -19,5 +19,5 @@ function mgh09()
   x0 = [0.4; 1.0; 0.0]
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 15)
+  return ADNLSModel(F, x0, 15, name="mgh09")
 end

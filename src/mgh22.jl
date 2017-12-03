@@ -26,5 +26,5 @@ function mgh22(n :: Int = 20)
     x0 = repmat([3.0; -1.0; 0.0; 1.0], div(n,4))
 
   #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n)
+  return ADNLSModel(F, x0, n, name="mgh22")
 end

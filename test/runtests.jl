@@ -13,4 +13,7 @@ for prob in names(NLSProblems)
   Jx = jac_op_residual(nls, x)
   println("  ‖F(x₀)‖ = $(norm(Fx))")
   println("  ‖J(x₀)ᵀF(x₀)‖ = $(norm(Jx'*Fx))")
+  if nls.meta.ncon > 0
+    println("  ‖c(x₀)‖ = $(norm(cons(nls, x)))")
+  end
 end

@@ -1,4 +1,4 @@
-# HS problem 43 in NLS format
+# HS problem 43 in NLS format without constants in the objective
 #
 #   Source:
 #   W. Hock and K. Schittkowski,
@@ -11,7 +11,7 @@
 
 export hs43
 
-"Hock-Schittkowski problem 43 in NLS format"
+"Hock-Schittkowski problem 43 in NLS format without constants in the objective"
 function hs43()
 
   nequ = 4

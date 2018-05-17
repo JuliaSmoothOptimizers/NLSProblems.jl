@@ -16,7 +16,10 @@ Chained Rosenbrock function with trigonometric-exponential constraints
 """
 function LVcon501(n :: Int = 20)
 
-  n < 3 && error(": number of variables must be ≥ 3")
+  if n < 3
+    warn(": number of variables must be ≥ 3. Using n = 3")
+    n = 3
+  end
 
   model = Model()
   @variable(model, x[i=1:n], start=(i % 2 == 1 ? -1.2 : 1.0))

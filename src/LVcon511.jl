@@ -17,8 +17,10 @@ Chained HS46 problem.
 """
 function LVcon511(n :: Int = 20)
 
-  n < 5 && error(": number of variables must be ≥ 5")
-  if n % 3 != 2
+  if n < 5
+    warn(": number of variables must be ≥ 5. Using n = 5")
+    n = 5
+  elseif n % 3 != 2
     warn(": number of variables must be of form 3k + 2. Rounding up")
     n = div(n - 2, 3) * 3 + 5
   end

@@ -18,8 +18,10 @@ trigonometric-exponential constraints.
 """
 function LVcon503(n :: Int = 20)
 
-  n < 4 && error(": number of variables must be ≥ 4")
-  if n % 2 != 0
+  if n < 4
+    warn(": number of variables must be ≥ 4. Using n = 4")
+    n = 4
+  elseif n % 2 != 0
     warn(": number of variables must be even. Rounding up")
     n += 1
   end

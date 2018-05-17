@@ -12,12 +12,12 @@ export mgh07
 "Helical valley function"
 function mgh07()
 
+  # Due to the user function θ, we're not using JuMP
   θ(a, b) = atan(b/a)/2π + (a > 0 ? 0.0 : 0.5)
   F(x) = [10*(x[3] - 10*θ(x[1], x[2]));
           10*(sqrt(x[1]^2 + x[2]^2) - 1.0);
           x[3]]
   x0 = [-1.0; 0.0; 0.0]
 
-  #return SimpleNLSModel(x0, 2, F=F)
   return ADNLSModel(F, x0, 3, name="mgh07")
 end

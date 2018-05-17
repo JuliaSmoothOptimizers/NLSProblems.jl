@@ -11,12 +11,15 @@ export mgh32
 
 "Linear function - full rank"
 function mgh32(m :: Int = 20, n :: Int = 10)
+  if m < n
+    warn(": number of functions must be ≥ number of variables. Adjusting to m = n")
+    m = n
+  end
 
-  @assert m >= n
-  F(x) = [[x[i] - 2sum(x)/m - 1 for i = 1:n];
-          [-2sum(x)/m - 1 for i = n+1:m]]
-  x0 = ones(n)
+  model = Model()
+  @variable(model, x[1:n], start=1)
+  @NLexpression(model, F1[i=1:n], x[i] - (2 / m) * sum(x[j] for j = 1:n) - 1)
+  @NLexpression(model, F2[i=1:m-n], -(2 / m) * sum(x[j] for j = 1:n) - 1)
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, m, name="mgh32")
+  return MathProgNLSModel(model, [F1; F2], name="mgh32")
 end

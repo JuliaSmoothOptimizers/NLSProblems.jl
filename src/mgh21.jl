@@ -11,10 +11,19 @@ export mgh21
 
 "Extended Rosenbrock function"
 function mgh21(n :: Int = 20)
+  if n < 2
+    warn(": number of variables must be ≥ 2. Using n = 2")
+    n = 2
+  elseif n % 2 == 1
+    warn(": number of variable must be even. Rounding up")
+    n += 1
+  end
 
-  F(x) = [j%2 == 0 ? 1 - x[j-1] : 10*(x[j+1] - x[j]^2) for j = 1:n]
-  x0 = [j%2 == 0 ? 1.0 : -1.2 for j = 1:n]
+  model = Model()
+  @variable(model, x[i=1:n], start=(i % 2 == 0 ? 1.0 : -1.2))
+  N = div(n, 2)
+  @NLexpression(model, F1[i=1:N], 10 * (x[2i] - x[2i - 1]^2))
+  @NLexpression(model, F2[i=1:N], 1 - x[2i - 1])
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n, name="mgh21")
+  return MathProgNLSModel(model, [F1; F2], name="mgh21")
 end

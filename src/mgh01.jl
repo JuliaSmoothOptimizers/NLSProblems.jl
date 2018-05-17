@@ -12,12 +12,13 @@ export mgh01, nls_rosenbrock
 "Rosenbrock problem in Nonlinear Least Squares form"
 function mgh01()
 
-  F(x) = [10*(x[2] - x[1]^2);
-          1 - x[1]]
-  x0 = [-1.2; 1.0]
+  model = Model()
+  @variable(model, x[1:2])
+  setvalue(x, [-1.2; 1.0])
+  @NLexpression(model, F1, 10*(x[2] - x[1]^2))
+  @NLexpression(model, F2, 1 - x[1])
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 2, name="mgh01")
+  return MathProgNLSModel(model, [F1; F2], name="mgh01")
 end
 
 @doc (@doc mgh01)

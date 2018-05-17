@@ -13,9 +13,9 @@ export mgh05
 function mgh05()
 
   y = [1.5; 2.25; 2.625]
-  F(x) = [y[i] - x[1]*(1 - x[2]^i) for i = 1:3]
-  x0 = [1.0; 1.0]
+  model = Model()
+  @variable(model, x[1:2], start=1.0)
+  @NLexpression(model, F[i=1:3], y[i] - x[1]*(1 - x[2]^i))
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 3, name="mgh05")
+  return MathProgNLSModel(model, F, name="mgh05")
 end

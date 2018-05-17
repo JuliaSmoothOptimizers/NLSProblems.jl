@@ -23,13 +23,15 @@ T(x, n) = Tsim(2x-1, n)
 
 "Chebyquad function"
 function mgh35(m :: Int = 10, n :: Int = 10)
+  if m < n
+    warn(": number of function must be ≥ number of variables. Adjusting to m = n")
+    m = n
+  end
 
-  @assert m >= n
-
+  # Due to the user function T, we're not using JuMP
   I = [i%2 == 0 ? -1/(i^2-1) : 0 for i = 1:n]
   F(x) = [sum(T(x[j], i) for j = 1:n)/n - I[i] for i = 1:n]
   x0 = collect(1:n)/(n+1)
 
-  #return SimpleNLSModel(x0, 2, F=F)
   return ADNLSModel(F, x0, m, name="mgh35")
 end

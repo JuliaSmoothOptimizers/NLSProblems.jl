@@ -12,9 +12,10 @@ export mgh06
 "Jennrich and Sampson function"
 function mgh06(m :: Int = 10)
 
-  F(x) = [2 + 2i - exp(i*x[1]) - exp(i*x[2]) for i = 1:m]
-  x0 = [0.3; 0.4]
+  model = Model()
+  @variable(model, x[1:2])
+  setvalue(x, [0.3; 0.4])
+  @NLexpression(model, F[i=1:m], 2 + 2i - exp(i*x[1]) - exp(i*x[2]))
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, m, name="mgh06")
+  return MathProgNLSModel(model, F, name="mgh06")
 end

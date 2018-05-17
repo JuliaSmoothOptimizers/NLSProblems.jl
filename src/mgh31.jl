@@ -12,9 +12,11 @@ export mgh31
 "Broyden banded function"
 function mgh31(n :: Int = 10)
 
-  F(x) = [x[i]*(2 + 5*x[i]^2) + 1 - sum(x[j]*(1 + x[j]) for j = max(1,i-5):min(n,i+1) if j != i) for i = 1:n]
-  x0 = -ones(n)
+  model = Model()
+  @variable(model, x[1:n], start=-1)
+  @NLexpression(model, F[i=1:n], x[i] * (2 + 5 * x[i]^2) + 1 -
+                sum(x[j] * (1 + x[j])
+                    for j = max(1, i - 5):min(n, i + 1) if j != i))
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n, name="mgh31")
+  return MathProgNLSModel(model, F, name="mgh31")
 end

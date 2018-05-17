@@ -11,13 +11,16 @@ export mgh34
 
 "Linear function - rank 1 with zero columns and rows"
 function mgh34(m :: Int = 20, n :: Int = 10)
+  if m < n
+    warn(": number of functions must be ≥ number of variables. Adjusting to m = n")
+    m = n
+  end
 
-  @assert m >= n
-  F(x) = [-1;
-          [(i-1)*sum(j*x[j] for j = 2:n-1) - 1 for i = 2:m-1];
-          -1]
-  x0 = ones(n)
+  model = Model()
+  @variable(model, x[1:n], start=1.0)
+  @NLexpression(model, F1, -1.0)
+  @NLexpression(model, F2[i=1:m-2], i * sum(j * x[j] for j = 2:n-1) - 1)
+  @NLexpression(model, F3, -1.0)
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, m, name="mgh34")
+  return MathProgNLSModel(model, [F1; F2; F3], name="mgh34")
 end

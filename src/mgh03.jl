@@ -12,10 +12,11 @@ export mgh03
 "Powell badly scaled function"
 function mgh03()
 
-  F(x) = [1e4 * x[1] * x[2] - 1;
-          exp(-x[1]) + exp(-x[2]) - 1.0001]
-  x0 = [0.0; 1.0]
+  model = Model()
+  @variable(model, x[1:2])
+  setvalue(x, [0.0; 1.0])
+  @NLexpression(model, F1, 1e4 * x[1] * x[2] - 1)
+  @NLexpression(model, F2, exp(-x[1]) + exp(-x[2]) - 1.0001)
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 2, name="mgh03")
+  return MathProgNLSModel(model, [F1; F2], name="mgh03")
 end

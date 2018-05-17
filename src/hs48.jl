@@ -14,16 +14,14 @@ export hs48
 "Hock-Schittkowski problem 48 in NLS format"
 function hs48()
 
-  nequ = 3
-  F(x) = [x[1] - 1.0;
-          x[2] - x[3];
-          x[4] - x[5]]
-  x0 = [3.0; 5.0; -3.0; 2.0; -2.0]
+  model = Model()
+  @variable(model, x[1:5])
+  setvalue(x, [3.0; 5.0; -3.0; 2.0; -2.0])
+  @NLexpression(model, F1, x[1] - 1.0)
+  @NLexpression(model, F2, x[2] - x[3])
+  @NLexpression(model, F3, x[4] - x[5])
+  @constraint(model, sum(x) == 5)
+  @constraint(model, x[3] - 2 * (x[4] + x[5]) == -3)
 
-  c(x) = [sum(x) - 5;
-          x[3] - 2 * (x[4] + x[5]) + 3]
-  lcon, ucon = zeros(2), zeros(2)
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    name="hs48")
+  return MathProgNLSModel(model, [F1; F2; F3], name="hs48")
 end

@@ -14,17 +14,15 @@ export hs16
 "Hock-Schittkowski problem 16 in NLS format"
 function hs16()
 
-  nequ = 2
-  F(x) = [10 * (x[2] - x[1]^2);
-          1 - x[1]]
-  x0 = [-2.0; 1.0]
+  model = Model()
   lvar = [-2.0; -Inf]
   uvar = [0.5; 1.0]
+  @variable(model, lvar[i] <= x[i=1:2] <= uvar[i])
+  setvalue(x, [-2.0; 1.0])
+  @NLexpression(model, F1, 10 * (x[2] - x[1]^2))
+  @NLexpression(model, F2, 1 - x[1])
+  @NLconstraint(model, x[1] + x[2]^2 >= 0.0)
+  @NLconstraint(model, x[1]^2 + x[2] >= 0.0)
 
-  c(x) = [x[1] + x[2]^2;
-          x[1]^2 + x[2]]
-  lcon, ucon = zeros(2), [Inf; Inf]
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    lvar=lvar, uvar=uvar, name="hs16")
+  return MathProgNLSModel(model, [F1; F2], name="hs16")
 end

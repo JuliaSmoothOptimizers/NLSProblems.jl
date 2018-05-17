@@ -14,16 +14,12 @@ export hs21
 "Hock-Schittkowski problem 21 in NLS format without constants in the objective"
 function hs21()
 
-  nequ = 2
-  F(x) = [0.1 * x[1];
-          x[2]]
-  x0 = [-1.0; -1.0]
+  model = Model()
   lvar = [2.0; -50.0]
-  uvar = [50.0; 50.0]
+  @variable(model, lvar[i] <= x[i=1:2] <= 50, start=-1.0)
+  @NLexpression(model, F1, 0.1 * x[1])
+  @NLexpression(model, F2, x[2] + 0.0)
+  @constraint(model, 10 * x[1] - x[2] >= 10)
 
-  c(x) = [10 * x[1] - x[2] - 10]
-  lcon, ucon = [0.0], [Inf]
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    lvar=lvar, uvar=uvar, name="hs21")
+  return MathProgNLSModel(model, [F1; F2], name="hs21")
 end

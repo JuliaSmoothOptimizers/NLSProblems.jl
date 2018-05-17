@@ -14,14 +14,12 @@ export hs26
 "Hock-Schittkowski problem 26 in NLS format"
 function hs26()
 
-  nequ = 2
-  F(x) = [x[1] - x[2];
-          (x[2] - x[3])^2]
-  x0 = [-2.6; 2.0; 2.0]
+  model = Model()
+  @variable(model, x[1:3])
+  setvalue(x, [-2.6; 2.0; 2.0])
+  @NLexpression(model, F1, x[1] - x[2])
+  @NLexpression(model, F2, (x[2] - x[3])^2)
+  @NLconstraint(model, (1 + x[2]^2) * x[1] + x[3]^4 == 3)
 
-  c(x) = [(1 + x[2]^2) * x[1] + x[3]^4 - 3]
-  lcon, ucon = zeros(1), zeros(1)
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    name="hs26")
+  return MathProgNLSModel(model, [F1; F2], name="hs26")
 end

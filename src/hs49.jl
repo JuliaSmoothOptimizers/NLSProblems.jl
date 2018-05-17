@@ -14,17 +14,15 @@ export hs49
 "Hock-Schittkowski problem 49 in NLS format"
 function hs49()
 
-  nequ = 4
-  F(x) = [x[1] - x[2];
-          x[3] - 1;
-          (x[4] - 1)^2;
-          (x[5] - 1)^3]
-  x0 = [10.0; 7.0; 2.0; -3.0; 0.8]
+  model = Model()
+  @variable(model, x[1:5])
+  setvalue(x, [10.0; 7.0; 2.0; -3.0; 0.8])
+  @NLexpression(model, F1, x[1] - x[2])
+  @NLexpression(model, F2, x[3] - 1)
+  @NLexpression(model, F3, (x[4] - 1)^2)
+  @NLexpression(model, F4, (x[5] - 1)^3)
+  @constraint(model, x[1] + x[2] + x[3] + 4 * x[4] == 7)
+  @constraint(model, x[3] + 5 * x[5] == 6)
 
-  c(x) = [x[1] + x[2] + x[3] + 4 * x[4] - 7;
-          x[3] + 5 * x[5] - 6]
-  lcon, ucon = zeros(2), zeros(2)
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    name="hs49")
+  return MathProgNLSModel(model, [F1; F2; F3; F4], name="hs49")
 end

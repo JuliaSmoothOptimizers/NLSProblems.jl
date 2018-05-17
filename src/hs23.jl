@@ -14,19 +14,15 @@ export hs23
 "Hock-Schittkowski problem 23 in NLS format"
 function hs23()
 
-  nequ = 2
-  F(x) = x
-  x0 = [3.0; 1.0]
-  lvar = [-50.0; -50.0]
-  uvar = [ 50.0;  50.0]
+  model = Model()
+  @variable(model, -50 <= x[1:2] <= 50)
+  setvalue(x, [3.0; 1.0])
+  @NLexpression(model, F[i=1:2], x[i] + 0.0)
+  @constraint(model, x[1] + x[2] >= 0)
+  @NLconstraint(model, x[1]^2 + x[2]^2 >= 1)
+  @NLconstraint(model, 9 * x[1]^2 + x[2]^2 >= 9)
+  @NLconstraint(model, x[1]^2 - x[2] >= 0)
+  @NLconstraint(model, x[2]^2 - x[1] >= 0)
 
-  c(x) = [x[1] + x[2] - 1;
-          x[1]^2 + x[2]^2 - 1;
-          9 * x[1]^2 + x[2]^2 - 9;
-          x[1]^2 - x[2];
-          x[2]^2 - x[1]]
-  lcon, ucon = zeros(5), fill(Inf, 5)
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    lvar=lvar, uvar=uvar, name="hs23")
+  return MathProgNLSModel(model, F, name="hs23")
 end

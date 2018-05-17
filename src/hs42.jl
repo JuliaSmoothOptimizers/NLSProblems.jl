@@ -14,17 +14,11 @@ export hs42
 "Hock-Schittkowski problem 42 in NLS format"
 function hs42()
 
-  nequ = 4
-  F(x) = [x[1] - 1;
-          x[2] - 2;
-          x[3] - 3;
-          x[4] - 4]
-  x0 = ones(4)
+  model = Model()
+  @variable(model, x[1:4], start=1.0)
+  @NLexpression(model, F[i=1:4], x[i] - i)
+  @constraint(model, x[1] == 2.0)
+  @NLexpression(model, x[3]^2 + x[4]^2 == 2.0)
 
-  c(x) = [x[1] - 2;
-          x[3]^2 + x[4]^2 - 2]
-  lcon, ucon = zeros(2), zeros(2)
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    name="hs42")
+  return MathProgNLSModel(model, F, name="hs42")
 end

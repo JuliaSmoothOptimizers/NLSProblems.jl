@@ -17,17 +17,15 @@ export hs46
 "Hock-Schittkowski problem 46 in NLS format"
 function hs46()
 
-  nequ = 4
-  F(x) = [x[1] - x[2];
-          x[3] - 1.0;
-          (x[4] - 1.0)^2;
-          (x[5] - 1.0)^3]
-  x0 = [sqrt(2) / 2; 1.75; 0.5; 2.0; 2.0]
+  model = Model()
+  @variable(model, x[1:5])
+  setvalue(x, [sqrt(2) / 2; 1.75; 0.5; 2.0; 2.0])
+  @NLexpression(model, F1, x[1] - x[2])
+  @NLexpression(model, F2, x[3] - 1.0)
+  @NLexpression(model, F3, (x[4] - 1.0)^2)
+  @NLexpression(model, F4, (x[5] - 1.0)^3)
+  @NLconstraint(model, x[1]^2 * x[4] + sin(x[4] - x[5]) == 1.0)
+  @NLconstraint(model, x[2] + x[3]^4 * x[4]^2 == 2.0)
 
-  c(x) = [x[1]^2 * x[4] + sin(x[4] - x[5]);
-          x[2] + x[3]^4 * x[4]^2]
-  lcon =  ucon = [1.0; 2.0]
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    name="hs46")
+  return MathProgNLSModel(model, [F1; F2; F3; F4], name="hs46")
 end

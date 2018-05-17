@@ -14,15 +14,11 @@ export hs30
 "Hock-Schittkowski problem 30 in NLS format"
 function hs30()
 
-  nequ = 3
-  F(x) = x
-  x0 = ones(3)
+  model = Model()
   lvar = [1.0; -10.0; -10.0]
-  uvar = [10.0; 10.0; 10.0]
+  @variable(model, lvar[i] <= x[i=1:3] <= 10, start=1.0)
+  @NLexpression(model, F[i=1:3], x[i] + 0.0)
+  @NLconstraint(model, x[1]^2 + x[2]^2 >= 1.0)
 
-  c(x) = [x[1]^2 + x[2]^2 - 1]
-  lcon, ucon = [0.0], [Inf]
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    lvar=lvar, uvar=uvar, name="hs30")
+  return MathProgNLSModel(model, F, name="hs30")
 end

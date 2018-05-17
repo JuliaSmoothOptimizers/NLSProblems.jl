@@ -14,14 +14,11 @@ export hs27
 "Hock-Schittkowski problem 27 in NLS format"
 function hs27()
 
-  nequ = 2
-  F(x) = [0.1 * (x[1] - 1);
-          x[2] - x[1]^2]
-  x0 = 2 * ones(3)
+  model = Model()
+  @variable(model, x[1:3], start=2.0)
+  @NLexpression(model, F1, 0.1 * (x[1] - 1))
+  @NLexpression(model, F2, x[2] - x[1]^2)
+  @NLconstraint(model, x[1] + x[3]^2 == -1)
 
-  c(x) = [x[1] + x[3]^2 + 1]
-  lcon, ucon = zeros(1), zeros(1)
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    name="hs27")
+  return MathProgNLSModel(model, [F1; F2], name="hs27")
 end

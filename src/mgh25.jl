@@ -12,11 +12,11 @@ export mgh25
 "Variably dimensioned function"
 function mgh25(n :: Int = 10)
 
-  F(x) = [[x[i] - 1 for i = 1:n];
-          sum(j*(x[j]-1) for j = 1:n);
-          sum(j*(x[j]-1) for j = 1:n)^2]
-  x0 = 1 - collect(1:n)/n
+  model = Model()
+  @variable(model, x[i=1:n], start=1 - i/n)
+  @NLexpression(model, F1[i=1:n], x[i] - 1)
+  @NLexpression(model, F2, sum(j * (x[j] - 1) for j = 1:n))
+  @NLexpression(model, F3, sum(j * (x[j] - 1) for j = 1:n)^2)
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n+2, name="mgh25")
+  return MathProgNLSModel(model, [F1; F2; F3], name="mgh25")
 end

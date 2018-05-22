@@ -12,10 +12,11 @@ export mgh02
 "Freudstein and Roth function"
 function mgh02()
 
-  F(x) = [-13 + x[1] + ((5-x[2])*x[2] - 2) * x[2];
-          -29 + x[1] + ((x[2]+1)*x[2] - 14) * x[2]]
-  x0 = [0.5; -2.0]
+  model = Model()
+  @variable(model, x[1:2])
+  setvalue(x, [0.5; -2.0])
+  @NLexpression(model, F1, -13 + x[1] + ((5-x[2])*x[2] - 2) * x[2])
+  @NLexpression(model, F2, -29 + x[1] + ((x[2]+1)*x[2] - 14) * x[2])
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 2, name="mgh02")
+  return MathProgNLSModel(model, [F1; F2], name="mgh02")
 end

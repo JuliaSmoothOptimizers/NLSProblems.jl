@@ -12,9 +12,10 @@ export mgh26
 "Trigonometric function"
 function mgh26(n :: Int = 10)
 
-  F(x) = [n - sum(cos.(x)) + i*(1 - cos(x[i])) - sin(x[i]) for i = 1:n]
-  x0 = ones(n)/n
+  model = Model()
+  @variable(model, x[1:n], start=1/n)
+  @NLexpression(model, F[i=1:n], n - sum(cos(x[j]) for j = 1:n) +
+                i * (1 - cos(x[i])) - sin(x[i]))
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n, name="mgh26")
+  return MathProgNLSModel(model, F, name="mgh26")
 end

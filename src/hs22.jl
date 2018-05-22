@@ -14,15 +14,12 @@ export hs22
 "Hock-Schittkowski problem 22 in NLS format"
 function hs22()
 
-  nequ = 2
-  F(x) = [x[1] - 2.0;
-          x[2] - 1.0]
-  x0 = [2.0; 2.0]
+  model = Model()
+  @variable(model, x[1:2], start=2.0)
+  @NLexpression(model, F1, x[1] - 2.0)
+  @NLexpression(model, F2, x[2] - 1.0)
+  @constraint(model, -x[1] - x[2] + 2 >= 0)
+  @NLconstraint(model, -x[1]^2 + x[2] >= 0)
 
-  c(x) = [-x[1] - x[2] + 2;
-          -x[1]^2 + x[2]]
-  lcon, ucon = zeros(2), [Inf; Inf]
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    name="hs22")
+  return MathProgNLSModel(model, [F1; F2], name="hs22")
 end

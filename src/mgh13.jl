@@ -12,12 +12,13 @@ export mgh13
 "Powell singular function"
 function mgh13()
 
-  F(x) = [x[1] + 10x[2];
-          sqrt(5)*(x[3] - x[4]);
-          (x[2] - 2x[3])^2;
-          sqrt(2)*(x[1] - x[4])^2]
-  x0 = [3.0; -1.0; 0.0; 1.0]
+  model = Model()
+  @variable(model, x[1:4])
+  setvalue(x, [3.0; -1.0; 0.0; 1.0])
+  @NLexpression(model, F1, x[1] + 10x[2])
+  @NLexpression(model, F2, sqrt(5)*(x[3] - x[4]))
+  @NLexpression(model, F3, (x[2] - 2x[3])^2)
+  @NLexpression(model, F4, sqrt(2)*(x[1] - x[4])^2)
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 4, name="mgh13")
+  return MathProgNLSModel(model, [F1; F2; F3; F4], name="mgh13")
 end

@@ -12,13 +12,14 @@ export mgh28
 "Discrete boundary value function"
 function mgh28(n :: Int = 10)
 
-  h = 1/(n+1)
-  t = (1:n)*h
-  F(x) = [2x[1] - x[2] + h^2*(x[1] + h + 1)^3/2;
-          [2x[i] - x[i-1] - x[i+1] + h^2*(x[i] + i*h + 1)^3/2 for i = 2:n-1];
-          2x[n] - x[n-1] + h^2*(x[n] + n*h + 1)^3/2]
-  x0 = t.*(t-1)
+  h = 1 / (n+1)
+  t = (1:n) * h
+  model = Model()
+  @variable(model, x[i=1:n], start=t[i] * (t[i] - 1))
+  @NLexpression(model, F1, 2x[1] - x[2] + h^2 * (x[1] + h + 1)^3 / 2)
+  @NLexpression(model, F2[i=1:n-2], 2x[i + 1] - x[i] - x[i + 2] +
+                h^2 * (x[i + 1] + (i + 1) * h + 1)^3 / 2)
+  @NLexpression(model, F3, 2x[n] - x[n-1] + h^2 * (x[n] + n * h + 1)^3 / 2)
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n, name="mgh28")
+  return MathProgNLSModel(model, [F1; F2; F3], name="mgh28")
 end

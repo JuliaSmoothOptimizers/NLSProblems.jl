@@ -11,11 +11,14 @@ export mgh33
 
 "Linear function - rank 1"
 function mgh33(m :: Int = 20, n :: Int = 10)
+  if m < n
+    warn(": number of functions must be ≥ number of variables. Adjusting to m = n")
+    m = n
+  end
 
-  @assert m >= n
-  F(x) = [i*sum(j*x[j] for j = 1:n) - 1 for i = 1:m]
-  x0 = ones(n)
+  model = Model()
+  @variable(model, x[1:n], start=1.0)
+  @NLexpression(model, F[i=1:m], i * sum(j * x[j] for j = 1:n) - 1)
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, m, name="mgh33")
+  return MathProgNLSModel(model, F, name="mgh33")
 end

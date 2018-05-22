@@ -22,14 +22,14 @@ function hs57()
        0.43; 0.43; 0.44; 0.43; 0.43; 0.46; 0.45; 0.42; 0.42; 0.43; 0.41;
        0.41; 0.40; 0.42; 0.40; 0.40; 0.41; 0.40; 0.41; 0.41; 0.40; 0.40;
        0.40; 0.38; 0.41; 0.40; 0.40; 0.41; 0.38; 0.40; 0.40; 0.39; 0.39]
-  nequ = 44
-  F(x) = [b[i] - x[1] - (0.49 - x[1]) * exp(-x[2] * (a[i] - 8)) for i = 1:44]
-  x0 = [0.42; 5.0]
+
+  model = Model()
   lvar, uvar = [0.4; -4.0], [Inf; Inf]
+  @variable(model, lvar[i] <= x[i=1:2] <= uvar[i])
+  setvalue(x, [0.42; 5.0])
+  @NLexpression(model, F[i=1:44], b[i] - x[1] - (0.49 - x[1]) *
+                exp(-x[2] * (a[i] - 8)))
+  @constraint(model, 0.49 * x[2] - x[1] * x[2] >= 0.09)
 
-  c(x) = [0.49 * x[2] - x[1] * x[2] - 0.09]
-  lcon, ucon = zeros(1), [Inf]
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    lvar=lvar, uvar=uvar, name="hs57")
+  return MathProgNLSModel(model, F, name="hs57")
 end

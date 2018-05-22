@@ -14,12 +14,11 @@ export hs06
 "Hock-Schittkowski problem 6 in NLS format"
 function hs06()
 
-  nequ = 1
-  F(x) = [1.0 - x[1]]
-  x0 = [-1.2; 1.0]
+  model = Model()
+  @variable(model, x[1:2])
+  setvalue(x, [-1.2; 1.0])
+  @NLexpression(model, F, 1.0 - x[1])
+  @NLconstraint(model, 10 * (x[2] - x[1]^2) == 0)
 
-  c(x) = [10 * (x[2] - x[1]^2)]
-  lcon, ucon = zeros(1), zeros(1)
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon, name="hs06")
+  return MathProgNLSModel(model, [F], name="hs06")
 end

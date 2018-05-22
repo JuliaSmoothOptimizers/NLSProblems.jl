@@ -11,20 +11,22 @@ export mgh22
 
 "Extended Powell singular function"
 function mgh22(n :: Int = 20)
+  if n < 4
+    warn(": number of variables must be ≥ 4. Using n = 4")
+    n = 4
+  elseif n % 4 != 0
+    warn(": number of variables must be multiple of 4. Rounding up")
+    n = div(n, 4) * 4 + 4
+  end
 
-  @assert n%4 == 0
+  model = Model()
+  x0s = [3.0; -1.0; 0.0; 1.0]
+  @variable(model, x[i=1:n], start=x0s[(i - 1) % 4 + 1])
+  N = div(n, 4)
+  @NLexpression(model, F1[i=1:N], x[4i - 3] + 10 * x[4i - 2])
+  @NLexpression(model, F2[i=1:N], sqrt(5) * (x[4i - 1] - x[4i]))
+  @NLexpression(model, F3[i=1:N], (x[4i - 2] - 2 * x[4i - 1]^2))
+  @NLexpression(model, F4[i=1:N], sqrt(10) * (x[4i - 3] - x[4i])^2)
 
-  F(x) = [if j%4 == 1
-            x[j] + 10x[j+1]
-          elseif j%4 == 2
-            sqrt(5)*(x[j+1] - x[j+2])
-          elseif j%4 == 3
-            (x[j-1] - 2x[j])^2
-          elseif j%4 == 0
-            sqrt(10)*(x[j-3] - x[j])^2
-            end for j = 1:n]
-    x0 = repmat([3.0; -1.0; 0.0; 1.0], div(n,4))
-
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n, name="mgh22")
+  return MathProgNLSModel(model, [F1; F2; F3; F4], name="mgh22")
 end

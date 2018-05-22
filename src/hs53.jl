@@ -14,19 +14,15 @@ export hs53
 "Hock-Schittkowski problem 53 in NLS format"
 function hs53()
 
-  nequ = 4
-  F(x) = [x[1] - x[2];
-          x[2] + x[3] - 2;
-          x[4] - 1;
-          x[5] - 1]
-  x0 = 2 * ones(5)
-  lvar, uvar = -10 * ones(5), 10 * ones(5)
+  model = Model()
+  @variable(model, -10 <= x[1:5] <= 10, start=2.0)
+  @NLexpression(model, F1, x[1] - x[2])
+  @NLexpression(model, F2, x[2] + x[3] - 2)
+  @NLexpression(model, F3, x[4] - 1)
+  @NLexpression(model, F4, x[5] - 1)
+  @constraint(model, x[1] + 3 * x[2] == 0)
+  @constraint(model, x[3] + x[4] - 2 * x[5] == 0)
+  @constraint(model, x[2] - x[5] == 0)
 
-  c(x) = [x[1] + 3 * x[2];
-          x[3] + x[4] - 2 * x[5];
-          x[2] - x[5]]
-  lcon, ucon = zeros(3), zeros(3)
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    lvar=lvar, uvar=uvar, name="hs53")
+  return MathProgNLSModel(model, [F1; F2; F3; F4], name="hs53")
 end

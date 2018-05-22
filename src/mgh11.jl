@@ -11,15 +11,17 @@ export mgh11
 
 "Gulf research and development function"
 function mgh11(m :: Int = 100)
-
   if !(3 <= m <= 100)
-    error("Argument must be between 3 and 100")
+    warn(": number of functions must be between 3 and 100. Adjusting to closer bound")
+    m = min(100, max(3, m))
   end
-  t = (1:m)/100
-  y = 25 + (-50*log.(t)).^(2/3)
-  F(x) = [exp(-abs(y[i] * m * i * x[2])^x[3]/x[1]) - t[i] for i = 1:m]
-  x0 = [5.00; 2.50; 0.15]
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, m, name="mgh11")
+  t = (1:m) / 100
+  y = 25 + (-50 * log.(t)).^(2 / 3)
+  model = Model()
+  @variable(model, x[1:3])
+  setvalue(x, [5.00; 2.50; 0.15])
+  @NLexpression(model, F[i=1:m], exp(-abs(y[i] * m * i * x[2])^x[3] / x[1]) - t[i])
+
+  return MathProgNLSModel(model, F, name="mgh11")
 end

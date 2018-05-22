@@ -14,16 +14,13 @@ export hs61
 "Hock-Schittkowski problem 61 in NLS format without constants in the objective"
 function hs61()
 
-  nequ = 3
-  F(x) = [2 * (x[1] - 33/8);
-          sqrt(2) * (x[2] + 4);
-          sqrt(2) * (x[3] - 6)]
-  x0 = zeros(3)
+  model = Model()
+  @variable(model, x[1:3], start=0.0)
+  @NLexpression(model, F1, 2 * (x[1] - 33/8))
+  @NLexpression(model, F2, sqrt(2) * (x[2] + 4))
+  @NLexpression(model, F3, sqrt(2) * (x[3] - 6))
+  @NLconstraint(model, 3 * x[1] - 2 * x[2]^2 == 7)
+  @NLconstraint(model, 4 * x[1] - 3 * x[3]^2 == 11)
 
-  c(x) = [3 * x[1] - 2 * x[2]^2 - 7;
-          4 * x[1] - 3 * x[3]^2 - 11]
-  lcon, ucon = zeros(2), zeros(2)
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    name="hs61")
+  return MathProgNLSModel(model, [F1; F2; F3], name="hs61")
 end

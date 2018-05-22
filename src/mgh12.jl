@@ -11,11 +11,16 @@ export mgh12
 
 "Box three-dimensional function"
 function mgh12(m :: Int = 10)
+  if m < 3
+    warn(": number of functions must be ≥ 3. Using m = 3")
+    m = 3
+  end
 
-  @assert m >= 3
-  F(x) = [exp(-0.1i*x[1]) - exp(-0.1i*x[2]) - x[3]*(exp(-0.1i) - exp(-i)) for i = 1:m]
-  x0 = [0.0; 10.0; 20.0]
+  model = Model()
+  @variable(model, x[1:3])
+  setvalue(x, [0.0; 10.0; 20.0])
+  @NLexpression(model, F[i=1:m], exp(-0.1i*x[1]) - exp(-0.1i*x[2]) -
+                x[3]*(exp(-0.1i) - exp(-i)))
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, m, name="mgh12")
+  return MathProgNLSModel(model, F, name="mgh12")
 end

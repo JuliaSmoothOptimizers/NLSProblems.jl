@@ -14,18 +14,18 @@ export hs43
 "Hock-Schittkowski problem 43 in NLS format without constants in the objective"
 function hs43()
 
-  nequ = 4
-  F(x) = [x[1] - 5/2;
-          x[2] - 5/2;
-          sqrt(2) * (x[3] - 21 / 4);
-          x[4] + 7/2]
-  x0 = zeros(4)
+  model = Model()
+  @variable(model, x[1:4], start=0.0)
+  @NLexpression(model, F1, x[1] - 5/2)
+  @NLexpression(model, F2, x[2] - 5/2)
+  @NLexpression(model, F3, sqrt(2) * (x[3] - 21 / 4))
+  @NLexpression(model, F4, x[4] + 7/2)
+  @NLconstraint(model, 8 - x[1]^2 - x[2]^2 - x[3]^2 - x[4]^2 - x[1] +
+                x[2] - x[3] + x[4] >= 0.0)
+  @NLconstraint(model, 10 - x[1]^2 - 2 * x[2]^2 - x[3]^2 - 2 * x[4]^2 +
+                x[1] + x[4] >= 0.0)
+  @NLconstraint(model, 5 - 2 * x[1]^2 - x[2]^2 - x[3]^2 - 2 * x[1] +
+                x[2] + x[4] >= 0.0)
 
-  c(x) = [8 - x[1]^2 - x[2]^2 - x[3]^2 - x[4]^2 - x[1] + x[2] - x[3] + x[4];
-          10 - x[1]^2 - 2 * x[2]^2 - x[3]^2 - 2 * x[4]^2 + x[1] + x[4];
-          5 - 2 * x[1]^2 - x[2]^2 - x[3]^2 - 2 * x[1] + x[2] + x[4]]
-  lcon, ucon = zeros(3), fill(Inf, 3)
-
-  return ADNLSModel(F, x0, nequ, c=c, lcon=lcon, ucon=ucon,
-                    name="hs43")
+  return MathProgNLSModel(model, [F1; F2; F3; F4], name="hs43")
 end

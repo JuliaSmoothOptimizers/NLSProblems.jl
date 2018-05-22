@@ -12,13 +12,15 @@
 export hs25
 
 "Hock-Schittkowski problem 25 in NLS format"
-function hs25(;nequ = 99)
+function hs25(;m = 99)
 
-  u = [25 + (-50 * log(i / 100))^(2/3) for i = 1:nequ]
-  F(x) = [-i / 100 + exp(-(u[i] - x[2])^x[3] / x[1]) for i = 1:nequ]
-  x0 = [100; 12.5; 3.0]
+  model = Model()
   lvar = [  0.1;  0.0; 0.0]
   uvar = [100.0; 25.6; 5.0]
+  @variable(model, lvar[i] <= x[i=1:3] <= uvar[i])
+  setvalue(x, [100; 12.5; 3.0])
+  u = [25 + (-50 * log(i / 100))^(2/3) for i = 1:m]
+  @NLexpression(model, F[i=1:m], -i / 100 + exp(-(u[i] - x[2])^x[3] / x[1]))
 
-  return ADNLSModel(F, x0, nequ, lvar=lvar, uvar=uvar, name="hs25")
+  return MathProgNLSModel(model, F, name="hs25")
 end

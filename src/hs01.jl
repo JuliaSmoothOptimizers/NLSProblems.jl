@@ -14,10 +14,12 @@ export hs01
 "Hock-Schittkowski problem 1 in NLS format"
 function hs01()
 
-  nequ = 2
-  F(x) = [10 * (x[2] - x[1]^2); 1 - x[1]]
-  x0 = [-2.0; 1.0]
+  model = Model()
   lvar = [-Inf; -1.5]
+  @variable(model, x[i=1:2] >= lvar[i])
+  setvalue(x, [-2.0; 1.0])
+  @NLexpression(model, F1, 10 * (x[2] - x[1]^2))
+  @NLexpression(model, F2, 1 - x[1])
 
-  return ADNLSModel(F, x0, nequ, lvar=lvar, name="hs01")
+  return MathProgNLSModel(model, [F1; F2], name="hs01")
 end

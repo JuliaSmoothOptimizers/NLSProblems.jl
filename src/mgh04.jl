@@ -12,11 +12,11 @@ export mgh04
 "Brown badly scaled function"
 function mgh04()
 
-  F(x) = [x[1] - 1e6;
-          x[2] - 2e-6;
-          x[1] * x[2] - 2.0]
-  x0 = [1.0; 1.0]
+  model = Model()
+  @variable(model, x[1:2], start=1)
+  @NLexpression(model, F1, x[1] - 1e6)
+  @NLexpression(model, F2, x[2] - 2e-6)
+  @NLexpression(model, F3, x[1] * x[2] - 2.0)
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, 3, name="mgh04")
+  return MathProgNLSModel(model, [F1; F2; F3], name="mgh04")
 end

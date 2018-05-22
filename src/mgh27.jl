@@ -11,11 +11,14 @@ export mgh27
 
 "Brown almost-linear function"
 function mgh27(n :: Int = 10)
+  if n < 2
+    warn(": number of variables must be ≥ 2. Using n = 2")
+  end
 
-  F(x) = [[x[i] + sum(x) - n - 1 for i = 1:n-1];
-          prod(x) - 1]
-  x0 = 0.5*ones(n)
+  model = Model()
+  @variable(model, x[1:n], start=0.5)
+  @NLexpression(model, F1[i=1:n-1], x[i] + sum(x[j] for j = 1:n) - n - 1)
+  @NLexpression(model, F2, prod(x[j] for j = 1:n) - 1)
 
-  #return SimpleNLSModel(x0, 2, F=F)
-  return ADNLSModel(F, x0, n, name="mgh27")
+  return MathProgNLSModel(model, [F1; F2], name="mgh27")
 end

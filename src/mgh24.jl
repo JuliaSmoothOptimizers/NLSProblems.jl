@@ -21,7 +21,7 @@ function mgh24(n :: Int = 4)
   @NLexpression(model, F1, x[1] - 0.2)
   @NLexpression(model, F2[i=1:n-1], sqrt(1e-5) *
                 (exp(x[i + 1] / 10) + exp(x[i] / 10) - y[i]))
-  @NLexpression(model, F3[i=1:n-2], sqrt(1e-5) *
+  @NLexpression(model, F3[i=1:n-1], sqrt(1e-5) *
                 (exp(x[i + 1] / 10) - exp(-1 / 10)))
   @NLexpression(model, F4, sum((n - j + 1) * x[j]^2 for j = 1:n) - 1)
 

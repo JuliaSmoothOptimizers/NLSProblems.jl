@@ -5,21 +5,9 @@
 #   Testing Unconstrained Optimization Software
 #   ACM Transactions on Mathematical Software, 7(1):17-41, 1981
 #
-# A. S. Siqueira, Curitiba/BR, 02/2017.
+# A. Montoison, Montreal, 05/2018.
 
 export mgh35
-
-function Tsim(x, n)
-  if n == 0
-    return 1
-  elseif n == 1
-    return x
-  else
-    return 2*x*Tsim(x,n-1) - Tsim(x,n-2)
-  end
-end
-
-T(x, n) = Tsim(2x-1, n)
 
 "Chebyquad function"
 function mgh35(m :: Int = 10, n :: Int = 10)
@@ -28,10 +16,30 @@ function mgh35(m :: Int = 10, n :: Int = 10)
     m = n
   end
 
-  # Due to the user function T, we're not using JuMP
-  I = [i%2 == 0 ? -1/(i^2-1) : 0 for i = 1:n]
-  F(x) = [sum(T(x[j], i) for j = 1:n)/n - I[i] for i = 1:n]
-  x0 = collect(1:n)/(n+1)
+  nls  = Model()
+  x0   = collect(1:n)/(n+1)
+  @variable(nls, x[i=1:n], start = x0[i])
 
-  return ADNLSModel(F, x0, m, name="mgh35")
+  function Tsim(x, n)
+    if n == 0
+      return 1
+    elseif n == 1
+      return x
+    else
+      return 2*x*Tsim(x,n-1) - Tsim(x,n-2)
+    end
+  end
+
+  Ts = Vector{Function}(n)
+  Tnames = Vector{Symbol}(n)
+  for i = 1:n
+    Ts[i] = x -> Tsim(2*x-1, i)
+    Tnames[i] = gensym()
+    JuMP.register(nls, Tnames[i], 1, Ts[i], autodiff=true)
+  end
+
+  I = [i%2 == 0 ? -1/(i^2-1) : 0 for i = 1:n]
+  @NLexpression(nls, F[i=1:n], sum($(Tnames[i])(x[j]) for j = 1:n)/n - I[i])
+
+  return MathProgNLSModel(nls, F, name="mgh35")
 end

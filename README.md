@@ -43,7 +43,13 @@ Lecture Notes in Economics and Mathematical Systems 187,
 Springer Verlag Berlin Heidelberg, 1981.
 [10.1007/978-3-642-48320-2](https://doi.org/10.1007/978-3-642-48320-2)
 
-[3]  L. Lukšan and J. Vlček
+[3] L. Lukšan and J. Vlček.
 *Sparse and Partially Separable Test Problems for Unconstrained and
 Equality Constrained Optimization*.
 [Technical report 767, 1999](http://hdl.handle.net/11104/0123965)
+
+[4] K. Schittkowski.
+*More test examples for nonlinear programming codes*.
+Lecture Notes in Economics and Mathematical Systems 282,
+Springer Verlag Berlin Heidelberg, 1987.
+[10.1007/978-3-642-61582-5](https://doi.org/10.1007/978-3-642-61582-5)

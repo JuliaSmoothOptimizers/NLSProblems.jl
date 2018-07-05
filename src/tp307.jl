@@ -16,10 +16,10 @@ function tp307()
 
   nls = Model()
   x0  = [0.3; 0.4]
-  @variable(nls, x[i=1:2]≥0, start=x0[i])
+  @variable(nls, x[i=1:2] ≥ 0, start=x0[i])
 
-  y = [2 + 2*i for i=1:10]
-  @NLexpression(nls, F[i=1:10], y[i] - exp(i*x[1]) - exp(i*x[2]))
+  y = [2 + 2 * i for i=1:10]
+  @NLexpression(nls, F[i=1:10], y[i] - exp(i * x[1]) - exp(i * x[2]))
 
   return MathProgNLSModel(nls, F, name="tp307")
 end

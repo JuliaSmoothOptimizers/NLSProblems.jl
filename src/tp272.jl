@@ -18,10 +18,10 @@ function tp272()
   x0  = [1; 2; 1; 1; 1; 1]
   @variable(nls, x[i=1:6], start=x0[i])
 
-  t = [i/10 for i=1:13]
-  y = [exp(-t[i]) - 5*exp(-10*t[i]) + 3*exp(-4*t[i]) for i=1:13]
+  t = [0.1 * i for i=1:13]
+  y = exp.(-t) - 5 * exp.(-10 * t) + 3 * exp.(-4 * t)
 
-  @NLexpression(nls, F[i=1:13], x[4]*exp(-x[1]*t[i]) - x[5]*exp(-x[2]*t[i]) + x[6]*exp(-x[3]*t[i]) - y[i])
+  @NLexpression(nls, F[i=1:13], x[4] * exp(-x[1] * t[i]) - x[5] * exp(-x[2] * t[i]) + x[6] * exp(-x[3] * t[i]) - y[i])
 
 
   return MathProgNLSModel(nls, F, name="tp272")

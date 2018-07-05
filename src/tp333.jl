@@ -20,7 +20,7 @@ function tp333()
 
   a = [4; 5.75; 7.5; 24; 32; 48; 72; 96]
   y = [72.1; 65.6; 55.9; 17.1; 9.8; 4.5; 1.3; 0.6]
-  @NLexpression(nls, F[i=1:8], (y[i] - x[1]*exp(-x[2]*a[i]) -x[3])/y[i])
+  @NLexpression(nls, F[i=1:8], (y[i] - x[1] * exp(-x[2] * a[i]) - x[3]) / y[i])
 
   return MathProgNLSModel(nls, F, name="tp333")
 end

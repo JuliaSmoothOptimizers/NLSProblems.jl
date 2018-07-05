@@ -22,8 +22,8 @@ function tp269()
   @NLexpression(nls, F3, x[4] - 1)
   @NLexpression(nls, F4, x[5] - 1)
 
-  @constraint(nls, x[1] + 3*x[2] == 0)
-  @constraint(nls, x[3] + x[4] - 2*x[5] == 0)
+  @constraint(nls, x[1] + 3 * x[2] == 0)
+  @constraint(nls, x[3] + x[4] - 2 * x[5] == 0)
   @constraint(nls, x[2] - x[5] == 0)
 
   return MathProgNLSModel(nls, [F1; F2; F3; F4], name="tp269")

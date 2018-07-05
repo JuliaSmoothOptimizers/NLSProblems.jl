@@ -17,7 +17,7 @@ function tp252()
   nls  = Model()
   x0   = [-1; 2; 2]
   uvar = [-1; Inf; Inf]
-  @variable(nls, x[i=1:3]≤uvar[i], start=x0[i])
+  @variable(nls, x[i=1:3] ≤ uvar[i], start=x0[i])
 
   @NLexpression(nls, F1, 0.1 * (x[1] - 1))
   @NLexpression(nls, F2, x[2] - x[1]^2)

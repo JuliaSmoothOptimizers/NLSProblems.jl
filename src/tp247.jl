@@ -23,9 +23,9 @@ function tp247()
   u_aux(t) = (t > 0 ? 0.0 : 0.5)
   JuMP.register(nls, :u_aux, 1, u_aux, autodiff=true)
 
-  @NLexpression(nls, F1, 10*(x[3] - 10*(u_aux(x[1]) + atan(x[2]/x[1])/2π)))
+  @NLexpression(nls, F1, 10 * (x[3] - 10 * (u_aux(x[1]) + atan(x[2] / x[1]) / (2π))))
   @NLexpression(nls, F2, sqrt(x[1]^2 + x[2]^2) - 1)
-  @NLexpression(nls, F3, 1*x[3])
+  @NLexpression(nls, F3, 1 * x[3])
 
   return MathProgNLSModel(nls, [F1; F2; F3], name="tp247")
 end

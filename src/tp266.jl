@@ -35,8 +35,8 @@ B = [0.354033  -0.0230349  -0.211938 -0.0554288  0.220429;
     -0.0554288  -0.111141 -0.133538 0.389198  -0.131586;
      0.220429  0.0485461 -0.38067  -0.131586 0.534706]
 
-  # F = A + Cx + 0.5*x'*B*x*D
-  @NLexpression(nls, F[k=1:10], A[k] + sum(x[i]*C[k,i] for i=1:5) + 0.5*D[k]*sum(sum(B[i,j]*x[i]*x[j] for i=1:5) for j=1:5))
+  # F = A + cx + ½(xᵀBx)D
+  @NLexpression(nls, F[k=1:10], A[k] + sum(x[i]*C[k,i] for i=1:5) + 0.5*D[k]*sum(B[i,j]*x[i]*x[j] for i=1:5, j=1:5))
 
   return MathProgNLSModel(nls, F, name="tp266")
 end

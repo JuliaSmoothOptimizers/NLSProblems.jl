@@ -16,12 +16,12 @@ function tp324()
 
   nls  = Model()
   lvar = [2; -Inf]
-  @variable(nls, x[i=1:2]≥lvar[i], start=2)
+  @variable(nls, x[i=1:2] ≥ lvar[i], start=2)
 
-  @NLexpression(nls, F1, 0.1*x[1])
-  @NLexpression(nls, F2, 1*x[2])
+  @NLexpression(nls, F1, 0.1 * x[1])
+  @NLexpression(nls, F2, 1 * x[2])
 
-  @NLconstraint(nls, x[1]*x[2] - 25 ≥ 0)
+  @NLconstraint(nls, x[1] * x[2] - 25 ≥ 0)
   @NLconstraint(nls, x[1]^2 + x[2]^2 - 25 ≥ 0)
 
   return MathProgNLSModel(nls, [F1; F2], name="tp324")

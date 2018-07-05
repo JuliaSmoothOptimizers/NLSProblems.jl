@@ -19,7 +19,7 @@ function tp233()
   @variable(nls, x[i=1:2], start=x0[i])
 
   @NLexpression(nls, F1, 10 * (x[2] - x[1]^2))
-  @NLexpression(nls, F2, (1 - x[1]))
+  @NLexpression(nls, F2, 1 - x[1])
 
   @NLconstraint(nls, x[1]^2 + x[2]^2 - 0.25 ≥ 0)
 

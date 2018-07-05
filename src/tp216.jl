@@ -21,7 +21,7 @@ function tp216()
   @NLexpression(nls, F1, 10 * (x[1]^2 - x[2]))
   @NLexpression(nls, F2, x[1] - 1)
 
-  @NLconstraint(nls, x[1] * (x[1] - 4) - 2*x[2] + 12 == 0)
+  @NLconstraint(nls, x[1] * (x[1] - 4) - 2 * x[2] + 12 == 0)
 
   return MathProgNLSModel(nls, [F1; F2], name="tp216")
 end

@@ -17,22 +17,15 @@ function tp372()
   nls  = Model()
   lvar = [-Inf*ones(3); zeros(6)]
   x0   = [300; -100; -0.1997; -127; -151; 379; 421; 460; 426]
-  @variable(nls, x[i=1:9]≥lvar[i], start=x0[i])
+  @variable(nls, x[i=1:9] ≥ lvar[i], start=x0[i])
 
-  @NLexpression(nls, F[i=1:6], 1*x[i+3])
+  @NLexpression(nls, F[i=1:6], 1 * x[i+3])
 
-  @NLconstraint(nls, x[1] + x[2]*exp(-5*x[3]) + x[4] - 127 ≥ 0)
-  @NLconstraint(nls, x[1] + x[2]*exp(-3*x[3]) + x[5] - 151 ≥ 0)
-  @NLconstraint(nls, x[1] + x[2]*exp(  -x[3]) + x[6] - 379 ≥ 0)
-  @NLconstraint(nls, x[1] + x[2]*exp(   x[3]) + x[7] - 421 ≥ 0)
-  @NLconstraint(nls, x[1] + x[2]*exp( 3*x[3]) + x[8] - 460 ≥ 0)
-  @NLconstraint(nls, x[1] + x[2]*exp( 5*x[3]) + x[9] - 426 ≥ 0)
-  @NLconstraint(nls,-x[1] - x[2]*exp(-5*x[3]) + x[4] + 127 ≥ 0)
-  @NLconstraint(nls,-x[1] - x[2]*exp(-3*x[3]) + x[5] + 151 ≥ 0)
-  @NLconstraint(nls,-x[1] - x[2]*exp(  -x[3]) + x[6] + 379 ≥ 0)
-  @NLconstraint(nls,-x[1] - x[2]*exp(   x[3]) + x[7] + 421 ≥ 0)
-  @NLconstraint(nls,-x[1] - x[2]*exp( 3*x[3]) + x[8] + 460 ≥ 0)
-  @NLconstraint(nls,-x[1] - x[2]*exp( 5*x[3]) + x[9] + 426 ≥ 0)
-
+  y = [127; 151; 379; 421; 460; 426]
+  for i=1:6
+    @NLconstraint(nls, x[1] + x[2] * exp((2i - 7) * x[3]) + x[i+3] - y[i] ≥ 0)
+    @NLconstraint(nls,-x[1] - x[2] * exp((2i - 7) * x[3]) + x[i+3] + y[i] ≥ 0)
+  end
+  
   return MathProgNLSModel(nls, F, name="tp372")
 end

@@ -16,12 +16,12 @@ function tp355()
 
   nls  = Model()
   lvar = [0.1; 0.1; 0; 0]
-  @variable(nls, x[i=1:4]≥lvar[i], start=0)
+  @variable(nls, x[i=1:4] ≥ lvar[i], start=0)
 
-  @NLexpression(nls, r1, 11 - x[1]*x[4] - x[2]*x[4] + x[3]*x[4])
-  @NLexpression(nls, r2, x[1] + 10*x[2] - x[3] + x[4] + x[2]*x[4]*(x[3] - x[1]))
-  @NLexpression(nls, r3, 11 - 4*x[1]*x[4] - 4*x[2]*x[4] + x[3]*x[4])
-  @NLexpression(nls, r4, 2*x[1] + 20*x[2] - 0.5*x[3] + 2*x[4] + 2*x[2]*x[4]*(x[3] - 4*x[1]))
+  @NLexpression(nls, r1, 11 - x[1] * x[4] - x[2] * x[4] + x[3] * x[4])
+  @NLexpression(nls, r2, x[1] + 10 * x[2] - x[3] + x[4] + x[2] * x[4] * (x[3] - x[1]))
+  @NLexpression(nls, r3, 11 - 4 * x[1] * x[4] - 4 * x[2] * x[4] + x[3] * x[4])
+  @NLexpression(nls, r4, 2 * x[1] + 20 * x[2] - 0.5 * x[3] + 2 * x[4] + 2 * x[2] * x[4] * (x[3] - 4 * x[1]))
   
   @NLconstraint(nls, r1^2 + r2^2 - r3^2 - r4^2 == 0)
 

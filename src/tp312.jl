@@ -17,8 +17,8 @@ function tp312()
   nls = Model()
   @variable(nls, x[i=1:2], start=1)
 
-  @NLexpression(nls, F1, x[1]^2 + 12*x[2] - 1)
-  @NLexpression(nls, F2, 49*x[1]^2 + 49*x[2]^2 + 84*x[1] + 2324*x[2] - 681)
+  @NLexpression(nls, F1, x[1]^2 + 12 * x[2] - 1)
+  @NLexpression(nls, F2, 49 * x[1]^2 + 49 * x[2]^2 + 84 * x[1] + 2324 * x[2] - 681)
 
   return MathProgNLSModel(nls, [F1; F2], name="tp312")
 end

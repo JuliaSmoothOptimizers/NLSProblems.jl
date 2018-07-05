@@ -16,13 +16,11 @@ function tp249()
 
   nls  = Model()
   lvar = [1; -Inf; -Inf]
-  @variable(nls, x[i=1:3]≥lvar[i], start=1)
+  @variable(nls, x[i=1:3] ≥ lvar[i], start=1)
 
-  @NLexpression(nls, F1, 1*x[1])
-  @NLexpression(nls, F2, 1*x[2])
-  @NLexpression(nls, F3, 1*x[3])
+  @NLexpression(nls, F[i=1:3], 1 * x[i])
 
   @NLconstraint(nls, x[1]^2 + x[2]^2 - 1 ≥ 0)
 
-  return MathProgNLSModel(nls, [F1; F2; F3], name="tp249")
+  return MathProgNLSModel(nls, F, name="tp249")
 end

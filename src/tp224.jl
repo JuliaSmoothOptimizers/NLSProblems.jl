@@ -21,7 +21,7 @@ function tp224()
   @NLexpression(nls, F1, sqrt(2) * (x[1] - 12))
   @NLexpression(nls, F2, x[2] - 20)
 
-  @constraint(nls, -18 ≤ - x[1] - 3*x[2] ≤ 0)
+  @constraint(nls, -18 ≤ - x[1] - 3 * x[2] ≤ 0)
   @constraint(nls, -8 ≤ - x[1] - x[2] ≤ 0)
 
   return MathProgNLSModel(nls, [F1; F2], name="tp224")

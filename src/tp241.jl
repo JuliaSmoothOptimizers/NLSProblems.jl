@@ -22,7 +22,7 @@ function tp241()
   @NLexpression(nls, F2, x[1]^2 + x[2]^2 + (x[3] - 2)^2 - 1)
   @NLexpression(nls, F3, x[1] + x[2] + x[3] - 1)
   @NLexpression(nls, F4, x[1] + x[2] - x[3] + 1)
-  @NLexpression(nls, F5, x[1]^3 + 3*x[2]^2 + (5*x[3] - x[1] + 1)^2 - 36)
+  @NLexpression(nls, F5, x[1]^3 + 3 * x[2]^2 + (5 * x[3] - x[1] + 1)^2 - 36)
 
   return MathProgNLSModel(nls, [F1; F2; F3; F4; F5], name="tp241")
 end

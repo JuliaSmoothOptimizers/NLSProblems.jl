@@ -25,13 +25,13 @@ function tp268()
         3   8  -7  -4   1;
         4  -12  4   4   0]
 
-  @NLexpression(nls, F[i=1:6], sum(D[i,j]*x[j] for j=1:5) - d[i])
+  @NLexpression(nls, F[i=1:6], sum(D[i,j] * x[j] for j=1:5) - d[i])
 
-  @constraint(nls,   -x[1] -    x[2] -   x[3] -   x[4] -   x[5] +  5 ≥ 0)
-  @constraint(nls, 10*x[1] + 10*x[2] - 3*x[3] + 5*x[4] + 4*x[5] - 20 ≥ 0)
-  @constraint(nls, -8*x[1] +    x[2] - 2*x[3] - 5*x[4] + 3*x[5] + 40 ≥ 0)
-  @constraint(nls,  8*x[1] -    x[2] + 2*x[3] + 5*x[4] - 3*x[5] - 11 ≥ 0)
-  @constraint(nls, -4*x[1] -  2*x[2] + 3*x[3] - 5*x[4] +   x[5] + 30 ≥ 0)
+  @constraint(nls,     -x[1] -      x[2] -     x[3] -     x[4] -     x[5] +  5 ≥ 0)
+  @constraint(nls, 10 * x[1] + 10 * x[2] - 3 * x[3] + 5 * x[4] + 4 * x[5] - 20 ≥ 0)
+  @constraint(nls, -8 * x[1] +      x[2] - 2 * x[3] - 5 * x[4] + 3 * x[5] + 40 ≥ 0)
+  @constraint(nls,  8 * x[1] -      x[2] + 2 * x[3] + 5 * x[4] - 3 * x[5] - 11 ≥ 0)
+  @constraint(nls, -4 * x[1] -  2 * x[2] + 3 * x[3] - 5 * x[4] +     x[5] + 30 ≥ 0)
 
   return MathProgNLSModel(nls, F, name="tp268")
 end

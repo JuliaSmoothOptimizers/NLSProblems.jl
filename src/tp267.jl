@@ -17,10 +17,10 @@ function tp267()
   nls = Model()
   @variable(nls, x[i=1:5], start=2)
 
-  z = [0.1*i for i=1:11]
-  y = [exp(-z[i]) - 5*exp(-10*z[i]) + 3*exp(-4*z[i]) for i=1:11]
+  z = [0.1 * i for i=1:11]
+  y = exp.(-z) - 5 * exp.(-10 * z) + 3 * exp.(-4 * z)
 
-  @NLexpression(nls, F[i=1:11], x[3]*exp(-x[1]*z[i]) -x[4]*exp(-x[2]*z[i]) + 3*exp(-x[5]*z[i]) - y[i])
+  @NLexpression(nls, F[i=1:11], x[3] * exp(-x[1] * z[i]) - x[4] * exp(-x[2] * z[i]) + 3 * exp(-x[5] * z[i]) - y[i])
 
   return MathProgNLSModel(nls, F, name="tp267")
 end

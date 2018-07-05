@@ -18,10 +18,10 @@ function tp256()
   x0  = [3; -1; 0; 1]
   @variable(nls, x[i=1:4], start=x0[i])
 
-  @NLexpression(nls, F1, x[1] + 10*x[2])
-  @NLexpression(nls, F2, sqrt(5)*(x[3] - x[4]))
-  @NLexpression(nls, F3, (x[2] - 2*x[3])^2)
-  @NLexpression(nls, F4, sqrt(10)*(x[1] - x[4])^2) 
+  @NLexpression(nls, F1, x[1] + 10 * x[2])
+  @NLexpression(nls, F2, sqrt(5) * (x[3] - x[4]))
+  @NLexpression(nls, F3, (x[2] - 2 * x[3])^2)
+  @NLexpression(nls, F4, sqrt(10) * (x[1] - x[4])^2) 
 
   return MathProgNLSModel(nls, [F1; F2; F3; F4], name="tp256")
 end

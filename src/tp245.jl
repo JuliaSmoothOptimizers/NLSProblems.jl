@@ -18,7 +18,8 @@ function tp245()
   x0  = [0; 10; 20]
   @variable(nls, x[i=1:3], start=x0[i])
 
-  @NLexpression(nls, F[i=1:10], exp(-i*x[1]/10) - exp(-i*x[2]/10) - x[3]*(exp(-i/10) - exp(-i)))
+  t = [0.1 * i for i=1:10]
+  @NLexpression(nls, F[i=1:10], exp(-x[1] * t[i]) - exp(-x[2] * t[i]) - x[3] * (exp(-t[i]) - exp(-10 * t[i])))
 
   return MathProgNLSModel(nls, F, name="tp245")
 end

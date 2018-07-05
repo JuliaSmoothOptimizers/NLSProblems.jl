@@ -19,10 +19,10 @@ function tp231()
   @variable(nls, x[i=1:2], start=x0[i])
 
   @NLexpression(nls, F1, 10 * (x[2] - x[1]^2))
-  @NLexpression(nls, F2, (1 - x[1]))
+  @NLexpression(nls, F2, 1 - x[1])
 
   @constraint(nls, 1/3 * x[1] + x[2] + 0.1 ≥ 0)
-  @constraint(nls, -1/3 * x[1] + x[2] + 0.1 ≥ 0)
-  
+  @constraint(nls,-1/3 * x[1] + x[2] + 0.1 ≥ 0)
+
   return MathProgNLSModel(nls, [F1; F2], name="tp231")
 end

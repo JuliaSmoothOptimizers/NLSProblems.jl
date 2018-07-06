@@ -11,7 +11,8 @@
 
 export tp316, tp317, tp318, tp319, tp320, tp321, tp322
 
-function tp316to322(d :: Real=100, version="tp316")
+"Test problem 316 in NLS format"
+function tp316(d :: Real=100; version :: String="tp316")
 
   nls = Model()
   @variable(nls, x[i=1:2], start=0)
@@ -23,23 +24,20 @@ function tp316to322(d :: Real=100, version="tp316")
   return MathProgNLSModel(nls, [F1; F2], name=version)
 end
 
-"Test problem 316 in NLS format"
-tp316() = tp316to322(100, "tp316")
-
 "Test problem 317 in NLS format"
-tp317() = tp316to322(64, "tp317")
+tp317() = tp316(64, version="tp317")
 
 "Test problem 318 in NLS format"
-tp318() = tp316to322(36, "tp318")
+tp318() = tp316(36, version="tp318")
 
 "Test problem 319 in NLS format"
-tp319() = tp316to322(16, "tp319")
+tp319() = tp316(16, version="tp319")
 
 "Test problem 320 in NLS format"
-tp320() = tp316to322(4, "tp320")
+tp320() = tp316(4, version="tp320")
 
 "Test problem 321 in NLS format"
-tp321() = tp316to322(1, "tp321")
+tp321() = tp316(1, version="tp321")
 
 "Test problem 322 in NLS format"
-tp322() = tp316to322(0.01, "tp322")
+tp322() = tp316(0.01, version="tp322")

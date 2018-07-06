@@ -11,7 +11,8 @@
 
 export tp344, tp345
 
-function tp344and345(x0 :: Int=2, version :: String="tp344")
+"Test problem 344 in NLS format"
+function tp344(x0 :: Real=2, version :: String="tp344")
 
   nls = Model()
   @variable(nls, x[i=1:3], start=x0)
@@ -25,8 +26,5 @@ function tp344and345(x0 :: Int=2, version :: String="tp344")
   return MathProgNLSModel(nls, [F1; F2; F3], name=version)
 end
 
-"Test problem 344 in NLS format"
-tp344() = tp344and345(2, "tp344")
-
 "Test problem 345 in NLS format"
-tp345() = tp344and345(0, "tp345")
+tp345() = tp344(0, "tp345")

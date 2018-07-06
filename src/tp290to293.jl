@@ -11,7 +11,8 @@
 
 export tp290, tp291, tp292, tp293
 
-function tp290to293(n :: Int=2, version :: String="tp290")
+"Test problem 290 in NLS format"
+function tp290(n :: Int=2; version :: String="tp290")
 
   nls = Model()
   @variable(nls, x[i=1:n], start=1)
@@ -21,14 +22,11 @@ function tp290to293(n :: Int=2, version :: String="tp290")
   return MathProgNLSModel(nls, [F], name=version)
 end
 
-"Test problem 290 in NLS format"
-tp290() = tp290to293(2, "tp290")
-
 "Test problem 291 in NLS format"
-tp291() = tp290to293(10, "tp291")
+tp291() = tp290(10, version="tp291")
 
 "Test problem 292 in NLS format"
-tp292() = tp290to293(30, "tp292")
+tp292() = tp290(30, version="tp292")
 
 "Test problem 293 in NLS format"
-tp293() = tp290to293(50, "tp293")
+tp293() = tp290(50, version="tp293")

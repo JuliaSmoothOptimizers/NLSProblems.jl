@@ -11,7 +11,8 @@
 
 export tp370, tp371
 
-function tp370and371(n :: Int=6, version :: String="tp370")
+"Test problem 370 in NLS format"
+function tp370(n :: Int=6; version :: String="tp370")
 
   nls  = Model()
   @variable(nls, x[i=1:n], start=0)
@@ -23,8 +24,5 @@ function tp370and371(n :: Int=6, version :: String="tp370")
   return MathProgNLSModel(nls, [FA; FB; FC], name=version)
 end
 
-"Test problem 370 in NLS format"
-tp370() = tp370and371(6, "tp370")
-
 "Test problem 371 in NLS format"
-tp371() = tp370and371(9, "tp371")
+tp371() = tp370(9, version="tp371")

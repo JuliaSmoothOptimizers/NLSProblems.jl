@@ -11,7 +11,8 @@
 
 export tp294, tp295, tp296, tp297, tp298, tp299
 
-function tp294to299(n :: Int=6, version :: String="tp294")
+"Test problem 294 in NLS format"
+function tp294(n :: Int=6; version :: String="tp294")
 
   nls = Model()
   x0  = [(n <= 16 && i % 2 == 0) ? 1.0 : -1.2 for i=1:n]
@@ -23,20 +24,17 @@ function tp294to299(n :: Int=6, version :: String="tp294")
   return MathProgNLSModel(nls, [FA; FB], name=version)
 end
 
-"Test problem 294 in NLS format"
-tp294() = tp294to299(6, "tp294")
-
 "Test problem 295 in NLS format"
-tp295() = tp294to299(10, "tp295")
+tp295() = tp294(10, version="tp295")
 
 "Test problem 296 in NLS format"
-tp296() = tp294to299(16, "tp296")
+tp296() = tp294(16, version="tp296")
 
 "Test problem 297 in NLS format"
-tp297() = tp294to299(30, "tp297")
+tp297() = tp294(30, version="tp297")
 
 "Test problem 298 in NLS format"
-tp298() = tp294to299(50, "tp298")
+tp298() = tp294(50, version="tp298")
 
 "Test problem 299 in NLS format"
-tp299() = tp294to299(100, "tp299")
+tp299() = tp294(100, version="tp299")

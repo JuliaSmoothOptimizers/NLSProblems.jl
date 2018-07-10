@@ -10,7 +10,7 @@
 export mgh27
 
 "Brown almost-linear function"
-function mgh27(n :: Int = 10)
+function mgh27(n :: Int=10)
   if n < 2
     warn(": number of variables must be ≥ 2. Using n = 2")
   end

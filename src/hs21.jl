@@ -12,7 +12,7 @@
 export hs21
 
 "Hock-Schittkowski problem 21 in NLS format without constants in the objective"
-function hs21()
+function hs21(args...)
 
   model = Model()
   lvar = [2.0; -50.0]

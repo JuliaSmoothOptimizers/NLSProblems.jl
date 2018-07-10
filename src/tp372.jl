@@ -12,7 +12,7 @@
 export tp372
 
 "Test problem 372 in NLS format"
-function tp372()
+function tp372(args...)
 
   nls  = Model()
   lvar = [-Inf*ones(3); zeros(6)]

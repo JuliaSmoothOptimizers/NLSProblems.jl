@@ -10,7 +10,7 @@
 export mgh02
 
 "Freudstein and Roth function"
-function mgh02()
+function mgh02(args...)
 
   model = Model()
   @variable(model, x[1:2])

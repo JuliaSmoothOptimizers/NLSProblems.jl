@@ -10,7 +10,7 @@
 export mgh03
 
 "Powell badly scaled function"
-function mgh03()
+function mgh03(args...)
 
   model = Model()
   @variable(model, x[1:2])

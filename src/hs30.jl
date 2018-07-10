@@ -12,7 +12,7 @@
 export hs30
 
 "Hock-Schittkowski problem 30 in NLS format"
-function hs30()
+function hs30(args...)
 
   model = Model()
   lvar = [1.0; -10.0; -10.0]

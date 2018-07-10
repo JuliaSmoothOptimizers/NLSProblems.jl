@@ -10,7 +10,7 @@
 export mgh14
 
 "Wood function"
-function mgh14()
+function mgh14(args...)
 
   model = Model()
   @variable(model, x[1:4])

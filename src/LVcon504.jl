@@ -15,7 +15,7 @@ export LVcon504
 """Lukšan and Vlček's problem 5.4 in NLS format:
 Chained Cragg-Levy function with tridiagonal constraints.
 """
-function LVcon504(n :: Int = 20)
+function LVcon504(n :: Int=20)
 
   if n < 4
     warn(": number of variables must be ≥ 4. Using n = 4")

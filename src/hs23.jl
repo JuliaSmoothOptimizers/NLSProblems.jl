@@ -12,7 +12,7 @@
 export hs23
 
 "Hock-Schittkowski problem 23 in NLS format"
-function hs23()
+function hs23(args...)
 
   model = Model()
   @variable(model, -50 <= x[1:2] <= 50)

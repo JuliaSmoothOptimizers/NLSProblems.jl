@@ -12,7 +12,7 @@
 export tp256
 
 "Test problem 256 in NLS format"
-function tp256()
+function tp256(args...)
 
   nls = Model()
   x0  = [3; -1; 0; 1]

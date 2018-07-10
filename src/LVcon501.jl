@@ -14,7 +14,7 @@ export LVcon501
 """Lukšan and Vlček's problem 5.1 in NLS format:
 Chained Rosenbrock function with trigonometric-exponential constraints
 """
-function LVcon501(n :: Int = 20)
+function LVcon501(n :: Int=20)
 
   if n < 3
     warn(": number of variables must be ≥ 3. Using n = 3")

@@ -12,7 +12,7 @@
 export hs65
 
 "Hock-Schittkowski problem 65 in NLS format"
-function hs65()
+function hs65(args...)
 
   model = Model()
   lvar, uvar = [-4.5; -4.5; -5.0], [4.5; 4.5; 5.0]

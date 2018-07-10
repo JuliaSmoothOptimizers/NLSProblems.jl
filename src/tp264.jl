@@ -12,7 +12,7 @@
 export tp264
 
 "Test problem 264 in NLS format without constants in the objective"
-function tp264()
+function tp264(args...)
 
   nls = Model()
   @variable(nls, x[i=1:4], start=0)

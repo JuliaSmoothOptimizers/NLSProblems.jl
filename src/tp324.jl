@@ -12,7 +12,7 @@
 export tp324
 
 "Test problem 324 in NLS format"
-function tp324()
+function tp324(args...)
 
   nls  = Model()
   lvar = [2; -Inf]

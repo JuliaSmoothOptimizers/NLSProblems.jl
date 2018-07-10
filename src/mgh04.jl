@@ -10,7 +10,7 @@
 export mgh04
 
 "Brown badly scaled function"
-function mgh04()
+function mgh04(args...)
 
   model = Model()
   @variable(model, x[1:2], start=1)

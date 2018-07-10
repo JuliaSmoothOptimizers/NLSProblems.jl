@@ -16,7 +16,7 @@ export LVcon503
 Chained Powell singular function with simplified
 trigonometric-exponential constraints.
 """
-function LVcon503(n :: Int = 20)
+function LVcon503(n :: Int=20)
 
   if n < 4
     warn(": number of variables must be ≥ 4. Using n = 4")

@@ -10,7 +10,7 @@
 export mgh09
 
 "Gaussian function"
-function mgh09()
+function mgh09(args...)
 
   y = [0.0009; 0.0044; 0.0175; 0.0540; 0.1295; 0.2420; 0.3521; 0.3989]
   y = [y; y[7:-1:1]]

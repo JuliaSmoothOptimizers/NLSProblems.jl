@@ -10,7 +10,7 @@
 export mgh21
 
 "Extended Rosenbrock function"
-function mgh21(n :: Int = 20)
+function mgh21(n :: Int=20)
   if n < 2
     warn(": number of variables must be ≥ 2. Using n = 2")
     n = 2

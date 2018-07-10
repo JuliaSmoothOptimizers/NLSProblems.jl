@@ -10,7 +10,7 @@
 export mgh31
 
 "Broyden banded function"
-function mgh31(n :: Int = 10)
+function mgh31(n :: Int=10)
 
   model = Model()
   @variable(model, x[1:n], start=-1)

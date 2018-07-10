@@ -12,7 +12,7 @@
 export hs53
 
 "Hock-Schittkowski problem 53 in NLS format"
-function hs53()
+function hs53(args...)
 
   model = Model()
   @variable(model, -10 <= x[1:5] <= 10, start=2.0)

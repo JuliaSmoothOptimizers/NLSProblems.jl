@@ -10,7 +10,7 @@
 export mgh05
 
 "Beale function"
-function mgh05()
+function mgh05(args...)
 
   y = [1.5; 2.25; 2.625]
   model = Model()

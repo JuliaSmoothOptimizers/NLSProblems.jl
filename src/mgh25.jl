@@ -10,7 +10,7 @@
 export mgh25
 
 "Variably dimensioned function"
-function mgh25(n :: Int = 10)
+function mgh25(n :: Int=10)
 
   model = Model()
   @variable(model, x[i=1:n], start=1 - i/n)

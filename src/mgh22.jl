@@ -10,7 +10,7 @@
 export mgh22
 
 "Extended Powell singular function"
-function mgh22(n :: Int = 20)
+function mgh22(n :: Int=20)
   if n < 4
     warn(": number of variables must be ≥ 4. Using n = 4")
     n = 4

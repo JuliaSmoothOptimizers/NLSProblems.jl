@@ -10,7 +10,7 @@
 export mgh10
 
 "Freudstein and Roth function"
-function mgh10()
+function mgh10(args...)
 
   y = [34780; 28610; 23650; 19630; 16370; 13720; 11540; 9744;
         8261;  7030;  6005;  5147;  4427;  3820;  3307; 2872]

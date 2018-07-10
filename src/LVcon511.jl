@@ -15,7 +15,7 @@ export LVcon511
 """Lukšan and Vlček's problem 5.11 in NLS format:
 Chained HS46 problem.
 """
-function LVcon511(n :: Int = 20)
+function LVcon511(n :: Int=20)
 
   if n < 5
     warn(": number of variables must be ≥ 5. Using n = 5")

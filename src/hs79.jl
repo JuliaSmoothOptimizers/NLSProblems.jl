@@ -12,7 +12,7 @@
 export hs79
 
 "Hock-Schittkowski problem 79 in NLS format"
-function hs79()
+function hs79(args...)
 
   model = Model()
   @variable(model, x[1:5], start=2.0)

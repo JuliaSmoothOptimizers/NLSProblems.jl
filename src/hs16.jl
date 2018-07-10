@@ -12,7 +12,7 @@
 export hs16
 
 "Hock-Schittkowski problem 16 in NLS format"
-function hs16()
+function hs16(args...)
 
   model = Model()
   lvar = [-2.0; -Inf]

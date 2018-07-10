@@ -10,7 +10,7 @@
 export mgh13
 
 "Powell singular function"
-function mgh13()
+function mgh13(args...)
 
   model = Model()
   @variable(model, x[1:4])

@@ -12,7 +12,7 @@
 export tp344, tp345
 
 "Test problem 344 in NLS format"
-function tp344(x0 :: Real=2, version :: String="tp344")
+function tp344(args...; x0 :: Real=2, version :: String="tp344")
 
   nls = Model()
   @variable(nls, x[i=1:3], start=x0)
@@ -27,4 +27,4 @@ function tp344(x0 :: Real=2, version :: String="tp344")
 end
 
 "Test problem 345 in NLS format"
-tp345() = tp344(0, "tp345")
+tp345(args...) = tp344(x0=0, version="tp345")

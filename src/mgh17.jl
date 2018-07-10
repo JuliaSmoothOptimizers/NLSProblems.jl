@@ -10,7 +10,7 @@
 export mgh17
 
 "Osborne 1 function"
-function mgh17()
+function mgh17(args...)
 
   t = 10 * ((1:33) - 1)
   y = [0.844; 0.908; 0.932; 0.936; 0.925; 0.908; 0.881; 0.850; 0.818;

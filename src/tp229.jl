@@ -12,7 +12,7 @@
 export tp229
 
 "Test problem 229 in NLS format"
-function tp229()
+function tp229(args...)
 
   nls = Model()
   x0  = [-1.2; 1]

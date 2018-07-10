@@ -23,10 +23,10 @@ function tp290(n :: Int=2; version :: String="tp290")
 end
 
 "Test problem 291 in NLS format"
-tp291() = tp290(10, version="tp291")
+tp291(args...) = tp290(10, version="tp291")
 
 "Test problem 292 in NLS format"
-tp292() = tp290(30, version="tp292")
+tp292(args...) = tp290(30, version="tp292")
 
 "Test problem 293 in NLS format"
-tp293() = tp290(50, version="tp293")
+tp293(args...) = tp290(50, version="tp293")

@@ -10,7 +10,7 @@
 export mgh30
 
 "Broyden tridiagonal function"
-function mgh30(n :: Int = 10)
+function mgh30(n :: Int=10)
 
   model = Model()
   @variable(model, x[1:n], start=-1)

@@ -12,7 +12,7 @@
 export hs18
 
 "Hock-Schittkowski problem 18 in NLS format"
-function hs18()
+function hs18(args...)
 
   model = Model()
   lvar = [2.0; 0.0]

@@ -10,7 +10,7 @@
 export mgh15
 
 "Kowalik and Osborne function"
-function mgh15()
+function mgh15(args...)
 
   y = [0.1957; 0.1947; 0.1735; 0.1600; 0.0844; 0.0627;
        0.0456; 0.0342; 0.0323; 0.0235; 0.0246]

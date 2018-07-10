@@ -10,7 +10,7 @@
 export mgh07
 
 "Helical valley function"
-function mgh07()
+function mgh07(args...)
 
   nls  = Model()
   x0   = [-1.0,  0.0,  0.0]

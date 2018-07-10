@@ -10,7 +10,7 @@
 export mgh08
 
 "Freudstein and Roth function"
-function mgh08()
+function mgh08(args...)
 
   y = [0.14; 0.18; 0.22; 0.25; 0.29;
        0.32; 0.35; 0.39; 0.37; 0.58;

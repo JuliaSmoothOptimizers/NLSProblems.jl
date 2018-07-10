@@ -12,7 +12,7 @@
 export tp266
 
 "Test problem 266 in NLS format"
-function tp266()
+function tp266(args...)
 
   nls = Model()
   @variable(nls, x[i=1:5], start=0.1)

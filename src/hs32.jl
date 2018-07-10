@@ -12,7 +12,7 @@
 export hs32
 
 "Hock-Schittkowski problem 32 in NLS format"
-function hs32()
+function hs32(args...)
 
   model = Model()
   @variable(model, x[1:3] >= 0.0)

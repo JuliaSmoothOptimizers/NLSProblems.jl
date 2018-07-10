@@ -12,7 +12,7 @@
 export hs60
 
 "Hock-Schittkowski problem 60 in NLS format"
-function hs60()
+function hs60(args...)
 
   model = Model()
   @variable(model, -10 <= x[1:3] <= 10, start=2.0)

@@ -10,7 +10,7 @@
 export mgh01, nls_rosenbrock
 
 "Rosenbrock problem in Nonlinear Least Squares form"
-function mgh01()
+function mgh01(args...)
 
   model = Model()
   @variable(model, x[1:2])
@@ -22,4 +22,4 @@ function mgh01()
 end
 
 @doc (@doc mgh01)
-nls_rosenbrock() = mgh01()
+nls_rosenbrock(args...) = mgh01()

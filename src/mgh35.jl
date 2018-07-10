@@ -10,7 +10,7 @@
 export mgh35
 
 "Chebyquad function"
-function mgh35(m :: Int = 10, n :: Int = 10)
+function mgh35(n :: Int=10; m :: Int=10)
   if m < n
     warn(": number of function must be ≥ number of variables. Adjusting to m = n")
     m = n

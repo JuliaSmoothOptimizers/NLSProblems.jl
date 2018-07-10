@@ -10,7 +10,7 @@
 export mgh06
 
 "Jennrich and Sampson function"
-function mgh06(m :: Int = 10)
+function mgh06(args...; m :: Int=10)
 
   model = Model()
   @variable(model, x[1:2])

@@ -15,7 +15,7 @@ export LVcon502
 """Lukšan and Vlček's problem 5.2 in NLS format:
 Chained Wood function with Broyden banded constraints
 """
-function LVcon502(n :: Int = 20)
+function LVcon502(n :: Int=20)
 
   if n < 8
     warn(": number of variables must be ≥ 8. Using n = 8")

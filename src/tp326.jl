@@ -12,7 +12,7 @@
 export tp326
 
 "Test problem 326 in NLS format without constants in the objective"
-function tp326()
+function tp326(args...)
 
   nls = Model()
   x0  = [4; 3]

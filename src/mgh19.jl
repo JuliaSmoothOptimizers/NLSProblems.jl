@@ -10,7 +10,7 @@
 export mgh19
 
 "Osborne 2 function"
-function mgh19()
+function mgh19(args...)
 
   t = ((1:65) - 1)/10
   y = [1.366; 1.191; 1.112; 1.013; 0.991; 0.885; 0.831; 0.847; 0.786;

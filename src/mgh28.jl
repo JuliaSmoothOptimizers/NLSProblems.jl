@@ -10,7 +10,7 @@
 export mgh28
 
 "Discrete boundary value function"
-function mgh28(n :: Int = 10)
+function mgh28(n :: Int=10)
 
   h = 1 / (n+1)
   t = (1:n) * h

@@ -12,7 +12,7 @@
 export hs25
 
 "Hock-Schittkowski problem 25 in NLS format"
-function hs25(;m = 99)
+function hs25(args...; m :: Int=99)
 
   model = Model()
   lvar = [  0.1;  0.0; 0.0]

@@ -10,7 +10,7 @@
 export mgh23
 
 "Penalty function I"
-function mgh23(n :: Int = 4)
+function mgh23(n :: Int=4)
 
   model = Model()
   @variable(model, x[i=1:n], start=i)

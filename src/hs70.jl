@@ -12,7 +12,7 @@
 export hs70
 
 "Hock-Schittkowski problem 70 in NLS format"
-function hs70()
+function hs70(args...)
 
   nls  = Model()
   x0   = [  2;   4; 0.04;   2]

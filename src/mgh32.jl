@@ -10,7 +10,7 @@
 export mgh32
 
 "Linear function - full rank"
-function mgh32(m :: Int = 20, n :: Int = 10)
+function mgh32(n :: Int=10; m :: Int=20)
   if m < n
     warn(": number of functions must be ≥ number of variables. Adjusting to m = n")
     m = n

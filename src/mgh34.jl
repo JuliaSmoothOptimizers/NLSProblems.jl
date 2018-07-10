@@ -10,7 +10,7 @@
 export mgh34
 
 "Linear function - rank 1 with zero columns and rows"
-function mgh34(m :: Int = 20, n :: Int = 10)
+function mgh34(n :: Int=10; m :: Int=20)
   if m < n
     warn(": number of functions must be ≥ number of variables. Adjusting to m = n")
     m = n

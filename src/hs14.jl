@@ -12,7 +12,7 @@
 export hs14
 
 "Hock-Schittkowski problem 14 in NLS format"
-function hs14()
+function hs14(args...)
 
   model = Model()
   @variable(model, x[1:2], start=2.0)

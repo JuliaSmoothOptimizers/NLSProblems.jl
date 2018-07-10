@@ -12,7 +12,7 @@
 export hs61
 
 "Hock-Schittkowski problem 61 in NLS format without constants in the objective"
-function hs61()
+function hs61(args...)
 
   model = Model()
   @variable(model, x[1:3], start=0.0)

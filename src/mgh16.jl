@@ -10,7 +10,7 @@
 export mgh16
 
 "Brown and Dennis function"
-function mgh16(m :: Int = 20)
+function mgh16(args...; m :: Int=20)
   if m < 4
     warn(": number of functions must be ≥ 4. Using m = 4")
     m = 4

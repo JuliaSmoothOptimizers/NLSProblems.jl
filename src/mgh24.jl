@@ -10,7 +10,7 @@
 export mgh24
 
 "Penalty function II"
-function mgh24(n :: Int = 4)
+function mgh24(n :: Int=4)
   if n < 2
     warn(": number of variables must be ≥ 2. Using n = 2")
   end

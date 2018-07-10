@@ -26,4 +26,4 @@ function tp394(n :: Int=20; version :: String="tp394")
 end
 
 "Test problem 395 in NLS format"
-tp395() = tp394(50, version="tp395")
+tp395(args...) = tp394(50, version="tp395")

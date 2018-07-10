@@ -12,7 +12,7 @@
 export tp358
 
 "Test problem 358 in NLS format"
-function tp358()
+function tp358(args...)
 
   nls  = Model()
   lvar = [-0.5; 1.5;   -2; 0.001; 0.001]

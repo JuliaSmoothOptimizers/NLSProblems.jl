@@ -25,4 +25,4 @@ function tp370(n :: Int=6; version :: String="tp370")
 end
 
 "Test problem 371 in NLS format"
-tp371() = tp370(9, version="tp371")
+tp371(args...) = tp370(9, version="tp371")

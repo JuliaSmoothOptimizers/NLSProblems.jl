@@ -12,7 +12,7 @@
 export hs57
 
 "Hock-Schittkowski problem 57 in NLS format"
-function hs57()
+function hs57(args...)
 
   a = [ 8;  8; 10; 10; 10; 10; 12; 12; 12; 12; 14;
        14; 14; 16; 16; 16; 18; 18; 20; 20; 20; 22;

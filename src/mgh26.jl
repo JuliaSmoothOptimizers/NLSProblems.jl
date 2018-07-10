@@ -10,7 +10,7 @@
 export mgh26
 
 "Trigonometric function"
-function mgh26(n :: Int = 10)
+function mgh26(n :: Int=10)
 
   model = Model()
   @variable(model, x[1:n], start=1/n)

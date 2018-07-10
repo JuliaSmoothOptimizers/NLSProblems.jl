@@ -10,7 +10,7 @@
 export mgh12
 
 "Box three-dimensional function"
-function mgh12(m :: Int = 10)
+function mgh12(args...; m :: Int=10)
   if m < 3
     warn(": number of functions must be ≥ 3. Using m = 3")
     m = 3

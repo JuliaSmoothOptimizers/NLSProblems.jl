@@ -25,7 +25,7 @@ function tp303(n :: Int=20; version :: String="tp303")
 end
 
 "Test problem 304 in NLS format"
-tp304() = tp303(50, version="tp304")
+tp304(args...) = tp303(50, version="tp304")
 
 "Test problem 305 in NLS format"
-tp305() = tp303(100, version="tp305")
+tp305(args...) = tp303(100, version="tp305")

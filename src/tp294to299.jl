@@ -25,16 +25,16 @@ function tp294(n :: Int=6; version :: String="tp294")
 end
 
 "Test problem 295 in NLS format"
-tp295() = tp294(10, version="tp295")
+tp295(args...) = tp294(10, version="tp295")
 
 "Test problem 296 in NLS format"
-tp296() = tp294(16, version="tp296")
+tp296(args...) = tp294(16, version="tp296")
 
 "Test problem 297 in NLS format"
-tp297() = tp294(30, version="tp297")
+tp297(args...) = tp294(30, version="tp297")
 
 "Test problem 298 in NLS format"
-tp298() = tp294(50, version="tp298")
+tp298(args...) = tp294(50, version="tp298")
 
 "Test problem 299 in NLS format"
-tp299() = tp294(100, version="tp299")
+tp299(args...) = tp294(100, version="tp299")

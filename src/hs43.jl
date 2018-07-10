@@ -12,7 +12,7 @@
 export hs43
 
 "Hock-Schittkowski problem 43 in NLS format without constants in the objective"
-function hs43()
+function hs43(args...)
 
   model = Model()
   @variable(model, x[1:4], start=0.0)

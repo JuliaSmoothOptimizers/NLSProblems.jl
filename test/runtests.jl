@@ -19,4 +19,7 @@ for prob in names(NLSProblems)
   ncx = m > 0 ? @sprintf("%10.4e", norm(cons(nls, x))) : "NA"
   @printf("%-15s  %4d  %4d  %4d  %10.4e  %10.4e  %10s\n",
           prob, N, n, m, nFx, JtF, ncx)
+  
+  # Test that every problem can be instantiated with arguments
+  nls2 = prob_fn(nls.meta.nvar)
 end

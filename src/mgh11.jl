@@ -16,8 +16,8 @@ function mgh11(args...; m :: Int=100)
     m = min(100, max(3, m))
   end
 
-  t = (1:m) / 100
-  y = 25 + (-50 * log.(t)).^(2 / 3)
+  t = (1:m) ./ 100
+  y = 25 .+ (-50 * log.(t)).^(2 / 3)
   model = Model()
   @variable(model, x[1:3])
   setvalue(x, [5.00; 2.50; 0.15])

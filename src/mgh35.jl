@@ -7,6 +7,8 @@
 #
 # A. Montoison, Montreal, 05/2018.
 
+using Compat
+
 export mgh35
 
 "Chebyquad function"

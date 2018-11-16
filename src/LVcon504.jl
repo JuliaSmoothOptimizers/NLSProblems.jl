@@ -18,10 +18,10 @@ Chained Cragg-Levy function with tridiagonal constraints.
 function LVcon504(n :: Int=20)
 
   if n < 4
-    warn(": number of variables must be ≥ 4. Using n = 4")
+    Compat.@warn(": number of variables must be ≥ 4. Using n = 4")
     n = 4
   elseif n % 2 != 0
-    warn(": number of variables must be even. Rounding up")
+    Compat.@warn(": number of variables must be even. Rounding up")
     n += 1
   end
 

@@ -12,10 +12,10 @@ export mgh21
 "Extended Rosenbrock function"
 function mgh21(n :: Int=20)
   if n < 2
-    warn(": number of variables must be ≥ 2. Using n = 2")
+    Compat.@warn(": number of variables must be ≥ 2. Using n = 2")
     n = 2
   elseif n % 2 == 1
-    warn(": number of variable must be even. Rounding up")
+    Compat.@warn(": number of variable must be even. Rounding up")
     n += 1
   end
 

@@ -12,7 +12,7 @@ export mgh24
 "Penalty function II"
 function mgh24(n :: Int=4)
   if n < 2
-    warn(": number of variables must be ≥ 2. Using n = 2")
+    Compat.@warn(": number of variables must be ≥ 2. Using n = 2")
   end
 
   y = [exp(i / 10) + exp((i - 1) / 10) for i = 1:n]

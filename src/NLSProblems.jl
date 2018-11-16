@@ -1,6 +1,6 @@
 module NLSProblems
 
-using NLPModels, NLPModelsJuMP, JuMP
+using NLPModels, NLPModelsJuMP, JuMP, Compat
 
 path = dirname(@__FILE__)
 files = filter(x->x[end-2:end] == ".jl", readdir(path))

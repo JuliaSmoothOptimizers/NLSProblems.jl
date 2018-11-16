@@ -18,10 +18,10 @@ Chained modified HS48 problem.
 function LVcon513(n :: Int=20)
 
   if n < 5
-    warn(": number of variables must be ≥ 5. n = 5")
+    Compat.@warn(": number of variables must be ≥ 5. n = 5")
     n = 5
   elseif n % 3 != 2
-    warn(": number of variables must be of the form 3k + 2. Rounding up")
+    Compat.@warn(": number of variables must be of the form 3k + 2. Rounding up")
     n = div(n - 2, 3) * 3 + 5
   end
 

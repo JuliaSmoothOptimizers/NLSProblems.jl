@@ -12,7 +12,7 @@ export mgh11
 "Gulf research and development function"
 function mgh11(args...; m :: Int=100)
   if !(3 <= m <= 100)
-    warn(": number of functions must be between 3 and 100. Adjusting to closer bound")
+    Compat.@warn(": number of functions must be between 3 and 100. Adjusting to closer bound")
     m = min(100, max(3, m))
   end
 

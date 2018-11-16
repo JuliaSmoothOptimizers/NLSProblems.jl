@@ -18,10 +18,10 @@ Chained Wood function with Broyden banded constraints
 function LVcon502(n :: Int=20)
 
   if n < 8
-    warn(": number of variables must be ≥ 8. Using n = 8")
+    Compat.@warn(": number of variables must be ≥ 8. Using n = 8")
     n = 8
   elseif n % 2 != 0
-    warn(": number of variables must be even. Rounding up")
+    Compat.@warn(": number of variables must be even. Rounding up")
     n += 1
   end
 

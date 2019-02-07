@@ -24,12 +24,6 @@ Simply issue
 Pkg.clone("https://github.com/JuliaSmoothOptimizers/NLSProblems.jl")
 ```
 
-## LICENSE
-
-This package is licensed under the MIT License (see
-[LICENSE](LICENSE.md)). However, the problems have specific sources, and
-you'll probably want to cite those sources, as well.
-
 ## References
 
 [1] J. J. Moré, B. S. Garbow and K. E. Hillstrom.

@@ -12,7 +12,7 @@ export mgh20
 "Watson function"
 function mgh20(n :: Int=6)
   if !(2 <= n <= 31)
-    Compat.@warn(": number of variables must be between 2 and 31. Adjusting to closer bound ")
+    @warn(": number of variables must be between 2 and 31. Adjusting to closer bound ")
     n = min(31, max(2, n))
   end
 

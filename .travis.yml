@@ -5,9 +5,8 @@ os:
   - osx
 
 julia:
-  - 0.6
-  - 0.7
   - 1.0
+  - 1.1
   - nightly
 
 matrix:
@@ -21,9 +20,5 @@ branches:
 notifications:
   email: false
 
-script:
-  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-  - julia -e 'VERSION >= v"0.7" && using Pkg; Pkg.clone(pwd()); Pkg.build("NLSProblems"); Pkg.test("NLSProblems"; coverage=true)'
-
 after_success:
-  - julia -e 'VERSION >= v"0.7" && using Pkg; cd(Pkg.dir("NLSProblems")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
+  - julia -e 'using Pkg; cd(Pkg.dir("NLSProblems")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'

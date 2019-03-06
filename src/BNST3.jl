@@ -18,10 +18,10 @@ export BNST3
 function BNST3(n :: Int = 200)
 
   if n < 2
-    Compat.@warn("BNST2: number of variables must be ≥ 2. Setting to 2")
+    @warn("BNST2: number of variables must be ≥ 2. Setting to 2")
     n = 2
   elseif n % 2 == 1
-    Compat.@warn("BNST3: n must be even. Rounding up")
+    @warn("BNST3: n must be even. Rounding up")
     n += 1
   end
   N = div(n, 2)

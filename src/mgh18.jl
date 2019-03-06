@@ -12,7 +12,7 @@ export mgh18
 "Biggs EXP6 function"
 function mgh18(args...; m :: Int=13)
   if m < 6
-    Compat.@warn(": number of functions must be ≥ 6. Using m = 6")
+    @warn(": number of functions must be ≥ 6. Using m = 6")
     m = 6
   end
 

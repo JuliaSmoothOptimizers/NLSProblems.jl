@@ -17,7 +17,7 @@ Chained Rosenbrock function with trigonometric-exponential constraints
 function LVcon501(n :: Int=20)
 
   if n < 3
-    Compat.@warn(": number of variables must be ≥ 3. Using n = 3")
+    @warn(": number of variables must be ≥ 3. Using n = 3")
     n = 3
   end
 

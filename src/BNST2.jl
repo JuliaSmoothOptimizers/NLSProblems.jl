@@ -18,7 +18,7 @@ export BNST2
 function BNST2(n :: Int = 200)
 
   if n < 2
-    Compat.@warn("number of variables must be ≥ 2. Setting to 2")
+    @warn("number of variables must be ≥ 2. Setting to 2")
     n = 2
   end
   model = Model()

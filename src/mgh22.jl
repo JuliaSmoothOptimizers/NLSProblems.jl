@@ -12,10 +12,10 @@ export mgh22
 "Extended Powell singular function"
 function mgh22(n :: Int=20)
   if n < 4
-    Compat.@warn(": number of variables must be ≥ 4. Using n = 4")
+    @warn(": number of variables must be ≥ 4. Using n = 4")
     n = 4
   elseif n % 4 != 0
-    Compat.@warn(": number of variables must be multiple of 4. Rounding up")
+    @warn(": number of variables must be multiple of 4. Rounding up")
     n = div(n, 4) * 4 + 4
   end
 

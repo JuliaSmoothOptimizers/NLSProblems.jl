@@ -7,14 +7,12 @@
 #
 # A. Montoison, Montreal, 05/2018.
 
-using Compat
-
 export mgh35
 
 "Chebyquad function"
 function mgh35(n :: Int=10; m :: Int=10)
   if m < n
-    Compat.@warn(": number of function must be ≥ number of variables. Adjusting to m = n")
+    @warn(": number of function must be ≥ number of variables. Adjusting to m = n")
     m = n
   end
 

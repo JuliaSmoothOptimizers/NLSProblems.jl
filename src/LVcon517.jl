@@ -18,10 +18,10 @@ Chained modified HS52 problem.
 function LVcon517(n :: Int=21)
 
   if n < 5
-    Compat.@warn(": number of variables must be ≥ 5. Using n = 5")
+    @warn(": number of variables must be ≥ 5. Using n = 5")
     n = 5
   elseif n % 4 != 1
-    Compat.@warn(": number of variables must be of the form 4k + 1. Rounding up")
+    @warn(": number of variables must be of the form 4k + 1. Rounding up")
     n = div(n - 1, 4) * 4 + 5
   end
 

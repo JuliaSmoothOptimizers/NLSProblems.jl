@@ -1,0 +1,21 @@
+name = "NLSProblems"
+uuid = "7cde8186-f29c-533a-9367-b4054c592979"
+
+[deps]
+JuMP = "4076af6c-e467-56ae-b986-b466b2749572"
+NLPModels = "a4795742-8479-5a88-8948-cc11e1c8c1a6"
+NLPModelsJuMP = "792afdf1-32c1-5681-94e0-d7bf7a5df49e"
+
+[compat]
+ForwardDiff = "≥ 0.2.5"
+JuMP = "~0.18.3"
+NLPModels = "~0.5, ~0.6, ~0.7, ~0.8"
+NLPModelsJuMP = "≥0.1.1"
+julia = "^1.0.0"
+
+[extras]
+ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
+JuMP = "4076af6c-e467-56ae-b986-b466b2749572"
+
+[targets]
+test = ["ForwardDiff", "JuMP"]

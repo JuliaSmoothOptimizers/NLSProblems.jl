@@ -5,9 +5,9 @@
 
 
 This package provides some optimization problems using the
-[https://github.com/JuliaSmoothOptimizers/NLPModels.jl](NLPModels.jl)
+[https://github.com/JuliaSmoothOptimizers/NLPModels.jl](https://github.com/JuliaSmoothOptimizers/NLPModels.jl)
 interface. It is similar to to
-[https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl](OptimizationProblems.jl),
+[https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl),
 except that it's specific for Nonlinear Least Squares, using the subtype
 of `AbstractNLSModel`s.
 

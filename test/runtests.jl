@@ -1,4 +1,4 @@
-using NLPModels, NLSProblems, Compat.Test, Compat.Printf, Compat.LinearAlgebra
+using NLPModels, NLSProblems, Test, Printf, LinearAlgebra
 
 @printf("%-15s  %4s  %4s  %4s  %10s  %10s  %10s\n",
         "Problem", "nequ", "nvar", "ncon", "‖F(x₀)‖²", "‖JᵀF‖",

@@ -21,5 +21,5 @@ function mgh28(n :: Int=10)
                 h^2 * (x[i + 1] + (i + 1) * h + 1)^3 / 2)
   @NLexpression(model, F3, 2x[n] - x[n-1] + h^2 * (x[n] + n * h + 1)^3 / 2)
 
-  return MathProgNLSModel(model, [F1; F2; F3], name="mgh28")
+  return MathOptNLSModel(model, [F1; F2; F3], name="mgh28")
 end

@@ -22,5 +22,5 @@ function tp282(args...)
   @NLexpression(nls, FB, x[10] - 1)
   @NLexpression(nls, FC[i=1:9], sqrt(100 - 10 * i) * (x[i]^2 - x[i+1]))
 
-  return MathProgNLSModel(nls, [FA; FB; FC], name="tp282")
+  return MathOptNLSModel(nls, [FA; FB; FC], name="tp282")
 end

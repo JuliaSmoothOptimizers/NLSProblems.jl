@@ -22,5 +22,5 @@ function tp267(args...)
 
   @NLexpression(nls, F[i=1:11], x[3] * exp(-x[1] * z[i]) - x[4] * exp(-x[2] * z[i]) + 3 * exp(-x[5] * z[i]) - y[i])
 
-  return MathProgNLSModel(nls, F, name="tp267")
+  return MathOptNLSModel(nls, F, name="tp267")
 end

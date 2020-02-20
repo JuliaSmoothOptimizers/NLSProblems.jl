@@ -25,5 +25,5 @@ function tp355(args...)
   
   @NLconstraint(nls, r1^2 + r2^2 - r3^2 - r4^2 == 0)
 
-  return MathProgNLSModel(nls, [r1; r2], name="tp355")
+  return MathOptNLSModel(nls, [r1; r2], name="tp355")
 end

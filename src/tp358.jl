@@ -27,5 +27,5 @@ function tp358(args...)
 
   @NLexpression(nls, F[i=1:33], y[i] - (x[1] + x[2] * exp(-x[4] * t[i]) + x[3] * exp(-x[5] * t[i])))
 
-  return MathProgNLSModel(nls, F, name="tp358")
+  return MathOptNLSModel(nls, F, name="tp358")
 end

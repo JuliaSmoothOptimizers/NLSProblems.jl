@@ -24,5 +24,5 @@ function tp241(args...)
   @NLexpression(nls, F4, x[1] + x[2] - x[3] + 1)
   @NLexpression(nls, F5, x[1]^3 + 3 * x[2]^2 + (5 * x[3] - x[1] + 1)^2 - 36)
 
-  return MathProgNLSModel(nls, [F1; F2; F3; F4; F5], name="tp241")
+  return MathOptNLSModel(nls, [F1; F2; F3; F4; F5], name="tp241")
 end

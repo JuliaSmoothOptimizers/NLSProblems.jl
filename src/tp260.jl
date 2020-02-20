@@ -26,5 +26,5 @@ function tp260(args...)
   @NLexpression(nls, F6, sqrt(0.2) * (x[2] - 1))
   @NLexpression(nls, F7, sqrt(0.2) * (x[4] - 1))
 
-  return MathProgNLSModel(nls, [F1; F2; F3; F4; F5; F6; F7], name="tp260")
+  return MathOptNLSModel(nls, [F1; F2; F3; F4; F5; F6; F7], name="tp260")
 end

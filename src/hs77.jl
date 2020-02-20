@@ -24,5 +24,5 @@ function hs77(args...)
   @NLconstraint(model, x[1]^2 * x[4] + sin(x[4] - x[5]) == 2 * sqrt(2))
   @NLconstraint(model, x[2] + x[3]^4 * x[4]^2 == 8 + sqrt(2))
 
-  return MathProgNLSModel(model, [F1; F2; F3; F4; F5], name="hs77")
+  return MathOptNLSModel(model, [F1; F2; F3; F4; F5], name="hs77")
 end

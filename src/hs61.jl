@@ -22,5 +22,5 @@ function hs61(args...)
   @NLconstraint(model, 3 * x[1] - 2 * x[2]^2 == 7)
   @NLconstraint(model, 4 * x[1] - 3 * x[3]^2 == 11)
 
-  return MathProgNLSModel(model, [F1; F2; F3], name="hs61")
+  return MathOptNLSModel(model, [F1; F2; F3], name="hs61")
 end

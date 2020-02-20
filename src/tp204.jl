@@ -29,5 +29,5 @@ function tp204(args...)
   # F = A + Hx + ½(xᵀBx)D
   @NLexpression(nls, F[k=1:3], A[k] + sum(x[i] * H[k,i] for i=1:2) + 0.5 * D[k] * sum(B[i,j] * x[i] * x[j] for i=1:2, j=1:2))
 
-  return MathProgNLSModel(nls, F, name="tp204")
+  return MathOptNLSModel(nls, F, name="tp204")
 end

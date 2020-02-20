@@ -28,5 +28,5 @@ function mgh22(n :: Int=20)
   @NLexpression(model, F3[i=1:N], (x[4i - 2] - 2 * x[4i - 1]^2))
   @NLexpression(model, F4[i=1:N], sqrt(10) * (x[4i - 3] - x[4i])^2)
 
-  return MathProgNLSModel(model, [F1; F2; F3; F4], name="mgh22")
+  return MathOptNLSModel(model, [F1; F2; F3; F4], name="mgh22")
 end

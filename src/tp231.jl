@@ -24,5 +24,5 @@ function tp231(args...)
   @constraint(nls, 1/3 * x[1] + x[2] + 0.1 ≥ 0)
   @constraint(nls,-1/3 * x[1] + x[2] + 0.1 ≥ 0)
 
-  return MathProgNLSModel(nls, [F1; F2], name="tp231")
+  return MathOptNLSModel(nls, [F1; F2], name="tp231")
 end

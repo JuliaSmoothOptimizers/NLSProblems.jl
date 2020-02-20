@@ -20,5 +20,5 @@ function tp213(args...)
 
   @NLexpression(nls, F, (10 * (x[1] - x[2])^2 + (x[1] - 1)^2)^2)
 
-  return MathProgNLSModel(nls, [F], name="tp213")
+  return MathOptNLSModel(nls, [F], name="tp213")
 end

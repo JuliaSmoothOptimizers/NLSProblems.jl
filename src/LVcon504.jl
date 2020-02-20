@@ -36,6 +36,6 @@ function LVcon504(n :: Int=20)
   @NLconstraint(model, c[k=1:n-2], 8 * x[k + 1] * (x[k + 1]^2 - x[k]) -
                 2 * (1 - x[k + 1]) + 4 * (x[k + 1] - x[k + 2]^2) == 0.0)
 
-  return MathProgNLSModel(model, [F1; F2; F3; F4; F5],
+  return MathOptNLSModel(model, [F1; F2; F3; F4; F5],
                           name="Lukšan-Vlček 5.4")
 end

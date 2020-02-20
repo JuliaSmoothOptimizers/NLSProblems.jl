@@ -27,5 +27,5 @@ function tp225(args...)
   @NLconstraint(nls, x[1]^2 - x[2] ≥ 0)
   @NLconstraint(nls, x[2]^2 - x[1] ≥ 0)
 
-  return MathProgNLSModel(nls, [F1; F2], name="tp225")
+  return MathOptNLSModel(nls, [F1; F2], name="tp225")
 end

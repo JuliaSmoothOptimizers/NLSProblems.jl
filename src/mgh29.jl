@@ -20,5 +20,5 @@ function mgh29(n :: Int=10)
                 h * ((1 - t[i]) * sum(t[j] * (x[j] + t[j] + 1)^3 for j = 1:i) +
                      t[i] * sum((1 - t[j]) * (x[j] + t[j] + 1)^3 for j = i+1:n)) / 2)
 
-  return MathProgNLSModel(model, F, name="mgh29")
+  return MathOptNLSModel(model, F, name="mgh29")
 end

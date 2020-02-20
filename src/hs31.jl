@@ -23,5 +23,5 @@ function hs31(args...)
   @NLexpression(model, F3, 3.0 * x[3])
   @NLconstraint(model, x[1] * x[2] >= 1)
 
-  return MathProgNLSModel(model, [F1; F2; F3], name="hs31")
+  return MathOptNLSModel(model, [F1; F2; F3], name="hs31")
 end

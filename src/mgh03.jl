@@ -14,9 +14,9 @@ function mgh03(args...)
 
   model = Model()
   @variable(model, x[1:2])
-  setvalue(x, [0.0; 1.0])
+  set_start_value.(x, [0.0; 1.0])
   @NLexpression(model, F1, 1e4 * x[1] * x[2] - 1)
   @NLexpression(model, F2, exp(-x[1]) + exp(-x[2]) - 1.0001)
 
-  return MathProgNLSModel(model, [F1; F2], name="mgh03")
+  return MathOptNLSModel(model, [F1; F2], name="mgh03")
 end

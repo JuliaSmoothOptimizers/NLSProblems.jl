@@ -21,5 +21,5 @@ function hs60(args...)
   @NLexpression(model, F3, (x[2] - x[3])^2)
   @NLconstraint(model, x[1] * (1 + x[2]^2) + x[3]^4 == 4 + 3 * sqrt(2))
 
-  return MathProgNLSModel(model, [F1; F2; F3], name="hs60")
+  return MathOptNLSModel(model, [F1; F2; F3], name="hs60")
 end

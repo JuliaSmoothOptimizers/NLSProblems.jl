@@ -25,5 +25,5 @@ function tp354(args...)
   
   @constraint(nls, x[1] + x[2] + x[3] + x[4] - 1 ≥ 0)
 
-  return MathProgNLSModel(nls, [F1; F2; F3; F4], name="tp354")
+  return MathOptNLSModel(nls, [F1; F2; F3; F4], name="tp354")
 end

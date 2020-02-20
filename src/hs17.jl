@@ -18,11 +18,11 @@ function hs17(args...)
   lvar = [-0.5; -Inf]
   uvar = [0.5; 1.0]
   @variable(model, lvar[i] <= x[i=1:2] <= uvar[i])
-  setvalue(x, [-2.0; 1.0])
+  set_start_value.(x, [-2.0; 1.0])
   @NLexpression(model, F1, 10 * (x[2] - x[1]^2))
   @NLexpression(model, F2, 1 - x[1])
   @NLconstraint(model, x[2]^2 - x[1] >= 0.0)
   @NLconstraint(model, x[1]^2 - x[2] >= 0.0)
 
-  return MathProgNLSModel(model, [F1; F2], name="hs17")
+  return MathOptNLSModel(model, [F1; F2], name="hs17")
 end

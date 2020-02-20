@@ -17,11 +17,11 @@ function hs65(args...)
   model = Model()
   lvar, uvar = [-4.5; -4.5; -5.0], [4.5; 4.5; 5.0]
   @variable(model, lvar[i] <= x[i=1:3] <= uvar[i])
-  setvalue(x, [-5.0; 5.0; 0.0])
+  set_start_value.(x, [-5.0; 5.0; 0.0])
   @NLexpression(model, F1, x[1] - x[2])
   @NLexpression(model, F2, (x[1] + x[2] - 10) / 3)
   @NLexpression(model, F3, x[3] - 5)
   @NLconstraint(model, 48 - x[1]^2 - x[2]^2 - x[3]^2 == 0)
 
-  return MathProgNLSModel(model, [F1; F2; F3], name="hs65")
+  return MathOptNLSModel(model, [F1; F2; F3], name="hs65")
 end

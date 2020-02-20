@@ -21,5 +21,5 @@ function tp307(args...)
   y = [2 + 2 * i for i=1:10]
   @NLexpression(nls, F[i=1:10], y[i] - exp(i * x[1]) - exp(i * x[2]))
 
-  return MathProgNLSModel(nls, F, name="tp307")
+  return MathOptNLSModel(nls, F, name="tp307")
 end

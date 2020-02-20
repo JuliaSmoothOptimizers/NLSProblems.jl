@@ -20,5 +20,5 @@ function tp273(args...)
   @NLexpression(nls, FA[i=1:6], sqrt(160 - 10 * i) * (x[i] - 1))
   @NLexpression(nls, FB, sqrt(10) * sum((16 - i) * (x[i] - 1)^2 for i=1:6))
 
-  return MathProgNLSModel(nls, [FA; FB], name="tp273")
+  return MathOptNLSModel(nls, [FA; FB], name="tp273")
 end

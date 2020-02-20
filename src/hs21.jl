@@ -21,5 +21,5 @@ function hs21(args...)
   @NLexpression(model, F2, x[2] + 0.0)
   @constraint(model, 10 * x[1] - x[2] >= 10)
 
-  return MathProgNLSModel(model, [F1; F2], name="hs21")
+  return MathOptNLSModel(model, [F1; F2], name="hs21")
 end

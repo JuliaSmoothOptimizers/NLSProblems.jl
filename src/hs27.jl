@@ -20,5 +20,5 @@ function hs27(args...)
   @NLexpression(model, F2, x[2] - x[1]^2)
   @NLconstraint(model, x[1] + x[3]^2 == -1)
 
-  return MathProgNLSModel(model, [F1; F2], name="hs27")
+  return MathOptNLSModel(model, [F1; F2], name="hs27")
 end

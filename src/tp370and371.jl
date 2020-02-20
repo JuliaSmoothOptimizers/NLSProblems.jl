@@ -21,7 +21,7 @@ function tp370(n :: Int=6; version :: String="tp370")
   @NLexpression(nls, FB, x[2] - x[1]^2 - 1)
   @NLexpression(nls, FC[i=1:29], sum((j - 1) * x[j] * (i / 29)^(j - 2) for j=2:n) - sum(x[j] * (i / 29)^(j - 1) for j=1:n)^2 - 1)
 
-  return MathProgNLSModel(nls, [FA; FB; FC], name=version)
+  return MathOptNLSModel(nls, [FA; FB; FC], name=version)
 end
 
 "Test problem 371 in NLS format"

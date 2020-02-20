@@ -17,9 +17,9 @@ function hs01(args...)
   model = Model()
   lvar = [-Inf; -1.5]
   @variable(model, x[i=1:2] >= lvar[i])
-  setvalue(x, [-2.0; 1.0])
+  set_start_value.(x, [-2.0; 1.0])
   @NLexpression(model, F1, 10 * (x[2] - x[1]^2))
   @NLexpression(model, F2, 1 - x[1])
 
-  return MathProgNLSModel(model, [F1; F2], name="hs01")
+  return MathOptNLSModel(model, [F1; F2], name="hs01")
 end

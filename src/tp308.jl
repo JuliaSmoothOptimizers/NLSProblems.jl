@@ -22,5 +22,5 @@ function tp308(args...)
   @NLexpression(nls, F2, sin(x[1]))
   @NLexpression(nls, F3, cos(x[2]))
 
-  return MathProgNLSModel(nls, [F1; F2; F3], name="tp308")
+  return MathOptNLSModel(nls, [F1; F2; F3], name="tp308")
 end

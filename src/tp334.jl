@@ -26,5 +26,5 @@ function tp334(args...)
 
   @NLexpression(nls, F[i=1:15], y[i] - (x[1] + u[i] / (x[2] * v[i] + x[3] * w[i])))
 
-  return MathProgNLSModel(nls, F, name="tp334")
+  return MathOptNLSModel(nls, F, name="tp334")
 end

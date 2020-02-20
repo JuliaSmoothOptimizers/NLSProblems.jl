@@ -25,5 +25,5 @@ function mgh20(n :: Int=6)
   @NLexpression(model, F2, x[1] + 0.0) # x[1] alone won't work
   @NLexpression(model, F3, x[2] - x[1]^2 - 1)
 
-  return MathProgNLSModel(model, [F1; F2; F3], name="mgh20")
+  return MathOptNLSModel(model, [F1; F2; F3], name="mgh20")
 end

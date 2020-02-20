@@ -24,5 +24,5 @@ function tp252(args...)
 
   @NLconstraint(nls, x[1] + x[3]^2 + 1 == 0)
 
-  return MathProgNLSModel(nls, [F1; F2], name="tp252")
+  return MathOptNLSModel(nls, [F1; F2], name="tp252")
 end

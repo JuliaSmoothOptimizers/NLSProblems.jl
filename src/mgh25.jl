@@ -18,5 +18,5 @@ function mgh25(n :: Int=10)
   @NLexpression(model, F2, sum(j * (x[j] - 1) for j = 1:n))
   @NLexpression(model, F3, sum(j * (x[j] - 1) for j = 1:n)^2)
 
-  return MathProgNLSModel(model, [F1; F2; F3], name="mgh25")
+  return MathOptNLSModel(model, [F1; F2; F3], name="mgh25")
 end

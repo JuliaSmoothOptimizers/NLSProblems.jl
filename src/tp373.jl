@@ -25,5 +25,5 @@ function tp373(args...)
     @NLconstraint(nls, x[1] + x[2] * exp((2i - 7) * x[3]) + x[i+3] - y[i] == 0)
   end
 
-  return MathProgNLSModel(nls, F, name="tp373")
+  return MathOptNLSModel(nls, F, name="tp373")
 end

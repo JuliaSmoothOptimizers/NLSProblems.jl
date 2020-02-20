@@ -23,5 +23,5 @@ function tp288(args...)
   @NLexpression(nls, FC[i=1:5], (x[i+5] - 2 * x[i+10])^2)
   @NLexpression(nls, FD[i=1:5], sqrt(10) * (x[i] - x[i+15])^2)  	
 
-  return MathProgNLSModel(nls, [FA; FB; FC; FD], name="tp288")
+  return MathOptNLSModel(nls, [FA; FB; FC; FD], name="tp288")
 end

@@ -45,5 +45,5 @@ function LVcon512(n :: Int=21)
     end
   end
 
-  return MathProgNLSModel(model, [F1; F2; F3; F4], name="Lukšan-Vlček 5.12")
+  return MathOptNLSModel(model, [F1; F2; F3; F4], name="Lukšan-Vlček 5.12")
 end

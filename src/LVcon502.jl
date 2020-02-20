@@ -39,6 +39,6 @@ function LVcon502(n :: Int=20)
   @NLconstraint(model, c[k=1:n-7], (2 + 5 * x[k + 5]^2) * x[k + 5] + 1.0 +
                 sum(x[i] * (1 + x[i]) for i = max(k - 5, 1):k + 1) == 0)
 
-  return MathProgNLSModel(model, [F1; F2; F3; F4; F5; F6],
+  return MathOptNLSModel(model, [F1; F2; F3; F4; F5; F6],
                           name="Lukšan-Vlček 5.2")
 end

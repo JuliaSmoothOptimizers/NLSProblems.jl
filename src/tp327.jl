@@ -32,5 +32,5 @@ function tp327(args...)
 
   @NLconstraint(nls, -0.09 - x[1] * x[2] + 0.49 * x[2] ≥ 0)
 
-  return MathProgNLSModel(nls, F, name="tp327")
+  return MathOptNLSModel(nls, F, name="tp327")
 end

@@ -22,7 +22,7 @@ function tp394(n :: Int=20; version :: String="tp394")
 
   @NLconstraint(nls, sum(x[i]^2 for i=1:n) == 1)
 
-  return MathProgNLSModel(nls, [FA; FB], name=version)
+  return MathOptNLSModel(nls, [FA; FB], name=version)
 end
 
 "Test problem 395 in NLS format"

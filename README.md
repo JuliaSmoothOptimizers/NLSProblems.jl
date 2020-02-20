@@ -18,10 +18,12 @@ We welcome contributions.
 
 ## Install
 
-Simply issue
+NLSProblems can be installed and tested through the Julia package manager:
 
-```
-Pkg.clone("https://github.com/JuliaSmoothOptimizers/NLSProblems.jl")
+```julia
+julia> ]
+pkg> add NLSProblems
+pkg> test NLSProblems
 ```
 
 ## References

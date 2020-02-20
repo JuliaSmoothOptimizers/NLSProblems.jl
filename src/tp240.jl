@@ -22,5 +22,5 @@ function tp240(args...)
   @NLexpression(nls, F2, -x[1] + x[2] + x[3])
   @NLexpression(nls, F3,  x[1] + x[2] - x[3])
 
-  return MathProgNLSModel(nls, [F1; F2; F3], name="tp240")
+  return MathOptNLSModel(nls, [F1; F2; F3], name="tp240")
 end

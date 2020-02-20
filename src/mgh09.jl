@@ -17,8 +17,8 @@ function mgh09(args...)
   t = 4 .- (1:15)/2
   model = Model()
   @variable(model, x[1:3])
-  setvalue(x, [0.4; 1.0; 0.0])
+  set_start_value.(x, [0.4; 1.0; 0.0])
   @NLexpression(model, F[i=1:15], x[1] * exp(-x[2] * (t[i] - x[3])^2 /2) - y[i])
 
-  return MathProgNLSModel(model, F, name="mgh09")
+  return MathOptNLSModel(model, F, name="mgh09")
 end

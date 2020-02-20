@@ -20,5 +20,5 @@ function hs30(args...)
   @NLexpression(model, F[i=1:3], x[i] + 0.0)
   @NLconstraint(model, x[1]^2 + x[2]^2 >= 1.0)
 
-  return MathProgNLSModel(model, F, name="hs30")
+  return MathOptNLSModel(model, F, name="hs30")
 end

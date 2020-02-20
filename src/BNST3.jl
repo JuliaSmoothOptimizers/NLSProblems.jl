@@ -31,5 +31,5 @@ function BNST3(n :: Int = 200)
   @NLexpression(model, F[i=1:n], 1.0 * x[i])
   @NLconstraint(model, c[j=1:N], x[j] * (x[N+j] - 1) - 10x[N+j] == 0)
 
-  return MathProgNLSModel(model, F, name="BNST3")
+  return MathOptNLSModel(model, F, name="BNST3")
 end

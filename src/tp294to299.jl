@@ -21,7 +21,7 @@ function tp294(n :: Int=6; version :: String="tp294")
   @NLexpression(nls, FA[k=1:n-1], 10 * (x[k+1] - x[k]^2))
   @NLexpression(nls, FB[k=1:n-1], 1 - x[k])
 
-  return MathProgNLSModel(nls, [FA; FB], name=version)
+  return MathOptNLSModel(nls, [FA; FB], name=version)
 end
 
 "Test problem 295 in NLS format"

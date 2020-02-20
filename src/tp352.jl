@@ -22,5 +22,5 @@ function tp352(args...)
   @NLexpression(nls, FA[i=1:20], x[1] + x[2] * t[i] - exp(t[i]))
   @NLexpression(nls, FB[i=1:20], x[3] + x[4] * sin(t[i]) - cos(t[i]))
   
-  return MathProgNLSModel(nls, [FA; FB], name="tp352")
+  return MathOptNLSModel(nls, [FA; FB], name="tp352")
 end

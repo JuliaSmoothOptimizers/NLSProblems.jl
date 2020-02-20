@@ -16,7 +16,7 @@ function hs23(args...)
 
   model = Model()
   @variable(model, -50 <= x[1:2] <= 50)
-  setvalue(x, [3.0; 1.0])
+  set_start_value.(x, [3.0; 1.0])
   @NLexpression(model, F[i=1:2], x[i] + 0.0)
   @constraint(model, x[1] + x[2] >= 0)
   @NLconstraint(model, x[1]^2 + x[2]^2 >= 1)
@@ -24,5 +24,5 @@ function hs23(args...)
   @NLconstraint(model, x[1]^2 - x[2] >= 0)
   @NLconstraint(model, x[2]^2 - x[1] >= 0)
 
-  return MathProgNLSModel(model, F, name="hs23")
+  return MathOptNLSModel(model, F, name="hs23")
 end

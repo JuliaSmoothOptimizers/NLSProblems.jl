@@ -19,10 +19,10 @@ function mgh17(args...)
        0.431; 0.424; 0.420; 0.414; 0.411; 0.406]
   model = Model()
   @variable(model, x[1:5])
-  setvalue(x, [0.5; 1.5; -1.0; 0.01; 0.02])
+  set_start_value.(x, [0.5; 1.5; -1.0; 0.01; 0.02])
   @NLexpression(model, F[i=1:33], y[i] -
                 (x[1] + x[2] * exp(-t[i] * x[4]) +
                  x[3] * exp(-t[i] * x[5])))
 
-  return MathProgNLSModel(model, F, name="mgh17")
+  return MathOptNLSModel(model, F, name="mgh17")
 end

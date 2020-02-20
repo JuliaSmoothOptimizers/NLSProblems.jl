@@ -25,5 +25,5 @@ function mgh24(n :: Int=4)
                 (exp(x[i + 1] / 10) - exp(-1 / 10)))
   @NLexpression(model, F4, sum((n - j + 1) * x[j]^2 for j = 1:n) - 1)
 
-  return MathProgNLSModel(model, [F1; F2; F3; F4], name="mgh24")
+  return MathOptNLSModel(model, [F1; F2; F3; F4], name="mgh24")
 end

@@ -21,5 +21,5 @@ function tp201(args...)
   @NLexpression(nls, F1, 2 * (x[1] - 5))
   @NLexpression(nls, F2, x[2] - 6)
 
-  return MathProgNLSModel(nls, [F1; F2], name="tp201")
+  return MathOptNLSModel(nls, [F1; F2], name="tp201")
 end

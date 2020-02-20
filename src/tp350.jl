@@ -22,5 +22,5 @@ function tp350(args...)
   u = [4.0000; 2.0000; 1.0000; 0.5000; 0.2500; 0.1670; 0.1250; 0.1000; 0.0833; 0.0714; 0.0625]
   @NLexpression(nls, F[i=1:11], y[i] - (x[1] * (u[i]^2 + x[2] * u[i])) / (u[i]^2 + x[3] * u[i] + x[4]))
 
-  return MathProgNLSModel(nls, F, name="tp350")
+  return MathOptNLSModel(nls, F, name="tp350")
 end

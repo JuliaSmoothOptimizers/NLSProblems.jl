@@ -21,5 +21,5 @@ function mgh32(n :: Int=10; m :: Int=20)
   @NLexpression(model, F1[i=1:n], x[i] - (2 / m) * sum(x[j] for j = 1:n) - 1)
   @NLexpression(model, F2[i=1:m-n], -(2 / m) * sum(x[j] for j = 1:n) - 1)
 
-  return MathProgNLSModel(model, [F1; F2], name="mgh32")
+  return MathOptNLSModel(model, [F1; F2], name="mgh32")
 end

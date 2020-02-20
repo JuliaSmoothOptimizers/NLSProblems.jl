@@ -16,7 +16,7 @@ function hs49(args...)
 
   model = Model()
   @variable(model, x[1:5])
-  setvalue(x, [10.0; 7.0; 2.0; -3.0; 0.8])
+  set_start_value.(x, [10.0; 7.0; 2.0; -3.0; 0.8])
   @NLexpression(model, F1, x[1] - x[2])
   @NLexpression(model, F2, x[3] - 1)
   @NLexpression(model, F3, (x[4] - 1)^2)
@@ -24,5 +24,5 @@ function hs49(args...)
   @constraint(model, x[1] + x[2] + x[3] + 4 * x[4] == 7)
   @constraint(model, x[3] + 5 * x[5] == 6)
 
-  return MathProgNLSModel(model, [F1; F2; F3; F4], name="hs49")
+  return MathOptNLSModel(model, [F1; F2; F3; F4], name="hs49")
 end

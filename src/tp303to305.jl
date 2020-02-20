@@ -21,7 +21,7 @@ function tp303(n :: Int=20; version :: String="tp303")
   @NLexpression(nls, FB, sum(i / 2 * x[i] for i=1:n))
   @NLexpression(nls, FC, sum(i / 2 * x[i] for i=1:n)^2)
 
-  return MathProgNLSModel(nls, [FA; FB; FC], name=version)
+  return MathOptNLSModel(nls, [FA; FB; FC], name=version)
 end
 
 "Test problem 304 in NLS format"

@@ -21,5 +21,5 @@ function tp242(args...)
   t = [0.1 * i for i=1:10]
   @NLexpression(nls, F[i=1:10], exp(-x[1] * t[i]) - exp(-x[2] * t[i]) - x[3] * (exp(-t[i]) - exp(-10 * t[i])))
 
-  return MathProgNLSModel(nls, F, name="tp242")
+  return MathOptNLSModel(nls, F, name="tp242")
 end

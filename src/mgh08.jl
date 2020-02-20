@@ -22,5 +22,5 @@ function mgh08(args...)
   @NLexpression(model, F[i=1:15], y[i] -
                 (x[1] + i / (v[i] * x[2] + w[i] * x[3])))
 
-  return MathProgNLSModel(model, F, name="mgh08")
+  return MathOptNLSModel(model, F, name="mgh08")
 end

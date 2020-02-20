@@ -16,9 +16,9 @@ function hs28(args...)
 
   model = Model()
   @variable(model, x[1:3])
-  setvalue(x, [-4.0; 1.0; 1.0])
+  set_start_value.(x, [-4.0; 1.0; 1.0])
   @NLexpression(model, F[i=1:2], x[i] + x[i + 1])
   @constraint(model, x[1] + 2 * x[2] + 3 * x[3] == 1)
 
-  return MathProgNLSModel(model, F, name="hs28")
+  return MathOptNLSModel(model, F, name="hs28")
 end

@@ -17,5 +17,5 @@ function mgh26(n :: Int=10)
   @NLexpression(model, F[i=1:n], n - sum(cos(x[j]) for j = 1:n) +
                 i * (1 - cos(x[i])) - sin(x[i]))
 
-  return MathProgNLSModel(model, F, name="mgh26")
+  return MathOptNLSModel(model, F, name="mgh26")
 end

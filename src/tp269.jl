@@ -26,5 +26,5 @@ function tp269(args...)
   @constraint(nls, x[3] + x[4] - 2 * x[5] == 0)
   @constraint(nls, x[2] - x[5] == 0)
 
-  return MathProgNLSModel(nls, [F1; F2; F3; F4], name="tp269")
+  return MathOptNLSModel(nls, [F1; F2; F3; F4], name="tp269")
 end

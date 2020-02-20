@@ -21,5 +21,5 @@ function tp202(args...)
   @NLexpression(nls, F1, -13 + x[1] - 2 * x[2] + 5 * x[2]^2 - x[2]^3)
   @NLexpression(nls, F2, -29 + x[1] - 14 * x[2] + x[2]^2 + x[2]^3)
 
-  return MathProgNLSModel(nls, [F1; F2], name="tp202")
+  return MathOptNLSModel(nls, [F1; F2], name="tp202")
 end

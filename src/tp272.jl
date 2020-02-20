@@ -24,5 +24,5 @@ function tp272(args...)
   @NLexpression(nls, F[i=1:13], x[4] * exp(-x[1] * t[i]) - x[5] * exp(-x[2] * t[i]) + x[6] * exp(-x[3] * t[i]) - y[i])
 
 
-  return MathProgNLSModel(nls, F, name="tp272")
+  return MathOptNLSModel(nls, F, name="tp272")
 end

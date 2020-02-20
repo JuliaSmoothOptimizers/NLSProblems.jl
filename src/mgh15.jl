@@ -18,9 +18,9 @@ function mgh15(args...)
        0.1250; 0.1000; 0.0833; 0.0714; 0.0625]
   model = Model()
   @variable(model, x[1:4])
-  setvalue(x, [0.25; 0.39; 0.415; 0.39])
+  set_start_value.(x, [0.25; 0.39; 0.415; 0.39])
   @NLexpression(model, F[i=1:11], y[i] -
                 x[1] * (u[i]^2 + u[i] * x[2]) / (u[i]^2 + u[i] * x[3] + x[4]))
 
-  return MathProgNLSModel(model, F, name="mgh15")
+  return MathOptNLSModel(model, F, name="mgh15")
 end

@@ -25,5 +25,5 @@ function hs79(args...)
   @NLconstraint(model, x[2] - x[3]^2 + x[4] == -2 + 2 * sqrt(2))
   @NLconstraint(model, x[1] * x[5] == 2)
 
-  return MathProgNLSModel(model, [F1; F2; F3; F4; F5], name="hs79")
+  return MathOptNLSModel(model, [F1; F2; F3; F4; F5], name="hs79")
 end

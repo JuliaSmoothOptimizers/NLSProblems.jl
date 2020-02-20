@@ -23,5 +23,5 @@ function tp256(args...)
   @NLexpression(nls, F3, (x[2] - 2 * x[3])^2)
   @NLexpression(nls, F4, sqrt(10) * (x[1] - x[4])^2) 
 
-  return MathProgNLSModel(nls, [F1; F2; F3; F4], name="tp256")
+  return MathOptNLSModel(nls, [F1; F2; F3; F4], name="tp256")
 end

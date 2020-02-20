@@ -20,5 +20,5 @@ function tp311(args...)
   @NLexpression(nls, F1, x[1]^2 + x[2]  - 11)
   @NLexpression(nls, F2, x[1]   + x[2]^2 - 7)
 
-  return MathProgNLSModel(nls, [F1; F2], name="tp311")
+  return MathOptNLSModel(nls, [F1; F2], name="tp311")
 end

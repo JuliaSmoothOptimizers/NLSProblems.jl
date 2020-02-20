@@ -22,5 +22,5 @@ function tp244(args...)
   y = exp.(-z) - 5 * exp.(-10 * z)
   @NLexpression(nls, F[i=1:10], exp(-x[1] * z[i]) - x[3] * exp(-x[2] * z[i]) - y[i])
 
-  return MathProgNLSModel(nls, F, name="tp244")
+  return MathOptNLSModel(nls, F, name="tp244")
 end

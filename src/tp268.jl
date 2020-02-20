@@ -33,5 +33,5 @@ function tp268(args...)
   @constraint(nls,  8 * x[1] -      x[2] + 2 * x[3] + 5 * x[4] - 3 * x[5] - 11 ≥ 0)
   @constraint(nls, -4 * x[1] -  2 * x[2] + 3 * x[3] - 5 * x[4] +     x[5] + 30 ≥ 0)
 
-  return MathProgNLSModel(nls, F, name="tp268")
+  return MathOptNLSModel(nls, F, name="tp268")
 end

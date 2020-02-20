@@ -39,5 +39,5 @@ function LVcon503(n :: Int=20)
                 sin(x[1] + x[2]) == 5)
   @NLconstraint(model, 4 * x[n] - x[n - 1] * exp(x[n - 1] - x[n]) == 3)
 
-  return MathProgNLSModel(model, [F1; F2; F3; F4], name="Lukšan-Vlček 5.3")
+  return MathOptNLSModel(model, [F1; F2; F3; F4], name="Lukšan-Vlček 5.3")
 end

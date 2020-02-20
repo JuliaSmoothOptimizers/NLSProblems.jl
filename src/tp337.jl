@@ -25,5 +25,5 @@ function tp337(args...)
 
   @NLconstraint(nls, x[1] * x[2] - 1 ≥ 0)
   
-  return MathProgNLSModel(nls, [F1; F2; F3], name="tp337")
+  return MathOptNLSModel(nls, [F1; F2; F3], name="tp337")
 end

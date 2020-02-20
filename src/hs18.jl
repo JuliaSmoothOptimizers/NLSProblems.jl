@@ -23,5 +23,5 @@ function hs18(args...)
   @NLconstraint(model, x[1] * x[2] >= 25)
   @NLconstraint(model, x[1]^2 + x[2]^2 >= 25)
 
-  return MathProgNLSModel(model, [F1; F2], name="hs18")
+  return MathOptNLSModel(model, [F1; F2], name="hs18")
 end

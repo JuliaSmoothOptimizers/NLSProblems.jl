@@ -19,5 +19,5 @@ function mgh30(n :: Int=10)
                 x[i] - 2x[i + 2] + 1)
   @NLexpression(model, F3, (3 - 2x[n]) * x[n] - x[n-1] + 1)
 
-  return MathProgNLSModel(model, [F1; F2; F3], name="mgh30")
+  return MathOptNLSModel(model, [F1; F2; F3], name="mgh30")
 end

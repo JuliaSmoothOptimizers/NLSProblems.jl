@@ -23,5 +23,5 @@ function tp261(args...)
   @NLexpression(nls, F4, x[1]^4)
   @NLexpression(nls, F5, x[4] - 1) 
 
-  return MathProgNLSModel(nls, [F1; F2; F3; F4; F5], name="tp261")
+  return MathOptNLSModel(nls, [F1; F2; F3; F4; F5], name="tp261")
 end

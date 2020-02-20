@@ -22,5 +22,5 @@ function tp351(args...)
   b = [7.391; 11.18; 16.44; 16.20; 22.20; 24.02; 31.32]
   @NLexpression(nls, F[i=1:7], 100 * ((x[1]^2 + a[i] * x[2]^2 + a[i]^2 * x[3]^2) / (1 + a[i] * x[4]^2) - b[i]) / b[i])
 
-  return MathProgNLSModel(nls, F, name="tp351")
+  return MathOptNLSModel(nls, F, name="tp351")
 end

@@ -24,5 +24,5 @@ function hs52(args...)
   @constraint(model, x[3] + x[4] - 2 * x[5] == 0)
   @constraint(model, x[2] - x[5] == 0)
 
-  return MathProgNLSModel(model, [F1; F2; F3; F4], name="hs52")
+  return MathOptNLSModel(model, [F1; F2; F3; F4], name="hs52")
 end

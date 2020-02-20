@@ -27,5 +27,5 @@ function hs43(args...)
   @NLconstraint(model, 5 - 2 * x[1]^2 - x[2]^2 - x[3]^2 - 2 * x[1] +
                 x[2] + x[4] >= 0.0)
 
-  return MathProgNLSModel(model, [F1; F2; F3; F4], name="hs43")
+  return MathOptNLSModel(model, [F1; F2; F3; F4], name="hs43")
 end

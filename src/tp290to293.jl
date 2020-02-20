@@ -19,7 +19,7 @@ function tp290(n :: Int=2; version :: String="tp290")
 
   @NLexpression(nls, F, sum(i * x[i]^2 for i=1:n))
 
-  return MathProgNLSModel(nls, [F], name=version)
+  return MathOptNLSModel(nls, [F], name=version)
 end
 
 "Test problem 291 in NLS format"

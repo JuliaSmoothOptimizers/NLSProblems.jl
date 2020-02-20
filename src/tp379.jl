@@ -35,5 +35,5 @@ function tp379(args...)
   @NLexpression(nls, F[i=1:65], y[i] - x[1] * exp(-x[5] * t[i]) - x[2] * exp(-x[6] * (t[i] - x[9])^2) 
   - x[3] * exp(-x[7] * (t[i] - x[10])^2) - x[4] * exp(-x[8] * (t[i] - x[11])^2))
 
-  return MathProgNLSModel(nls, F, name="tp379")
+  return MathOptNLSModel(nls, F, name="tp379")
 end

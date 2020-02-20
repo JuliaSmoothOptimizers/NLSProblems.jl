@@ -21,7 +21,7 @@ function tp316(args...; d :: Real=100, version :: String="tp316")
   @NLexpression(nls, F2, x[2] + 20)
 
   @NLconstraint(nls, x[1]^2 / 100 + x[2]^2 / d  - 1 == 0)
-  return MathProgNLSModel(nls, [F1; F2], name=version)
+  return MathOptNLSModel(nls, [F1; F2], name=version)
 end
 
 "Test problem 317 in NLS format"

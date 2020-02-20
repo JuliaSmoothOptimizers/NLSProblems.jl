@@ -33,5 +33,5 @@ function hs70(args...)
   @NLexpression(nls, F[i=1:19], ycal[i] - yobs[i])
   @NLconstraint(nls, b ≥ 0)
 
-  return MathProgNLSModel(nls, F, name="hs70")
+  return MathOptNLSModel(nls, F, name="hs70")
 end

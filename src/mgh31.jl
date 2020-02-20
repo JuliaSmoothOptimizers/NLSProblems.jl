@@ -18,5 +18,5 @@ function mgh31(n :: Int=10)
                 sum(x[j] * (1 + x[j])
                     for j = max(1, i - 5):min(n, i + 1) if j != i))
 
-  return MathProgNLSModel(model, F, name="mgh31")
+  return MathOptNLSModel(model, F, name="mgh31")
 end

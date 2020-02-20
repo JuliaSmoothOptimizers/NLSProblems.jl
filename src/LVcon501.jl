@@ -29,5 +29,5 @@ function LVcon501(n :: Int=20)
                        sin(x[k+1] - x[k+2]) * sin(x[k+1] + x[k+2]) +
                        4 * x[k+1] - x[k] * exp(x[k] - x[k+1]) - 3 == 0)
 
-  return MathProgNLSModel(model, [F1; F2], name="Lukšan-Vlček 5.1")
+  return MathOptNLSModel(model, [F1; F2], name="Lukšan-Vlček 5.1")
 end

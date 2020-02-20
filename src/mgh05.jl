@@ -17,5 +17,5 @@ function mgh05(args...)
   @variable(model, x[1:2], start=1.0)
   @NLexpression(model, F[i=1:3], y[i] - x[1]*(1 - x[2]^i))
 
-  return MathProgNLSModel(model, F, name="mgh05")
+  return MathOptNLSModel(model, F, name="mgh05")
 end

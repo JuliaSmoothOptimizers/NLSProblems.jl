@@ -18,9 +18,9 @@ function hs25(args...; m :: Int=99)
   lvar = [  0.1;  0.0; 0.0]
   uvar = [100.0; 25.6; 5.0]
   @variable(model, lvar[i] <= x[i=1:3] <= uvar[i])
-  setvalue(x, [100; 12.5; 3.0])
+  set_start_value.(x, [100; 12.5; 3.0])
   u = [25 + (-50 * log(i / 100))^(2/3) for i = 1:m]
   @NLexpression(model, F[i=1:m], -i / 100 + exp(-(u[i] - x[2])^x[3] / x[1]))
 
-  return MathProgNLSModel(model, F, name="hs25")
+  return MathOptNLSModel(model, F, name="hs25")
 end

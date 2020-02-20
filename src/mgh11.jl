@@ -20,8 +20,8 @@ function mgh11(args...; m :: Int=100)
   y = 25 .+ (-50 * log.(t)).^(2 / 3)
   model = Model()
   @variable(model, x[1:3])
-  setvalue(x, [5.00; 2.50; 0.15])
+  set_start_value.(x, [5.00; 2.50; 0.15])
   @NLexpression(model, F[i=1:m], exp(-abs(y[i] * m * i * x[2])^x[3] / x[1]) - t[i])
 
-  return MathProgNLSModel(model, F, name="mgh11")
+  return MathOptNLSModel(model, F, name="mgh11")
 end

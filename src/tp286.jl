@@ -21,5 +21,5 @@ function tp286(args...)
   @NLexpression(nls, FA[i=1:10], 10 * (x[i]^2 - x[i+10]))
   @NLexpression(nls, FB[i=1:10], x[i] - 1)
 
-  return MathProgNLSModel(nls, [FA; FB], name="tp286")
+  return MathOptNLSModel(nls, [FA; FB], name="tp286")
 end

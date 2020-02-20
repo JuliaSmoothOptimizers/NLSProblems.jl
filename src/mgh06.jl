@@ -14,8 +14,8 @@ function mgh06(args...; m :: Int=10)
 
   model = Model()
   @variable(model, x[1:2])
-  setvalue(x, [0.3; 0.4])
+  set_start_value.(x, [0.3; 0.4])
   @NLexpression(model, F[i=1:m], 2 + 2i - exp(i*x[1]) - exp(i*x[2]))
 
-  return MathProgNLSModel(model, F, name="mgh06")
+  return MathOptNLSModel(model, F, name="mgh06")
 end

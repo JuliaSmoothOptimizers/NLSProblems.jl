@@ -21,7 +21,7 @@ function tp206(args...; a :: Real=1, b :: Real=10, c :: Int=2, version :: String
   @NLexpression(nls, F1, a * (x[2] - x[1]^c))
   @NLexpression(nls, F2, b * (1 - x[1]))
 
-  return MathProgNLSModel(nls, [F1; F2], name=version)
+  return MathOptNLSModel(nls, [F1; F2], name=version)
 end
 
 "Test problem 207 in NLS format"

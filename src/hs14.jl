@@ -21,5 +21,5 @@ function hs14(args...)
   @NLconstraint(model, -0.25 * x[1]^2 - x[2]^2 + 1.0 >= 0.0)
   @constraint(model, x[1] - 2 * x[2] == -1.0)
 
-  return MathProgNLSModel(model, [F1; F2], name="hs14")
+  return MathOptNLSModel(model, [F1; F2], name="hs14")
 end

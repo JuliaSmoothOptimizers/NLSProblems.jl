@@ -19,5 +19,5 @@ function tp271(args...)
 
   @NLexpression(nls, F[i=1:6], sqrt(160 - 10 * i) * (x[i] - 1)) 
 
-  return MathProgNLSModel(nls, F, name="tp271")
+  return MathOptNLSModel(nls, F, name="tp271")
 end

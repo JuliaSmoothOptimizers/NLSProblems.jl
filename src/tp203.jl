@@ -21,5 +21,5 @@ function tp203(args...)
   c = [1.5; 2.25; 2.625]
   @NLexpression(nls, F[i=1:3], c[i] - x[1] * (1 - x[2]^i))
 
-  return MathProgNLSModel(nls, F, name="tp203")
+  return MathOptNLSModel(nls, F, name="tp203")
 end

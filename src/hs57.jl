@@ -25,11 +25,11 @@ function hs57(args...)
 
   model = Model()
   lvar, uvar = [0.4; -4.0], [Inf; Inf]
-  @variable(model, lvar[i] <= x[i=1:2] <= uvar[i])
+  @variable(model, lvar[i] ≤ x[i=1:2] ≤ uvar[i])
   set_start_value.(x, [0.42; 5.0])
   @NLexpression(model, F[i=1:44], b[i] - x[1] - (0.49 - x[1]) *
                 exp(-x[2] * (a[i] - 8)))
-  @constraint(model, 0.49 * x[2] - x[1] * x[2] >= 0.09)
+  @constraint(model, 0.49 * x[2] - x[1] * x[2] ≥ 0.09)
 
   return MathOptNLSModel(model, F, name="hs57")
 end

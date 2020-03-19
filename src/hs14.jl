@@ -18,7 +18,7 @@ function hs14(args...)
   @variable(model, x[1:2], start=2.0)
   @NLexpression(model, F1, x[1] - 2)
   @NLexpression(model, F2, x[2] - 1)
-  @NLconstraint(model, -0.25 * x[1]^2 - x[2]^2 + 1.0 >= 0.0)
+  @NLconstraint(model, -0.25 * x[1]^2 - x[2]^2 + 1.0 ≥ 0.0)
   @constraint(model, x[1] - 2 * x[2] == -1.0)
 
   return MathOptNLSModel(model, [F1; F2], name="hs14")

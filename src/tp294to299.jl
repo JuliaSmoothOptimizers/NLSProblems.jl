@@ -15,7 +15,7 @@ export tp294, tp295, tp296, tp297, tp298, tp299
 function tp294(n :: Int=6; version :: String="tp294")
 
   nls = Model()
-  x0  = [(n <= 16 && i % 2 == 0) ? 1.0 : -1.2 for i=1:n]
+  x0  = [(n ≤ 16 && i % 2 == 0) ? 1.0 : -1.2 for i=1:n]
   @variable(nls, x[i=1:n], start=x0[i])
 
   @NLexpression(nls, FA[k=1:n-1], 10 * (x[k+1] - x[k]^2))

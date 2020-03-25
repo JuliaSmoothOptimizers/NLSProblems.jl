@@ -37,9 +37,9 @@ function LVcon514(n :: Int=20)
   for k = 1:2N
     ℓ = 3 * div(k - 1, 2)
     if k % 2 == 1
-      @constraint(model, x[ℓ + 1]^2 + x[ℓ + 2] + x[ℓ + 3] + 4 * x[ℓ + 4] == 7)
+      @NLconstraint(model, x[ℓ + 1]^2 + x[ℓ + 2] + x[ℓ + 3] + 4 * x[ℓ + 4] == 7)
     else
-      @constraint(model, x[ℓ + 3]^2 - 5 * x[ℓ + 5] == 6)
+      @NLconstraint(model, x[ℓ + 3]^2 - 5 * x[ℓ + 5] == 6)
     end
   end
 

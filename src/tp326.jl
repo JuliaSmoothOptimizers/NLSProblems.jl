@@ -21,7 +21,7 @@ function tp326(args...)
   @NLexpression(nls, F1, x[1] - 8)
   @NLexpression(nls, F2, x[2] - 5)
 
-  @constraint(nls, 11 - x[1]^2 + 6 * x[1] - 4 * x[2] ≥ 0)
+  @NLconstraint(nls, 11 - x[1]^2 + 6 * x[1] - 4 * x[2] ≥ 0)
   @NLconstraint(nls, x[1] * x[2] - 3 * x[2] - exp(x[1] - 3) + 1 ≥ 0)
 
   return MathOptNLSModel(nls, [F1; F2], name="tp326")

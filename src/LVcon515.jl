@@ -37,11 +37,11 @@ function LVcon515(n :: Int=21)
   for k = 1:3N
     ℓ = 4 * div(k - 1, 3)
     if k % 3 == 1
-      @constraint(model, x[ℓ + 1]^2 + 2 * x[ℓ + 2] + 3 * x[ℓ + 3] == 6)
+      @NLconstraint(model, x[ℓ + 1]^2 + 2 * x[ℓ + 2] + 3 * x[ℓ + 3] == 6)
     elseif k % 3 == 2
-      @constraint(model, x[ℓ + 2]^2 + 2 * x[ℓ + 3] + 3 * x[ℓ + 4] == 6)
+      @NLconstraint(model, x[ℓ + 2]^2 + 2 * x[ℓ + 3] + 3 * x[ℓ + 4] == 6)
     else
-      @constraint(model, x[ℓ + 3]^2 + 2 * x[ℓ + 4] + 3 * x[ℓ + 5] == 6)
+      @NLconstraint(model, x[ℓ + 3]^2 + 2 * x[ℓ + 4] + 3 * x[ℓ + 5] == 6)
     end
   end
 

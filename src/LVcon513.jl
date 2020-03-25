@@ -36,10 +36,9 @@ function LVcon513(n :: Int=20)
   for k = 1:2N
     ℓ = 3 * div(k - 1, 2)
     if k % 2 == 1
-      @constraint(model, x[ℓ + 1] + x[ℓ + 2]^2 + x[ℓ + 3] + x[ℓ + 4] +
-                  x[ℓ + 5] == 5)
+      @NLconstraint(model, x[ℓ + 1] + x[ℓ + 2]^2 + x[ℓ + 3] + x[ℓ + 4] + x[ℓ + 5] == 5)
     else
-      @constraint(model, x[ℓ + 3]^2 - 2 * (x[ℓ + 4] + x[ℓ + 5]) == 3)
+      @NLconstraint(model, x[ℓ + 3]^2 - 2 * (x[ℓ + 4] + x[ℓ + 5]) == 3)
     end
   end
 

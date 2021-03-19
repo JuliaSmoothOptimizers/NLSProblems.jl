@@ -1,5 +1,6 @@
 # NLSProblems - Nonlinear Least Squares problems
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4605405.svg)](https://doi.org/10.5281/zenodo.4605405)
 [![CI](https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/workflows/CI/badge.svg?branch=master)](https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/actions)
 [![codecov](https://codecov.io/gh/JuliaSmoothOptimizers/NLSProblems.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/NLSProblems.jl)
 
@@ -24,6 +25,10 @@ julia> ]
 pkg> add NLSProblems
 pkg> test NLSProblems
 ```
+
+## How to cite
+
+If you use NLSProblems.jl in your work, please cite using the format given in [CITATION.bib](CITATION.bib).
 
 ## References
 

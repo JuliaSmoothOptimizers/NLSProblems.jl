@@ -11,7 +11,6 @@ export mgh14
 
 "Wood function"
 function mgh14(args...)
-
   model = Model()
   @variable(model, x[1:4])
   set_start_value.(x, [-3.0; -1.0; -3.0; -1.0])
@@ -22,5 +21,5 @@ function mgh14(args...)
   @NLexpression(model, F5, sqrt(10) * (x[2] + x[4] - 2))
   @NLexpression(model, F6, (x[2] - x[4]) / sqrt(10))
 
-  return MathOptNLSModel(model, [F1; F2; F3; F4; F5; F6], name="mgh14")
+  return MathOptNLSModel(model, [F1; F2; F3; F4; F5; F6], name = "mgh14")
 end

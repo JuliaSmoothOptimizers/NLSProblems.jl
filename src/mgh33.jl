@@ -10,15 +10,15 @@
 export mgh33
 
 "Linear function - rank 1"
-function mgh33(n :: Int=10; m :: Int=20)
+function mgh33(n::Int = 10; m::Int = 20)
   if m < n
     @warn(": number of functions must be ≥ number of variables. Adjusting to m = n")
     m = n
   end
 
   model = Model()
-  @variable(model, x[1:n], start=1.0)
-  @NLexpression(model, F[i=1:m], i * sum(j * x[j] for j = 1:n) - 1)
+  @variable(model, x[1:n], start = 1.0)
+  @NLexpression(model, F[i = 1:m], i * sum(j * x[j] for j = 1:n) - 1)
 
-  return MathOptNLSModel(model, F, name="mgh33")
+  return MathOptNLSModel(model, F, name = "mgh33")
 end

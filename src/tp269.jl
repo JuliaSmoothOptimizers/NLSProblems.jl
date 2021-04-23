@@ -13,9 +13,8 @@ export tp269
 
 "Test problem 269 in NLS format"
 function tp269(args...)
-
   nls = Model()
-  @variable(nls, x[i=1:5], start=2)
+  @variable(nls, x[i = 1:5], start = 2)
 
   @NLexpression(nls, F1, x[1] - x[2])
   @NLexpression(nls, F2, x[2] + x[3] - 2)
@@ -26,5 +25,5 @@ function tp269(args...)
   @constraint(nls, x[3] + x[4] - 2 * x[5] == 0)
   @constraint(nls, x[2] - x[5] == 0)
 
-  return MathOptNLSModel(nls, [F1; F2; F3; F4], name="tp269")
+  return MathOptNLSModel(nls, [F1; F2; F3; F4], name = "tp269")
 end

@@ -13,14 +13,13 @@ export tp240
 
 "Test problem 240 in NLS format"
 function tp240(args...)
-
   nls = Model()
-  x0  = [100; -1; 2.5]
-  @variable(nls, x[i=1:3], start=x0[i])
+  x0 = [100; -1; 2.5]
+  @variable(nls, x[i = 1:3], start = x0[i])
 
-  @NLexpression(nls, F1,  x[1] - x[2] + x[3])
+  @NLexpression(nls, F1, x[1] - x[2] + x[3])
   @NLexpression(nls, F2, -x[1] + x[2] + x[3])
-  @NLexpression(nls, F3,  x[1] + x[2] - x[3])
+  @NLexpression(nls, F3, x[1] + x[2] - x[3])
 
-  return MathOptNLSModel(nls, [F1; F2; F3], name="tp240")
+  return MathOptNLSModel(nls, [F1; F2; F3], name = "tp240")
 end

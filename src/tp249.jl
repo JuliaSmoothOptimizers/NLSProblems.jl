@@ -13,14 +13,13 @@ export tp249
 
 "Test problem 249 in NLS format"
 function tp249(args...)
-
-  nls  = Model()
+  nls = Model()
   lvar = [1; -Inf; -Inf]
-  @variable(nls, x[i=1:3] ≥ lvar[i], start=1)
+  @variable(nls, x[i = 1:3] ≥ lvar[i], start = 1)
 
-  @NLexpression(nls, F[i=1:3], 1 * x[i])
+  @NLexpression(nls, F[i = 1:3], 1 * x[i])
 
   @NLconstraint(nls, x[1]^2 + x[2]^2 - 1 ≥ 0)
 
-  return MathOptNLSModel(nls, F, name="tp249")
+  return MathOptNLSModel(nls, F, name = "tp249")
 end

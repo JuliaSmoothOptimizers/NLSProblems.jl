@@ -10,7 +10,7 @@
 export mgh12
 
 "Box three-dimensional function"
-function mgh12(args...; m :: Int=10)
+function mgh12(args...; m::Int = 10)
   if m < 3
     @warn(": number of functions must be ≥ 3. Using m = 3")
     m = 3
@@ -19,8 +19,11 @@ function mgh12(args...; m :: Int=10)
   model = Model()
   @variable(model, x[1:3])
   set_start_value.(x, [0.0; 10.0; 20.0])
-  @NLexpression(model, F[i=1:m], exp(-0.1i*x[1]) - exp(-0.1i*x[2]) -
-                x[3]*(exp(-0.1i) - exp(-i)))
+  @NLexpression(
+    model,
+    F[i = 1:m],
+    exp(-0.1i * x[1]) - exp(-0.1i * x[2]) - x[3] * (exp(-0.1i) - exp(-i))
+  )
 
-  return MathOptNLSModel(model, F, name="mgh12")
+  return MathOptNLSModel(model, F, name = "mgh12")
 end

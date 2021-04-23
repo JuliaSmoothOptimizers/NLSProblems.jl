@@ -12,20 +12,19 @@
 export tp303, tp304, tp305
 
 "Test problem 303 in NLS format"
-function tp303(n :: Int=20; version :: String="tp303")
-
+function tp303(n::Int = 20; version::String = "tp303")
   nls = Model()
-  @variable(nls, x[i=1:n], start=0.1)
+  @variable(nls, x[i = 1:n], start = 0.1)
 
-  @NLexpression(nls, FA[i=1:n], 1 * x[i])
-  @NLexpression(nls, FB, sum(i / 2 * x[i] for i=1:n))
-  @NLexpression(nls, FC, sum(i / 2 * x[i] for i=1:n)^2)
+  @NLexpression(nls, FA[i = 1:n], 1 * x[i])
+  @NLexpression(nls, FB, sum(i / 2 * x[i] for i = 1:n))
+  @NLexpression(nls, FC, sum(i / 2 * x[i] for i = 1:n)^2)
 
-  return MathOptNLSModel(nls, [FA; FB; FC], name=version)
+  return MathOptNLSModel(nls, [FA; FB; FC], name = version)
 end
 
 "Test problem 304 in NLS format"
-tp304(args...) = tp303(50, version="tp304")
+tp304(args...) = tp303(50, version = "tp304")
 
 "Test problem 305 in NLS format"
-tp305(args...) = tp303(100, version="tp305")
+tp305(args...) = tp303(100, version = "tp305")

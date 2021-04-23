@@ -13,12 +13,11 @@ export hs42
 
 "Hock-Schittkowski problem 42 in NLS format"
 function hs42(args...)
-
   model = Model()
-  @variable(model, x[1:4], start=1.0)
-  @NLexpression(model, F[i=1:4], x[i] - i)
+  @variable(model, x[1:4], start = 1.0)
+  @NLexpression(model, F[i = 1:4], x[i] - i)
   @constraint(model, x[1] == 2.0)
   @NLconstraint(model, x[3]^2 + x[4]^2 == 2.0)
 
-  return MathOptNLSModel(model, F, name="hs42")
+  return MathOptNLSModel(model, F, name = "hs42")
 end

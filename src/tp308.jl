@@ -13,14 +13,13 @@ export tp308
 
 "Test problem 308 in NLS format"
 function tp308(args...)
-
   nls = Model()
-  x0  = [3; 0.1]
-  @variable(nls, x[i=1:2], start=x0[i])
+  x0 = [3; 0.1]
+  @variable(nls, x[i = 1:2], start = x0[i])
 
   @NLexpression(nls, F1, x[1]^2 + x[2]^2 + x[1] * x[2])
   @NLexpression(nls, F2, sin(x[1]))
   @NLexpression(nls, F3, cos(x[2]))
 
-  return MathOptNLSModel(nls, [F1; F2; F3], name="tp308")
+  return MathOptNLSModel(nls, [F1; F2; F3], name = "tp308")
 end

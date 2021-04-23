@@ -11,11 +11,10 @@ export mgh05
 
 "Beale function"
 function mgh05(args...)
-
   y = [1.5; 2.25; 2.625]
   model = Model()
-  @variable(model, x[1:2], start=1.0)
-  @NLexpression(model, F[i=1:3], y[i] - x[1]*(1 - x[2]^i))
+  @variable(model, x[1:2], start = 1.0)
+  @NLexpression(model, F[i = 1:3], y[i] - x[1] * (1 - x[2]^i))
 
-  return MathOptNLSModel(model, F, name="mgh05")
+  return MathOptNLSModel(model, F, name = "mgh05")
 end

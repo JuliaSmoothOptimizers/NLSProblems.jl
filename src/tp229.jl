@@ -13,13 +13,12 @@ export tp229
 
 "Test problem 229 in NLS format"
 function tp229(args...)
-
   nls = Model()
-  x0  = [-1.2; 1]
-  @variable(nls, -2 ≤ x[i=1:2] ≤ 2, start=x0[i])
+  x0 = [-1.2; 1]
+  @variable(nls, -2 ≤ x[i = 1:2] ≤ 2, start = x0[i])
 
   @NLexpression(nls, F1, 10 * (x[2] - x[1]^2))
   @NLexpression(nls, F2, 1 - x[1])
 
-  return MathOptNLSModel(nls, [F1; F2], name="tp229")
+  return MathOptNLSModel(nls, [F1; F2], name = "tp229")
 end

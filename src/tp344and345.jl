@@ -12,19 +12,18 @@
 export tp344, tp345
 
 "Test problem 344 in NLS format"
-function tp344(args...; x0 :: Real=2, version :: String="tp344")
-
+function tp344(args...; x0::Real = 2, version::String = "tp344")
   nls = Model()
-  @variable(nls, x[i=1:3], start=x0)
+  @variable(nls, x[i = 1:3], start = x0)
 
   @NLexpression(nls, F1, x[1] - 1)
   @NLexpression(nls, F2, x[1] - x[2])
   @NLexpression(nls, F3, (x[2] - x[3])^2)
 
   @NLconstraint(nls, x[1] * (1 + x[2]^2) + x[3]^4 - 4 - 3 * sqrt(2) == 0)
-  
-  return MathOptNLSModel(nls, [F1; F2; F3], name=version)
+
+  return MathOptNLSModel(nls, [F1; F2; F3], name = version)
 end
 
 "Test problem 345 in NLS format"
-tp345(args...) = tp344(x0=0, version="tp345")
+tp345(args...) = tp344(x0 = 0, version = "tp345")

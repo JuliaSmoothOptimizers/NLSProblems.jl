@@ -11,12 +11,11 @@ export mgh04
 
 "Brown badly scaled function"
 function mgh04(args...)
-
   model = Model()
-  @variable(model, x[1:2], start=1)
+  @variable(model, x[1:2], start = 1)
   @NLexpression(model, F1, x[1] - 1e6)
   @NLexpression(model, F2, x[2] - 2e-6)
   @NLexpression(model, F3, x[1] * x[2] - 2.0)
 
-  return MathOptNLSModel(model, [F1; F2; F3], name="mgh04")
+  return MathOptNLSModel(model, [F1; F2; F3], name = "mgh04")
 end

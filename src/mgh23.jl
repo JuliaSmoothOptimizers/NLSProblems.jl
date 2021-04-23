@@ -10,12 +10,11 @@
 export mgh23
 
 "Penalty function I"
-function mgh23(n :: Int=4)
-
+function mgh23(n::Int = 4)
   model = Model()
-  @variable(model, x[i=1:n], start=i)
-  @NLexpression(model, F1[i=1:n], sqrt(1e-5) * (x[i] - 1))
+  @variable(model, x[i = 1:n], start = i)
+  @NLexpression(model, F1[i = 1:n], sqrt(1e-5) * (x[i] - 1))
   @NLexpression(model, F2, sum(x[i]^2 for i = 1:n) - 0.25)
 
-  return MathOptNLSModel(model, [F1; F2], name="mgh23")
+  return MathOptNLSModel(model, [F1; F2], name = "mgh23")
 end

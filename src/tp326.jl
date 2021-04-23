@@ -13,10 +13,9 @@ export tp326
 
 "Test problem 326 in NLS format without constants in the objective"
 function tp326(args...)
-
   nls = Model()
-  x0  = [4; 3]
-  @variable(nls, x[i=1:2] ≥ 0, start=x0[i])
+  x0 = [4; 3]
+  @variable(nls, x[i = 1:2] ≥ 0, start = x0[i])
 
   @NLexpression(nls, F1, x[1] - 8)
   @NLexpression(nls, F2, x[2] - 5)
@@ -24,5 +23,5 @@ function tp326(args...)
   @NLconstraint(nls, 11 - x[1]^2 + 6 * x[1] - 4 * x[2] ≥ 0)
   @NLconstraint(nls, x[1] * x[2] - 3 * x[2] - exp(x[1] - 3) + 1 ≥ 0)
 
-  return MathOptNLSModel(nls, [F1; F2], name="tp326")
+  return MathOptNLSModel(nls, [F1; F2], name = "tp326")
 end

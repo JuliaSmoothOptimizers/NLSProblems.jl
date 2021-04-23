@@ -13,13 +13,12 @@ export tp203
 
 "Test problem 203 in NLS format"
 function tp203(args...)
-
   nls = Model()
-  x0  = [2; 0.2]
-  @variable(nls, x[i=1:2], start=x0[i])
-  
-  c = [1.5; 2.25; 2.625]
-  @NLexpression(nls, F[i=1:3], c[i] - x[1] * (1 - x[2]^i))
+  x0 = [2; 0.2]
+  @variable(nls, x[i = 1:2], start = x0[i])
 
-  return MathOptNLSModel(nls, F, name="tp203")
+  c = [1.5; 2.25; 2.625]
+  @NLexpression(nls, F[i = 1:3], c[i] - x[1] * (1 - x[2]^i))
+
+  return MathOptNLSModel(nls, F, name = "tp203")
 end

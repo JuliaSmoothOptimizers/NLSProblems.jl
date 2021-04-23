@@ -13,17 +13,16 @@ export tp337
 
 "Test problem 337 in NLS format"
 function tp337(args...)
-
-  nls  = Model()
-  lvar = [-Inf;   1; -Inf]
-  uvar = [ Inf; Inf;    1]
-  @variable(nls, lvar[i] ≤ x[i=1:3] ≤ uvar[i], start=1)
+  nls = Model()
+  lvar = [-Inf; 1; -Inf]
+  uvar = [Inf; Inf; 1]
+  @variable(nls, lvar[i] ≤ x[i = 1:3] ≤ uvar[i], start = 1)
 
   @NLexpression(nls, F1, 3 * x[1])
   @NLexpression(nls, F2, 1 * x[2])
   @NLexpression(nls, F3, 3 * x[3])
 
   @NLconstraint(nls, x[1] * x[2] - 1 ≥ 0)
-  
-  return MathOptNLSModel(nls, [F1; F2; F3], name="tp337")
+
+  return MathOptNLSModel(nls, [F1; F2; F3], name = "tp337")
 end

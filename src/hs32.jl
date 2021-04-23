@@ -13,7 +13,6 @@ export hs32
 
 "Hock-Schittkowski problem 32 in NLS format"
 function hs32(args...)
-
   model = Model()
   @variable(model, x[1:3] ≥ 0.0)
   set_start_value.(x, [0.1; 0.7; 0.2])
@@ -22,5 +21,5 @@ function hs32(args...)
   @NLconstraint(model, 6 * x[2] + 4 * x[3] - x[1]^3 ≥ 3.0)
   @constraint(model, 1.0 - x[1] - x[2] - x[3] == 0.0)
 
-  return MathOptNLSModel(model, [F1; F2], name="hs32")
+  return MathOptNLSModel(model, [F1; F2], name = "hs32")
 end

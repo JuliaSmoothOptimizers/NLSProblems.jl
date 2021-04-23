@@ -13,13 +13,16 @@ export tp245
 
 "Test problem 245 in NLS format"
 function tp245(args...)
-
   nls = Model()
-  x0  = [0; 10; 20]
-  @variable(nls, x[i=1:3], start=x0[i])
+  x0 = [0; 10; 20]
+  @variable(nls, x[i = 1:3], start = x0[i])
 
-  t = [0.1 * i for i=1:10]
-  @NLexpression(nls, F[i=1:10], exp(-x[1] * t[i]) - exp(-x[2] * t[i]) - x[3] * (exp(-t[i]) - exp(-10 * t[i])))
+  t = [0.1 * i for i = 1:10]
+  @NLexpression(
+    nls,
+    F[i = 1:10],
+    exp(-x[1] * t[i]) - exp(-x[2] * t[i]) - x[3] * (exp(-t[i]) - exp(-10 * t[i]))
+  )
 
-  return MathOptNLSModel(nls, F, name="tp245")
+  return MathOptNLSModel(nls, F, name = "tp245")
 end

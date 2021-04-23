@@ -15,16 +15,15 @@ export BNST2
 
 """Biegler et al. (2000) example 2 in NLS format.
 """
-function BNST2(n :: Int = 200)
-
+function BNST2(n::Int = 200)
   if n < 2
     @warn("number of variables must be ≥ 2. Setting to 2")
     n = 2
   end
   model = Model()
-  @variable(model, x[1:n], start=0.1)
-  @NLexpression(model, F[i=1:n], 1.0 * x[i])
-  @NLconstraint(model, c[j=1:n-1], x[1] * (x[j+1] - 1) - 10x[j+1] == 0)
+  @variable(model, x[1:n], start = 0.1)
+  @NLexpression(model, F[i = 1:n], 1.0 * x[i])
+  @NLconstraint(model, c[j = 1:(n - 1)], x[1] * (x[j + 1] - 1) - 10x[j + 1] == 0)
 
-  return MathOptNLSModel(model, F, name="BNST2")
+  return MathOptNLSModel(model, F, name = "BNST2")
 end

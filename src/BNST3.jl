@@ -15,8 +15,7 @@ export BNST3
 
 """Biegler et al. (2000) example 3 in NLS format.
 """
-function BNST3(n :: Int = 200)
-
+function BNST3(n::Int = 200)
   if n < 2
     @warn("BNST2: number of variables must be ≥ 2. Setting to 2")
     n = 2
@@ -27,9 +26,9 @@ function BNST3(n :: Int = 200)
   N = div(n, 2)
 
   model = Model()
-  @variable(model, x[1:n], start=0.1)
-  @NLexpression(model, F[i=1:n], 1.0 * x[i])
-  @NLconstraint(model, c[j=1:N], x[j] * (x[N+j] - 1) - 10x[N+j] == 0)
+  @variable(model, x[1:n], start = 0.1)
+  @NLexpression(model, F[i = 1:n], 1.0 * x[i])
+  @NLconstraint(model, c[j = 1:N], x[j] * (x[N + j] - 1) - 10x[N + j] == 0)
 
-  return MathOptNLSModel(model, F, name="BNST3")
+  return MathOptNLSModel(model, F, name = "BNST3")
 end

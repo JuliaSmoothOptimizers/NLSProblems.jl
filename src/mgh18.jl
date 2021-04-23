@@ -10,7 +10,7 @@
 export mgh18
 
 "Biggs EXP6 function"
-function mgh18(args...; m :: Int=13)
+function mgh18(args...; m::Int = 13)
   if m < 6
     @warn(": number of functions must be ≥ 6. Using m = 6")
     m = 6
@@ -21,8 +21,11 @@ function mgh18(args...; m :: Int=13)
   model = Model()
   @variable(model, x[1:6])
   set_start_value.(x, [1.0; 2.0; 1.0; 1.0; 1.0; 1.0])
-  @NLexpression(model, F[i=1:m], x[3] * exp(-t[i] * x[1]) - x[4] *
-                exp(-t[i] * x[2]) + x[6] * exp(-t[i] * x[5]) - y[i])
+  @NLexpression(
+    model,
+    F[i = 1:m],
+    x[3] * exp(-t[i] * x[1]) - x[4] * exp(-t[i] * x[2]) + x[6] * exp(-t[i] * x[5]) - y[i]
+  )
 
-  return MathOptNLSModel(model, F, name="mgh18")
+  return MathOptNLSModel(model, F, name = "mgh18")
 end

@@ -13,15 +13,14 @@ export hs18
 
 "Hock-Schittkowski problem 18 in NLS format"
 function hs18(args...)
-
   model = Model()
   lvar = [2.0; 0.0]
   uvar = [50.0; 50.0]
-  @variable(model, lvar[i] ≤ x[i=1:2] ≤ uvar[i], start=2.0)
+  @variable(model, lvar[i] ≤ x[i = 1:2] ≤ uvar[i], start = 2.0)
   @NLexpression(model, F1, 0.1 * x[1])
   @NLexpression(model, F2, x[2] + 0.0)
   @NLconstraint(model, x[1] * x[2] ≥ 25)
   @NLconstraint(model, x[1]^2 + x[2]^2 ≥ 25)
 
-  return MathOptNLSModel(model, [F1; F2], name="hs18")
+  return MathOptNLSModel(model, [F1; F2], name = "hs18")
 end

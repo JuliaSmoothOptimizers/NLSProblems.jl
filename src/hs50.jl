@@ -13,7 +13,6 @@ export hs50
 
 "Hock-Schittkowski problem 50 in NLS format"
 function hs50(args...)
-
   model = Model()
   @variable(model, x[1:5])
   set_start_value.(x, [35.0; -31.0; 11.0; 5.0; -5.0])
@@ -21,7 +20,7 @@ function hs50(args...)
   @NLexpression(model, F2, x[2] - x[3])
   @NLexpression(model, F3, (x[3] - x[4])^2)
   @NLexpression(model, F4, x[4] - x[5])
-  @constraint(model, [i=1:3], x[i] + 2 * x[i + 1] + 3 * x[i + 2] == 6)
+  @constraint(model, [i = 1:3], x[i] + 2 * x[i + 1] + 3 * x[i + 2] == 6)
 
-  return MathOptNLSModel(model, [F1; F2; F3; F4], name="hs50")
+  return MathOptNLSModel(model, [F1; F2; F3; F4], name = "hs50")
 end

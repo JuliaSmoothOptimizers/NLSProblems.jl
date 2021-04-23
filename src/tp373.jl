@@ -13,17 +13,16 @@ export tp373
 
 "Test problem 373 in NLS format"
 function tp373(args...)
+  nls = Model()
+  x0 = [300; -100; -0.1997; -127; -151; 379; 421; 460; 426]
+  @variable(nls, x[i = 1:9], start = x0[i])
 
-  nls  = Model()
-  x0   = [300; -100; -0.1997; -127; -151; 379; 421; 460; 426]
-  @variable(nls, x[i=1:9], start=x0[i])
+  @NLexpression(nls, F[i = 1:6], 1 * x[i + 3])
 
-  @NLexpression(nls, F[i=1:6], 1 * x[i+3])
-  
   y = [127; 151; 379; 421; 460; 426]
-  for i=1:6
-    @NLconstraint(nls, x[1] + x[2] * exp((2i - 7) * x[3]) + x[i+3] - y[i] == 0)
+  for i = 1:6
+    @NLconstraint(nls, x[1] + x[2] * exp((2i - 7) * x[3]) + x[i + 3] - y[i] == 0)
   end
 
-  return MathOptNLSModel(nls, F, name="tp373")
+  return MathOptNLSModel(nls, F, name = "tp373")
 end

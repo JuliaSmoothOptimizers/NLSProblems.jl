@@ -13,9 +13,8 @@ export hs53
 
 "Hock-Schittkowski problem 53 in NLS format"
 function hs53(args...)
-
   model = Model()
-  @variable(model, -10 ≤ x[1:5] ≤ 10, start=2.0)
+  @variable(model, -10 ≤ x[1:5] ≤ 10, start = 2.0)
   @NLexpression(model, F1, x[1] - x[2])
   @NLexpression(model, F2, x[2] + x[3] - 2)
   @NLexpression(model, F3, x[4] - 1)
@@ -24,5 +23,5 @@ function hs53(args...)
   @constraint(model, x[3] + x[4] - 2 * x[5] == 0)
   @constraint(model, x[2] - x[5] == 0)
 
-  return MathOptNLSModel(model, [F1; F2; F3; F4], name="hs53")
+  return MathOptNLSModel(model, [F1; F2; F3; F4], name = "hs53")
 end

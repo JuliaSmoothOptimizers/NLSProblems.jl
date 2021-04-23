@@ -13,7 +13,6 @@ export hs48
 
 "Hock-Schittkowski problem 48 in NLS format"
 function hs48(args...)
-
   model = Model()
   @variable(model, x[1:5])
   set_start_value.(x, [3.0; 5.0; -3.0; 2.0; -2.0])
@@ -23,5 +22,5 @@ function hs48(args...)
   @constraint(model, sum(x) == 5)
   @constraint(model, x[3] - 2 * (x[4] + x[5]) == -3)
 
-  return MathOptNLSModel(model, [F1; F2; F3], name="hs48")
+  return MathOptNLSModel(model, [F1; F2; F3], name = "hs48")
 end

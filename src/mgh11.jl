@@ -10,18 +10,18 @@
 export mgh11
 
 "Gulf research and development function"
-function mgh11(args...; m :: Int=100)
+function mgh11(args...; m::Int = 100)
   if !(3 ≤ m ≤ 100)
     @warn(": number of functions must be between 3 and 100. Adjusting to closer bound")
     m = min(100, max(3, m))
   end
 
   t = (1:m) ./ 100
-  y = 25 .+ (-50 * log.(t)).^(2 / 3)
+  y = 25 .+ (-50 * log.(t)) .^ (2 / 3)
   model = Model()
   @variable(model, x[1:3])
   set_start_value.(x, [5.00; 2.50; 0.15])
-  @NLexpression(model, F[i=1:m], exp(-abs(y[i] * m * i * x[2])^x[3] / x[1]) - t[i])
+  @NLexpression(model, F[i = 1:m], exp(-abs(y[i] * m * i * x[2])^x[3] / x[1]) - t[i])
 
-  return MathOptNLSModel(model, F, name="mgh11")
+  return MathOptNLSModel(model, F, name = "mgh11")
 end

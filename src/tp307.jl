@@ -13,13 +13,12 @@ export tp307
 
 "Test problem 307 in NLS format"
 function tp307(args...)
-
   nls = Model()
-  x0  = [0.3; 0.4]
-  @variable(nls, x[i=1:2] ≥ 0, start=x0[i])
+  x0 = [0.3; 0.4]
+  @variable(nls, x[i = 1:2] ≥ 0, start = x0[i])
 
-  y = [2 + 2 * i for i=1:10]
-  @NLexpression(nls, F[i=1:10], y[i] - exp(i * x[1]) - exp(i * x[2]))
+  y = [2 + 2 * i for i = 1:10]
+  @NLexpression(nls, F[i = 1:10], y[i] - exp(i * x[1]) - exp(i * x[2]))
 
-  return MathOptNLSModel(nls, F, name="tp307")
+  return MathOptNLSModel(nls, F, name = "tp307")
 end

@@ -13,12 +13,11 @@ export tp312
 
 "Test problem 312 in NLS format"
 function tp312(args...)
-
   nls = Model()
-  @variable(nls, x[i=1:2], start=1)
+  @variable(nls, x[i = 1:2], start = 1)
 
   @NLexpression(nls, F1, x[1]^2 + 12 * x[2] - 1)
   @NLexpression(nls, F2, 49 * x[1]^2 + 49 * x[2]^2 + 84 * x[1] + 2324 * x[2] - 681)
 
-  return MathOptNLSModel(nls, [F1; F2], name="tp312")
+  return MathOptNLSModel(nls, [F1; F2], name = "tp312")
 end

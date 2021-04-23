@@ -13,11 +13,10 @@ export tp271
 
 "Test problem 271 in NLS format"
 function tp271(args...)
-
   nls = Model()
-  @variable(nls, x[i=1:6], start=0)
+  @variable(nls, x[i = 1:6], start = 0)
 
-  @NLexpression(nls, F[i=1:6], sqrt(160 - 10 * i) * (x[i] - 1)) 
+  @NLexpression(nls, F[i = 1:6], sqrt(160 - 10 * i) * (x[i] - 1))
 
-  return MathOptNLSModel(nls, F, name="tp271")
+  return MathOptNLSModel(nls, F, name = "tp271")
 end

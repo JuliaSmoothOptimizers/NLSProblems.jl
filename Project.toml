@@ -1,6 +1,6 @@
 name = "NLSProblems"
 uuid = "7cde8186-f29c-533a-9367-b4054c592979"
-version = "0.4.1"
+version = "0.4.2"
 
 [deps]
 JuMP = "4076af6c-e467-56ae-b986-b466b2749572"
@@ -9,7 +9,7 @@ NLPModelsJuMP = "792afdf1-32c1-5681-94e0-d7bf7a5df49e"
 
 [compat]
 JuMP = "0.21"
-NLPModels = "0.15"
+NLPModels = "0.15, 0.16, 0.17"
 NLPModelsJuMP = "0.8"
 julia = "^1.3"
 

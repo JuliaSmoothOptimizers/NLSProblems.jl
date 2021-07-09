@@ -1,8 +1,8 @@
 # NLSProblems - Nonlinear Least Squares problems
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4605405.svg)](https://doi.org/10.5281/zenodo.4605405)
-[![CI](https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/workflows/CI/badge.svg?branch=master)](https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/actions)
-[![codecov](https://codecov.io/gh/JuliaSmoothOptimizers/NLSProblems.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/JuliaSmoothOptimizers/NLSProblems.jl)
+[![CI](https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/workflows/CI/badge.svg?branch=main)](https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/actions)
+[![codecov](https://codecov.io/gh/JuliaSmoothOptimizers/NLSProblems.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/JuliaSmoothOptimizers/NLSProblems.jl)
 [![Documentation/stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://JuliaSmoothOptimizers.github.io/NLSProblems.jl/stable)
 [![Documentation/dev](https://img.shields.io/badge/docs-latest-blue.svg)](https://JuliaSmoothOptimizers.github.io/NLSProblems.jl/latest)
 

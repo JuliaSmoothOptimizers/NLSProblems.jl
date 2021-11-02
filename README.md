@@ -4,7 +4,7 @@
 [![CI](https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/workflows/CI/badge.svg?branch=main)](https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/actions)
 [![codecov](https://codecov.io/gh/JuliaSmoothOptimizers/NLSProblems.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/JuliaSmoothOptimizers/NLSProblems.jl)
 [![Documentation/stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://JuliaSmoothOptimizers.github.io/NLSProblems.jl/stable)
-[![Documentation/dev](https://img.shields.io/badge/docs-latest-blue.svg)](https://JuliaSmoothOptimizers.github.io/NLSProblems.jl/latest)
+[![Documentation/dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://JuliaSmoothOptimizers.github.io/NLSProblems.jl/dev)
 
 This package provides some optimization problems using the
 [NLPModels.jl](https://github.com/JuliaSmoothOptimizers/NLPModels.jl)

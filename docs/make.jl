@@ -1,3 +1,4 @@
+ENV["GKSwstype"] = "100"
 using Documenter, NLSProblems
 
 makedocs(
@@ -10,7 +11,16 @@ makedocs(
     prettyurls = get(ENV, "CI", nothing) == "true",
   ),
   sitename = "NLSProblems.jl",
-  pages = Any["Home" => "index.md", "Tutorial" => "tutorial.md", "Reference" => "reference.md"],
+  pages = Any[
+    "Home" => "index.md",
+    "Tutorial" => "tutorial.md",
+    "Benchmark" => "benchmark.md",
+    "Reference" => "reference.md",
+  ],
 )
 
-deploydocs(repo = "github.com/JuliaSmoothOptimizers/NLSProblems.jl.git", devbranch = "main")
+deploydocs(
+  repo = "github.com/JuliaSmoothOptimizers/NLSProblems.jl.git",
+  push_preview = true,
+  devbranch = "main",
+)

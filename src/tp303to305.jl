@@ -18,7 +18,7 @@ function tp303(n::Int = 20; version::String = "tp303")
 
   @expression(nls, FA[i = 1:n], x[i])
   @expression(nls, FB, sum(i / 2 * x[i] for i = 1:n))
-  @expression(nls, FC, sum(i / 2 * x[i] for i = 1:n)^2)
+  @NLexpression(nls, FC, sum(i / 2 * x[i] for i = 1:n)^2)
 
   return MathOptNLSModel(nls, [FA; FB; FC], name = version)
 end

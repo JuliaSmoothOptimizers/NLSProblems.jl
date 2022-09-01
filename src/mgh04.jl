@@ -15,7 +15,7 @@ function mgh04(args...)
   @variable(model, x[1:2], start = 1)
   @expression(model, F1, x[1] - 1e6)
   @expression(model, F2, x[2] - 2e-6)
-  @expression(model, F3, x[1] * x[2] - 2.0)
+  @NLexpression(model, F3, x[1] * x[2] - 2.0)
 
   return MathOptNLSModel(model, [F1; F2; F3], name = "mgh04")
 end

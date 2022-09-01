@@ -17,8 +17,8 @@ function tp227(args...)
   x0 = [0.5; 0.5]
   @variable(nls, x[i = 1:2], start = x0[i])
 
-  @NLexpression(nls, F1, x[1] - 2)
-  @NLexpression(nls, F2, x[2] - 1)
+  @expression(nls, F1, x[1] - 2)
+  @expression(nls, F2, x[2] - 1)
 
   @NLconstraint(nls, x[2] - x[1]^2 ≥ 0)
   @NLconstraint(nls, x[1] - x[2]^2 ≥ 0)

@@ -16,7 +16,7 @@ function tp370(n::Int = 6; version::String = "tp370")
   nls = Model()
   @variable(nls, x[i = 1:n], start = 0)
 
-  @NLexpression(nls, FA, 1 * x[1])
+  @expression(nls, FA, x[1])
   @NLexpression(nls, FB, x[2] - x[1]^2 - 1)
   @NLexpression(
     nls,

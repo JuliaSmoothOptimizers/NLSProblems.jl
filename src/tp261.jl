@@ -20,7 +20,7 @@ function tp261(args...)
   @NLexpression(nls, F2, 10 * (x[2] - x[3])^3)
   @NLexpression(nls, F3, tan(x[3] - x[4])^2)
   @NLexpression(nls, F4, x[1]^4)
-  @NLexpression(nls, F5, x[4] - 1)
+  @expression(nls, F5, x[4] - 1)
 
   return MathOptNLSModel(nls, [F1; F2; F3; F4; F5], name = "tp261")
 end

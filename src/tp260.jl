@@ -18,12 +18,12 @@ function tp260(args...)
   @variable(nls, x[i = 1:4], start = x0[i])
 
   @NLexpression(nls, F1, 10 * (x[2] - x[1]^2))
-  @NLexpression(nls, F2, 1 - x[1])
+  @expression(nls, F2, 1 - x[1])
   @NLexpression(nls, F3, sqrt(90) * (x[4] - x[3]^2))
-  @NLexpression(nls, F4, 1 - x[3])
-  @NLexpression(nls, F5, sqrt(9.9) * (x[2] + x[4] - 2))
-  @NLexpression(nls, F6, sqrt(0.2) * (x[2] - 1))
-  @NLexpression(nls, F7, sqrt(0.2) * (x[4] - 1))
+  @expression(nls, F4, 1 - x[3])
+  @expression(nls, F5, sqrt(9.9) * (x[2] + x[4] - 2))
+  @expression(nls, F6, sqrt(0.2) * (x[2] - 1))
+  @expression(nls, F7, sqrt(0.2) * (x[4] - 1))
 
   return MathOptNLSModel(nls, [F1; F2; F3; F4; F5; F6; F7], name = "tp260")
 end

@@ -15,9 +15,9 @@ export hs61
 function hs61(args...)
   model = Model()
   @variable(model, x[1:3], start = 0.0)
-  @NLexpression(model, F1, 2 * (x[1] - 33 / 8))
-  @NLexpression(model, F2, sqrt(2) * (x[2] + 4))
-  @NLexpression(model, F3, sqrt(2) * (x[3] - 6))
+  @expression(model, F1, 2 * (x[1] - 33 / 8))
+  @expression(model, F2, sqrt(2) * (x[2] + 4))
+  @expression(model, F3, sqrt(2) * (x[3] - 6))
   @NLconstraint(model, 3 * x[1] - 2 * x[2]^2 == 7)
   @NLconstraint(model, 4 * x[1] - 3 * x[3]^2 == 11)
 

@@ -17,7 +17,7 @@ function mgh27(n::Int = 10)
 
   model = Model()
   @variable(model, x[1:n], start = 0.5)
-  @NLexpression(model, F1[i = 1:(n - 1)], x[i] + sum(x[j] for j = 1:n) - n - 1)
+  @expression(model, F1[i = 1:(n - 1)], x[i] + sum(x) - n - 1)
   @NLexpression(model, F2, prod(x[j] for j = 1:n) - 1)
 
   return MathOptNLSModel(model, [F1; F2], name = "mgh27")

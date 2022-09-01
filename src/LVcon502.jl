@@ -30,11 +30,11 @@ function LVcon502(n::Int = 20)
   model = Model()
   @variable(model, x[i = 1:n], start = (i % 2 == 1 ? -2.0 : 1.0))
   @NLexpression(model, F1[i = 1:N], 10 * (x[2i - 1]^2 - x[2i]))
-  @NLexpression(model, F2[i = 1:N], x[2i - 1] - 1)
+  @expression(model, F2[i = 1:N], x[2i - 1] - 1)
   @NLexpression(model, F3[i = 1:N], 3s * (x[2i + 1]^2 - x[2i + 2]))
-  @NLexpression(model, F4[i = 1:N], x[2i + 1] - 1)
-  @NLexpression(model, F5[i = 1:N], s * (x[2i] + x[2i + 2] - 2))
-  @NLexpression(model, F6[i = 1:N], (x[2i] - x[2i + 2]) / s)
+  @expression(model, F4[i = 1:N], x[2i + 1] - 1)
+  @expression(model, F5[i = 1:N], s * (x[2i] + x[2i + 2] - 2))
+  @expression(model, F6[i = 1:N], (x[2i] - x[2i + 2]) / s)
   @NLconstraint(
     model,
     c[k = 1:(n - 7)],

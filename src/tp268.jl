@@ -26,7 +26,7 @@ function tp268(args...)
     4 -12 4 4 0
   ]
 
-  @NLexpression(nls, F[i = 1:6], sum(D[i, j] * x[j] for j = 1:5) - d[i])
+  @expression(nls, F[i = 1:6], sum(D[i, j] * x[j] for j = 1:5) - d[i])
 
   @constraint(nls, -x[1] - x[2] - x[3] - x[4] - x[5] + 5 ≥ 0)
   @constraint(nls, 10 * x[1] + 10 * x[2] - 3 * x[3] + 5 * x[4] + 4 * x[5] - 20 ≥ 0)

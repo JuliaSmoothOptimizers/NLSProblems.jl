@@ -18,9 +18,9 @@ function mgh34(n::Int = 10; m::Int = 20)
 
   model = Model()
   @variable(model, x[1:n], start = 1.0)
-  @NLexpression(model, F1, -1.0)
-  @NLexpression(model, F2[i = 1:(m - 2)], i * sum(j * x[j] for j = 2:(n - 1)) - 1)
-  @NLexpression(model, F3, -1.0)
+  @expression(model, F1, -1.0)
+  @expression(model, F2[i = 1:(m - 2)], i * sum(j * x[j] for j = 2:(n - 1)) - 1)
+  @expression(model, F3, -1.0)
 
   return MathOptNLSModel(model, [F1; F2; F3], name = "mgh34")
 end

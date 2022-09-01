@@ -28,8 +28,8 @@ function LVcon512(n::Int = 21)
   x0s = [2.0; 1.5; -1.0; 0.5]
   model = Model()
   @variable(model, x[i = 1:n], start = x0s[(i - 1) % 4 + 1])
-  @NLexpression(model, F1[i = 1:N], x[4i - 3] - x[4i - 2])
-  @NLexpression(model, F2[i = 1:N], x[4i - 2] - x[4i - 1])
+  @expression(model, F1[i = 1:N], x[4i - 3] - x[4i - 2])
+  @expression(model, F2[i = 1:N], x[4i - 2] - x[4i - 1])
   @NLexpression(model, F3[i = 1:N], (x[4i - 1] - x[4i])^2)
   @NLexpression(model, F4[i = 1:N], (x[4i] - x[4i + 1])^2)
 

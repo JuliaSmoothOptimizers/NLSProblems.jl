@@ -17,8 +17,8 @@ function tp282(args...)
   x0 = [-1.2; zeros(9)]
   @variable(nls, x[i = 1:10], start = x0[i])
 
-  @NLexpression(nls, FA, x[1] - 1)
-  @NLexpression(nls, FB, x[10] - 1)
+  @expression(nls, FA, x[1] - 1)
+  @expression(nls, FB, x[10] - 1)
   @NLexpression(nls, FC[i = 1:9], sqrt(100 - 10 * i) * (x[i]^2 - x[i + 1]))
 
   return MathOptNLSModel(nls, [FA; FB; FC], name = "tp282")

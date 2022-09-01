@@ -16,7 +16,7 @@ function hs26(args...)
   model = Model()
   @variable(model, x[1:3])
   set_start_value.(x, [-2.6; 2.0; 2.0])
-  @NLexpression(model, F1, x[1] - x[2])
+  @expression(model, F1, x[1] - x[2])
   @NLexpression(model, F2, (x[2] - x[3])^2)
   @NLconstraint(model, (1 + x[2]^2) * x[1] + x[3]^4 == 3)
 

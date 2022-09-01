@@ -18,7 +18,7 @@ function tp216(args...)
   @variable(nls, x[i = 1:2], start = x0[i])
 
   @NLexpression(nls, F1, 10 * (x[1]^2 - x[2]))
-  @NLexpression(nls, F2, x[1] - 1)
+  @expression(nls, F2, x[1] - 1)
 
   @NLconstraint(nls, x[1] * (x[1] - 4) - 2 * x[2] + 12 == 0)
 

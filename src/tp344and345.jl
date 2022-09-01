@@ -16,8 +16,8 @@ function tp344(args...; x0::Real = 2, version::String = "tp344")
   nls = Model()
   @variable(nls, x[i = 1:3], start = x0)
 
-  @NLexpression(nls, F1, x[1] - 1)
-  @NLexpression(nls, F2, x[1] - x[2])
+  @expression(nls, F1, x[1] - 1)
+  @expression(nls, F2, x[1] - x[2])
   @NLexpression(nls, F3, (x[2] - x[3])^2)
 
   @NLconstraint(nls, x[1] * (1 + x[2]^2) + x[3]^4 - 4 - 3 * sqrt(2) == 0)

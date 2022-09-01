@@ -17,9 +17,9 @@ function tp240(args...)
   x0 = [100; -1; 2.5]
   @variable(nls, x[i = 1:3], start = x0[i])
 
-  @NLexpression(nls, F1, x[1] - x[2] + x[3])
-  @NLexpression(nls, F2, -x[1] + x[2] + x[3])
-  @NLexpression(nls, F3, x[1] + x[2] - x[3])
+  @expression(nls, F1, x[1] - x[2] + x[3])
+  @expression(nls, F2, -x[1] + x[2] + x[3])
+  @expression(nls, F3, x[1] + x[2] - x[3])
 
   return MathOptNLSModel(nls, [F1; F2; F3], name = "tp240")
 end

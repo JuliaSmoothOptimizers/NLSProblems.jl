@@ -22,7 +22,7 @@ function BNST2(n::Int = 200)
   end
   model = Model()
   @variable(model, x[1:n], start = 0.1)
-  @NLexpression(model, F[i = 1:n], 1.0 * x[i])
+  @expression(model, F[i = 1:n], x[i])
   @NLconstraint(model, c[j = 1:(n - 1)], x[1] * (x[j + 1] - 1) - 10x[j + 1] == 0)
 
   return MathOptNLSModel(model, F, name = "BNST2")

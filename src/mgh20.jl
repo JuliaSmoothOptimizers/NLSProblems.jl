@@ -24,7 +24,7 @@ function mgh20(n::Int = 6)
     F1[i = 1:29],
     sum((j - 1) * x[j] * t[i]^(j - 2) for j = 2:n) - sum(x[j] * t[i]^(j - 1) for j = 1:n)^2 - 1
   )
-  @NLexpression(model, F2, x[1] + 0.0) # x[1] alone won't work
+  @expression(model, F2, x[1])
   @NLexpression(model, F3, x[2] - x[1]^2 - 1)
 
   return MathOptNLSModel(model, [F1; F2; F3], name = "mgh20")

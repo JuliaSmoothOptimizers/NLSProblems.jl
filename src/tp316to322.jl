@@ -16,8 +16,8 @@ function tp316(args...; d::Real = 100, version::String = "tp316")
   nls = Model()
   @variable(nls, x[i = 1:2], start = 0)
 
-  @NLexpression(nls, F1, x[1] - 20)
-  @NLexpression(nls, F2, x[2] + 20)
+  @expression(nls, F1, x[1] - 20)
+  @expression(nls, F2, x[2] + 20)
 
   @NLconstraint(nls, x[1]^2 / 100 + x[2]^2 / d - 1 == 0)
   return MathOptNLSModel(nls, [F1; F2], name = version)

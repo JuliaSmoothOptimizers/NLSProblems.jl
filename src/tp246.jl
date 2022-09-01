@@ -18,8 +18,8 @@ function tp246(args...)
   @variable(nls, x[i = 1:3], start = x0[i])
 
   @NLexpression(nls, F1, 10 * (x[3] - (0.5 * (x[1] + x[2]))^2))
-  @NLexpression(nls, F2, 1 - x[1])
-  @NLexpression(nls, F3, 1 - x[2])
+  @expression(nls, F2, 1 - x[1])
+  @expression(nls, F3, 1 - x[2])
 
   return MathOptNLSModel(nls, [F1; F2; F3], name = "tp246")
 end

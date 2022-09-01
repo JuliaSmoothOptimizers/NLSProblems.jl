@@ -23,7 +23,7 @@ function mgh21(n::Int = 20)
   @variable(model, x[i = 1:n], start = (i % 2 == 0 ? 1.0 : -1.2))
   N = div(n, 2)
   @NLexpression(model, F1[i = 1:N], 10 * (x[2i] - x[2i - 1]^2))
-  @NLexpression(model, F2[i = 1:N], 1 - x[2i - 1])
+  @expression(model, F2[i = 1:N], 1 - x[2i - 1])
 
   return MathOptNLSModel(model, [F1; F2], name = "mgh21")
 end

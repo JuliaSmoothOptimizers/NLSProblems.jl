@@ -17,8 +17,8 @@ function tp224(args...)
   x0 = [0.1; 0.1]
   @variable(nls, 0 ≤ x[i = 1:2] ≤ 6, start = x0[i])
 
-  @NLexpression(nls, F1, sqrt(2) * (x[1] - 12))
-  @NLexpression(nls, F2, x[2] - 20)
+  @expression(nls, F1, sqrt(2) * (x[1] - 12))
+  @expression(nls, F2, x[2] - 20)
 
   @constraint(nls, -18 ≤ -x[1] - 3 * x[2] ≤ 0)
   @constraint(nls, -8 ≤ -x[1] - x[2] ≤ 0)

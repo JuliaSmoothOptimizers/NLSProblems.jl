@@ -18,7 +18,7 @@ function tp372(args...)
   x0 = [300; -100; -0.1997; -127; -151; 379; 421; 460; 426]
   @variable(nls, x[i = 1:9] ≥ lvar[i], start = x0[i])
 
-  @NLexpression(nls, F[i = 1:6], 1 * x[i + 3])
+  @expression(nls, F[i = 1:6], x[i + 3])
 
   y = [127; 151; 379; 421; 460; 426]
   for i = 1:6

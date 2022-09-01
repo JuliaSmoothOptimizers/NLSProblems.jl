@@ -15,8 +15,8 @@ export hs14
 function hs14(args...)
   model = Model()
   @variable(model, x[1:2], start = 2.0)
-  @NLexpression(model, F1, x[1] - 2)
-  @NLexpression(model, F2, x[2] - 1)
+  @expression(model, F1, x[1] - 2)
+  @expression(model, F2, x[2] - 1)
   @NLconstraint(model, -0.25 * x[1]^2 - x[2]^2 + 1.0 ≥ 0.0)
   @constraint(model, x[1] - 2 * x[2] == -1.0)
 

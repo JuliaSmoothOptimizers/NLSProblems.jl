@@ -18,7 +18,7 @@ function hs02(args...)
   @variable(model, x[i = 1:2] ≥ lvar[i])
   set_start_value.(x, [-2.0; 1.0])
   @NLexpression(model, F1, 10 * (x[2] - x[1]^2))
-  @NLexpression(model, F2, 1 - x[1])
+  @expression(model, F2, 1 - x[1])
 
   return MathOptNLSModel(model, [F1; F2], name = "hs02")
 end

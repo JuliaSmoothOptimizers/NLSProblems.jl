@@ -17,8 +17,8 @@ function tp288(args...)
   x0 = [3 * ones(5); -ones(5); zeros(5); ones(5)]
   @variable(nls, x[i = 1:20], start = x0[i])
 
-  @NLexpression(nls, FA[i = 1:5], x[i] + 10 * x[i + 5])
-  @NLexpression(nls, FB[i = 1:5], sqrt(5) * (x[i + 10] - x[i + 15]))
+  @expression(nls, FA[i = 1:5], x[i] + 10 * x[i + 5])
+  @expression(nls, FB[i = 1:5], sqrt(5) * (x[i + 10] - x[i + 15]))
   @NLexpression(nls, FC[i = 1:5], (x[i + 5] - 2 * x[i + 10])^2)
   @NLexpression(nls, FD[i = 1:5], sqrt(10) * (x[i] - x[i + 15])^2)
 

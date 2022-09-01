@@ -18,7 +18,7 @@ function tp206(args...; a::Real = 1, b::Real = 10, c::Int = 2, version::String =
   @variable(nls, x[i = 1:2], start = x0[i])
 
   @NLexpression(nls, F1, a * (x[2] - x[1]^c))
-  @NLexpression(nls, F2, b * (1 - x[1]))
+  @expression(nls, F2, b * (1 - x[1]))
 
   return MathOptNLSModel(nls, [F1; F2], name = version)
 end

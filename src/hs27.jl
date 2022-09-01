@@ -15,7 +15,7 @@ export hs27
 function hs27(args...)
   model = Model()
   @variable(model, x[1:3], start = 2.0)
-  @NLexpression(model, F1, 0.1 * (x[1] - 1))
+  @expression(model, F1, 0.1 * (x[1] - 1))
   @NLexpression(model, F2, x[2] - x[1]^2)
   @NLconstraint(model, x[1] + x[3]^2 == -1)
 

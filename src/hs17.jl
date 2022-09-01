@@ -19,7 +19,7 @@ function hs17(args...)
   @variable(model, lvar[i] ≤ x[i = 1:2] ≤ uvar[i])
   set_start_value.(x, [-2.0; 1.0])
   @NLexpression(model, F1, 10 * (x[2] - x[1]^2))
-  @NLexpression(model, F2, 1 - x[1])
+  @expression(model, F2, 1 - x[1])
   @NLconstraint(model, x[2]^2 - x[1] ≥ 0.0)
   @NLconstraint(model, x[1]^2 - x[2] ≥ 0.0)
 

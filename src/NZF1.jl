@@ -36,6 +36,6 @@ function NZF1(n::Int = 13)
     F5[i = 1:l],
     sqrt(2) * (x[i + 4] + x[i + 5] + x[i + 5] * x[i + 9] + 10 * x[i + 9] - 50)
   )
-  @NLexpression(nls, F6[i = 1:(l - 1)], sqrt(2) * (x[i + 6] - x[i + 19]))
+  @expression(nls, F6[i = 1:(l - 1)], sqrt(2) * (x[i + 6] - x[i + 19]))
   return MathOptNLSModel(nls, [F1; F2; F3; F4; F5; F6], name = "NZF1")
 end

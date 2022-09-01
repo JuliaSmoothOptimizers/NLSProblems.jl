@@ -15,7 +15,7 @@ export hs42
 function hs42(args...)
   model = Model()
   @variable(model, x[1:4], start = 1.0)
-  @NLexpression(model, F[i = 1:4], x[i] - i)
+  @expression(model, F[i = 1:4], x[i] - i)
   @constraint(model, x[1] == 2.0)
   @NLconstraint(model, x[3]^2 + x[4]^2 == 2.0)
 

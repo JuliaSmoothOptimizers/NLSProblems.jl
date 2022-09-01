@@ -18,7 +18,7 @@ function tp229(args...)
   @variable(nls, -2 ≤ x[i = 1:2] ≤ 2, start = x0[i])
 
   @NLexpression(nls, F1, 10 * (x[2] - x[1]^2))
-  @NLexpression(nls, F2, 1 - x[1])
+  @expression(nls, F2, 1 - x[1])
 
   return MathOptNLSModel(nls, [F1; F2], name = "tp229")
 end

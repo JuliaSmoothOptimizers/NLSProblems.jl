@@ -18,7 +18,7 @@ function mgh24(n::Int = 4)
   y = [exp(i / 10) + exp((i - 1) / 10) for i = 1:n]
   model = Model()
   @variable(model, x[1:n], start = 0.5)
-  @NLexpression(model, F1, x[1] - 0.2)
+  @expression(model, F1, x[1] - 0.2)
   @NLexpression(model, F2[i = 1:(n - 1)], sqrt(1e-5) * (exp(x[i + 1] / 10) + exp(x[i] / 10) - y[i]))
   @NLexpression(model, F3[i = 1:(n - 1)], sqrt(1e-5) * (exp(x[i + 1] / 10) - exp(-1 / 10)))
   @NLexpression(model, F4, sum((n - j + 1) * x[j]^2 for j = 1:n) - 1)

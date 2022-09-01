@@ -18,9 +18,9 @@ function tp337(args...)
   uvar = [Inf; Inf; 1]
   @variable(nls, lvar[i] ≤ x[i = 1:3] ≤ uvar[i], start = 1)
 
-  @NLexpression(nls, F1, 3 * x[1])
-  @NLexpression(nls, F2, 1 * x[2])
-  @NLexpression(nls, F3, 3 * x[3])
+  @expression(nls, F1, 3 * x[1])
+  @expression(nls, F2, x[2])
+  @expression(nls, F3, 3 * x[3])
 
   @NLconstraint(nls, x[1] * x[2] - 1 ≥ 0)
 

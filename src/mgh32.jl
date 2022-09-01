@@ -18,8 +18,8 @@ function mgh32(n::Int = 10; m::Int = 20)
 
   model = Model()
   @variable(model, x[1:n], start = 1)
-  @NLexpression(model, F1[i = 1:n], x[i] - (2 / m) * sum(x[j] for j = 1:n) - 1)
-  @NLexpression(model, F2[i = 1:(m - n)], -(2 / m) * sum(x[j] for j = 1:n) - 1)
+  @expression(model, F1[i = 1:n], x[i] - (2 / m) * sum(x[j] for j = 1:n) - 1)
+  @expression(model, F2[i = 1:(m - n)], -(2 / m) * sum(x[j] for j = 1:n) - 1)
 
   return MathOptNLSModel(model, [F1; F2], name = "mgh32")
 end

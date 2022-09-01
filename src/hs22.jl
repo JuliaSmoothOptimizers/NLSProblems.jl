@@ -15,8 +15,8 @@ export hs22
 function hs22(args...)
   model = Model()
   @variable(model, x[1:2], start = 2.0)
-  @NLexpression(model, F1, x[1] - 2.0)
-  @NLexpression(model, F2, x[2] - 1.0)
+  @expression(model, F1, x[1] - 2.0)
+  @expression(model, F2, x[2] - 1.0)
   @constraint(model, -x[1] - x[2] + 2 ≥ 0)
   @NLconstraint(model, -x[1]^2 + x[2] ≥ 0)
 

@@ -17,7 +17,7 @@ function tp212(args...)
   x0 = [2; 0]
   @variable(nls, x[i = 1:2], start = x0[i])
 
-  @NLexpression(nls, F1, 4 * (x[1] + x[2]))
+  @expression(nls, F1, 4 * (x[1] + x[2]))
   @NLexpression(nls, F2, 4 * (x[1] + x[2]) + (x[1] - x[2]) * ((x[1] - 2)^2 + x[2]^2 - 1))
 
   return MathOptNLSModel(nls, [F1; F2], name = "tp212")

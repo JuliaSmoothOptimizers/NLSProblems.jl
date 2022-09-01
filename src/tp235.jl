@@ -17,7 +17,7 @@ function tp235(args...)
   x0 = [-2; 3; 1]
   @variable(nls, x[i = 1:3], start = x0[i])
 
-  @NLexpression(nls, F1, 0.1 * (x[1] - 1))
+  @expression(nls, F1, 0.1 * (x[1] - 1))
   @NLexpression(nls, F2, x[2] - x[1]^2)
 
   @NLconstraint(nls, x[1] + x[3]^2 + 1 == 0)

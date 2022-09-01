@@ -15,8 +15,8 @@ export hs13
 function hs13(args...)
   model = Model()
   @variable(model, x[1:2] ≥ 0.0, start = -2.0)
-  @NLexpression(model, F1, x[1] - 2)
-  @NLexpression(model, F2, x[2] + 0.0)
+  @expression(model, F1, x[1] - 2)
+  @expression(model, F2, x[2])
   @NLconstraint(model, (1 - x[1])^3 - x[2] ≥ 0.0)
 
   return MathOptNLSModel(model, [F1; F2], name = "hs13")

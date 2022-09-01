@@ -17,7 +17,7 @@ function tp249(args...)
   lvar = [1; -Inf; -Inf]
   @variable(nls, x[i = 1:3] ≥ lvar[i], start = 1)
 
-  @NLexpression(nls, F[i = 1:3], 1 * x[i])
+  @expression(nls, F[i = 1:3], x[i])
 
   @NLconstraint(nls, x[1]^2 + x[2]^2 - 1 ≥ 0)
 

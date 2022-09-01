@@ -20,7 +20,7 @@ function mgh07(args...)
 
   @NLexpression(nls, F1, 10 * (x[3] - 10 * (atan(x[2] / x[1]) / (2 * π) + θ_aux(x[1]))))
   @NLexpression(nls, F2, 10 * (sqrt(x[1]^2 + x[2]^2) - 1.0))
-  @NLexpression(nls, F3, 1 * x[3])
+  @expression(nls, F3, x[3])
 
   return MathOptNLSModel(nls, [F1, F2, F3], name = "mgh07")
 end

@@ -1,7 +1,7 @@
 # NLSProblems.jl
 
 This package provides Nonlinear Least Squares optimization problems in [NLPModels.jl](https://github.com/JuliaSmoothOptimizers/NLPModels.jl)
- interface using [JuMP](https://github.com/JuliaOpt/JuMP.jl) syntax and [NLPModelsJuMP](https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl).
+ interface using [JuMP](https://github.com/jump-dev/JuMP.jl) syntax and [NLPModelsJuMP](https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl).
 It is similar to 
 [OptimizationProblems.jl](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl),
 except that it's specific for nonlinear least squares, using the subtype of `AbstractNLSModel`.

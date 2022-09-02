@@ -27,7 +27,7 @@ as much information as possible on the provenance of problems.
 
 ## How to cite
 
-If you use NLSProblems.jl in your work, please cite using the format given in [CITATION.bib](CITATION.bib).
+If you use NLSProblems.jl in your work, please cite using the format given in [CITATION.bib](https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/blob/main/CITATION.bib).
 
 ## References
 

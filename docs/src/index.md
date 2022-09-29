@@ -25,6 +25,13 @@ Please open pull requests to submit new problems! When submitting a problem,
 please pay particular attention to the documentation. We would like to gather
 as much information as possible on the provenance of problems.
 
+# Bug reports and discussions
+
+If you think you found a bug, feel free to open an [issue](https://github.com/JuliaSmoothOptimizers/NLSProblemsr.jl/issues).
+Focused suggestions and requests can also be opened as issues. Before opening a pull request, start an issue or a discussion on the topic, please.
+
+If you want to ask a question not suited for a bug report, feel free to start a discussion [here](https://github.com/JuliaSmoothOptimizers/Organization/discussions). This forum is for general discussion about this repository and the [JuliaSmoothOptimizers](https://github.com/JuliaSmoothOptimizers), so questions about any of our packages are welcome.
+
 ## How to cite
 
 If you use NLSProblems.jl in your work, please cite using the format given in [CITATION.bib](https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/blob/main/CITATION.bib).

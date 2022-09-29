@@ -52,3 +52,11 @@ Technical report 767, 1999.
 [*More test examples for nonlinear programming codes*](https://doi.org/10.1007/978-3-642-61582-5).
 Lecture Notes in Economics and Mathematical Systems 282,
 Springer Verlag Berlin Heidelberg, 1987.
+
+# Bug reports and discussions
+
+If you think you found a bug, feel free to open an [issue](https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/issues).
+Focused suggestions and requests can also be opened as issues. Before opening a pull request, start an issue or a discussion on the topic, please.
+
+If you want to ask a question not suited for a bug report, feel free to start a discussion [here](https://github.com/JuliaSmoothOptimizers/Organization/discussions). This forum is for general discussion about this repository and the [JuliaSmoothOptimizers](https://github.com/JuliaSmoothOptimizers), so questions about any of our packages are welcome.
+

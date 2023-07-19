@@ -19,7 +19,7 @@ We also define a dictionary of solvers that will be used for our benchmark. We c
 solvers = Dict(
   :lbfgs => model -> lbfgs(model, mem=5, atol=1e-5, rtol=0.0),
   :trunk => model -> trunk(model, atol=1e-5, rtol=0.0),
-  :cannoles => model -> cannoles(model, ϵtol=1e-5),
+  :cannoles => model -> cannoles(model, atol=1e-5, rtol=0.0),
 )
 ```
 The function `SolverBenchmark.bmak_solvers` will run all the problems on the specified solvers and store the results in a `DataFrame`.

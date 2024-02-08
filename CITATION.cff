@@ -3,7 +3,7 @@
 
 cff-version: 1.2.0
 title: >-
-  NLSProblems.jl: Nonlinear least-squares problems for {NLPModels
+  NLSProblems.jl: Nonlinear least-squares problems for NLPModels
 message: >-
   If you use this software, please cite it using the
   metadata from this file.

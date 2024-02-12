@@ -30,7 +30,7 @@ pkg> test NLSProblems
 
 ## How to cite
 
-If you use NLSProblems.jl in your work, please cite using the format given in [CITATION.bib](CITATION.bib).
+If you use NLSProblems.jl in your work, please cite using the format given in [CITATION.cff](CITATION.cff).
 
 ## References
 

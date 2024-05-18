@@ -9,7 +9,7 @@ NLPModelsJuMP = "792afdf1-32c1-5681-94e0-d7bf7a5df49e"
 
 [compat]
 JuMP = "1"
-NLPModels = "0.19, 0.20"
+NLPModels = "0.19, 0.20, 0.21"
 NLPModelsJuMP = "0.12"
 julia = "^1.6"
 

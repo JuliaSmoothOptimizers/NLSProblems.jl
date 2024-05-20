@@ -34,7 +34,7 @@ If you want to ask a question not suited for a bug report, feel free to start a 
 
 ## How to cite
 
-If you use NLSProblems.jl in your work, please cite using the format given in [CITATION.bib](https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/blob/main/CITATION.bib).
+If you use NLSProblems.jl in your work, please cite using the format given in [CITATION.cff](https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/blob/main/CITATION.cff).
 
 ## References
 

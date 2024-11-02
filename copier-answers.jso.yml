@@ -1,0 +1,8 @@
+PackageName: "NLSProblems"
+PackageOwner: "JuliaSmoothOptimizers"
+PackageUUID: "7cde8186-f29c-533a-9367-b4054c592979"
+_src_path: "https://github.com/JuliaSmoothOptimizers/JSOBestieTemplate.jl"
+_commit: "v0.13.0"
+AddBreakage: true
+AddBenchmark: false
+AddBenchmarkCI: true

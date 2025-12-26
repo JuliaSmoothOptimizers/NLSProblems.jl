@@ -22,7 +22,7 @@ function tp337(args...)
   @expression(nls, F2, x[2])
   @expression(nls, F3, 3 * x[3])
 
-  @NLconstraint(nls, x[1] * x[2] - 1 ≥ 0)
+  @constraint(nls, x[1] * x[2] - 1 ≥ 0)
 
   return MathOptNLSModel(nls, [F1; F2; F3], name = "tp337")
 end

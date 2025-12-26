@@ -20,9 +20,9 @@ function hs20(args...)
   set_start_value.(x, [-2.0; 1.0])
   @NLexpression(model, F1, 10 * (x[2] - x[1]^2))
   @expression(model, F2, 1 - x[1])
-  @NLconstraint(model, x[1] + x[2]^2 ≥ 0.0)
-  @NLconstraint(model, x[1]^2 + x[2] ≥ 0.0)
-  @NLconstraint(model, x[1]^2 + x[2]^2 ≥ 1)
+  @constraint(model, x[1] + x[2]^2 ≥ 0.0)
+  @constraint(model, x[1]^2 + x[2] ≥ 0.0)
+  @constraint(model, x[1]^2 + x[2]^2 ≥ 1)
 
   return MathOptNLSModel(model, [F1; F2], name = "hs20")
 end

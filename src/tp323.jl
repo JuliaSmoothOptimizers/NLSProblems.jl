@@ -21,7 +21,7 @@ function tp323(args...)
   @expression(nls, F2, x[2])
 
   @constraint(nls, x[1] - x[2] + 2 ≥ 0)
-  @NLconstraint(nls, -x[1]^2 + x[2] - 1 ≥ 0)
+  @constraint(nls, -x[1]^2 + x[2] - 1 ≥ 0)
 
   return MathOptNLSModel(nls, [F1; F2], name = "tp323")
 end

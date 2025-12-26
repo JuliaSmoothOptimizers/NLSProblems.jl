@@ -18,8 +18,8 @@ function hs61(args...)
   @expression(model, F1, 2 * (x[1] - 33 / 8))
   @expression(model, F2, sqrt(2) * (x[2] + 4))
   @expression(model, F3, sqrt(2) * (x[3] - 6))
-  @NLconstraint(model, 3 * x[1] - 2 * x[2]^2 == 7)
-  @NLconstraint(model, 4 * x[1] - 3 * x[3]^2 == 11)
+  @constraint(model, 3 * x[1] - 2 * x[2]^2 == 7)
+  @constraint(model, 4 * x[1] - 3 * x[3]^2 == 11)
 
   return MathOptNLSModel(model, [F1; F2; F3], name = "hs61")
 end

@@ -19,7 +19,7 @@ function tp394(n::Int = 20; version::String = "tp394")
   @NLexpression(nls, FA[i = 1:n], sqrt(i) * x[i])
   @NLexpression(nls, FB[i = 1:n], sqrt(i) * x[i]^2)
 
-  @NLconstraint(nls, sum(x[i]^2 for i = 1:n) == 1)
+  @constraint(nls, sum(x[i]^2 for i = 1:n) == 1)
 
   return MathOptNLSModel(nls, [FA; FB], name = version)
 end

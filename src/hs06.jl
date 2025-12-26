@@ -17,7 +17,7 @@ function hs06(args...)
   @variable(model, x[1:2])
   set_start_value.(x, [-1.2; 1.0])
   @expression(model, F, 1.0 - x[1])
-  @NLconstraint(model, 10 * (x[2] - x[1]^2) == 0)
+  @constraint(model, 10 * (x[2] - x[1]^2) == 0)
 
   return MathOptNLSModel(model, [F], name = "hs06")
 end

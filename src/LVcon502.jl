@@ -35,7 +35,7 @@ function LVcon502(n::Int = 20)
   @expression(model, F4[i = 1:N], x[2i + 1] - 1)
   @expression(model, F5[i = 1:N], s * (x[2i] + x[2i + 2] - 2))
   @expression(model, F6[i = 1:N], (x[2i] - x[2i + 2]) / s)
-  @NLconstraint(
+  @constraint(
     model,
     c[k = 1:(n - 7)],
     (2 + 5 * x[k + 5]^2) * x[k + 5] + 1.0 + sum(x[i] * (1 + x[i]) for i = max(k - 5, 1):(k + 1)) ==

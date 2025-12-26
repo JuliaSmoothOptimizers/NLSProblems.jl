@@ -113,7 +113,7 @@ function tp327(args...)
 
   @NLexpression(nls, F[i = 1:44], y[i] - x[1] - (0.49 - x[1]) * exp(-x[2] * (z[i] - 8)))
 
-  @NLconstraint(nls, -0.09 - x[1] * x[2] + 0.49 * x[2] ≥ 0)
+  @constraint(nls, -0.09 - x[1] * x[2] + 0.49 * x[2] ≥ 0)
 
   return MathOptNLSModel(nls, F, name = "tp327")
 end

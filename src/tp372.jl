@@ -22,8 +22,8 @@ function tp372(args...)
 
   y = [127; 151; 379; 421; 460; 426]
   for i = 1:6
-    @NLconstraint(nls, x[1] + x[2] * exp((2i - 7) * x[3]) + x[i + 3] - y[i] ≥ 0)
-    @NLconstraint(nls, -x[1] - x[2] * exp((2i - 7) * x[3]) + x[i + 3] + y[i] ≥ 0)
+    @constraint(nls, x[1] + x[2] * exp((2i - 7) * x[3]) + x[i + 3] - y[i] ≥ 0)
+    @constraint(nls, -x[1] - x[2] * exp((2i - 7) * x[3]) + x[i + 3] + y[i] ≥ 0)
   end
 
   return MathOptNLSModel(nls, F, name = "tp372")

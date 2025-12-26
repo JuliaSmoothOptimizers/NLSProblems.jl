@@ -20,7 +20,7 @@ function tp344(args...; x0::Real = 2, version::String = "tp344")
   @expression(nls, F2, x[1] - x[2])
   @NLexpression(nls, F3, (x[2] - x[3])^2)
 
-  @NLconstraint(nls, x[1] * (1 + x[2]^2) + x[3]^4 - 4 - 3 * sqrt(2) == 0)
+  @constraint(nls, x[1] * (1 + x[2]^2) + x[3]^4 - 4 - 3 * sqrt(2) == 0)
 
   return MathOptNLSModel(nls, [F1; F2; F3], name = version)
 end

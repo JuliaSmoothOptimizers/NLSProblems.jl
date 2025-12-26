@@ -21,7 +21,7 @@ function tp252(args...)
   @expression(nls, F1, 0.1 * (x[1] - 1))
   @NLexpression(nls, F2, x[2] - x[1]^2)
 
-  @NLconstraint(nls, x[1] + x[3]^2 + 1 == 0)
+  @constraint(nls, x[1] + x[3]^2 + 1 == 0)
 
   return MathOptNLSModel(nls, [F1; F2], name = "tp252")
 end

@@ -23,8 +23,8 @@ function hs46(args...)
   @expression(model, F2, x[3] - 1.0)
   @NLexpression(model, F3, (x[4] - 1.0)^2)
   @NLexpression(model, F4, (x[5] - 1.0)^3)
-  @NLconstraint(model, x[1]^2 * x[4] + sin(x[4] - x[5]) == 1.0)
-  @NLconstraint(model, x[2] + x[3]^4 * x[4]^2 == 2.0)
+  @constraint(model, x[1]^2 * x[4] + sin(x[4] - x[5]) == 1.0)
+  @constraint(model, x[2] + x[3]^4 * x[4]^2 == 2.0)
 
   return MathOptNLSModel(model, [F1; F2; F3; F4], name = "hs46")
 end

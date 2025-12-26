@@ -17,7 +17,7 @@ function hs42(args...)
   @variable(model, x[1:4], start = 1.0)
   @expression(model, F[i = 1:4], x[i] - i)
   @constraint(model, x[1] == 2.0)
-  @NLconstraint(model, x[3]^2 + x[4]^2 == 2.0)
+  @constraint(model, x[3]^2 + x[4]^2 == 2.0)
 
   return MathOptNLSModel(model, F, name = "hs42")
 end

@@ -20,8 +20,8 @@ function tp227(args...)
   @expression(nls, F1, x[1] - 2)
   @expression(nls, F2, x[2] - 1)
 
-  @NLconstraint(nls, x[2] - x[1]^2 ≥ 0)
-  @NLconstraint(nls, x[1] - x[2]^2 ≥ 0)
+  @constraint(nls, x[2] - x[1]^2 ≥ 0)
+  @constraint(nls, x[1] - x[2]^2 ≥ 0)
 
   return MathOptNLSModel(nls, [F1; F2], name = "tp227")
 end

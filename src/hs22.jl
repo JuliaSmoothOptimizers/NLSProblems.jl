@@ -18,7 +18,7 @@ function hs22(args...)
   @expression(model, F1, x[1] - 2.0)
   @expression(model, F2, x[2] - 1.0)
   @constraint(model, -x[1] - x[2] + 2 ≥ 0)
-  @NLconstraint(model, -x[1]^2 + x[2] ≥ 0)
+  @constraint(model, -x[1]^2 + x[2] ≥ 0)
 
   return MathOptNLSModel(model, [F1; F2], name = "hs22")
 end

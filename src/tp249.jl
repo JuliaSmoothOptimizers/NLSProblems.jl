@@ -19,7 +19,7 @@ function tp249(args...)
 
   @expression(nls, F[i = 1:3], x[i])
 
-  @NLconstraint(nls, x[1]^2 + x[2]^2 - 1 ≥ 0)
+  @constraint(nls, x[1]^2 + x[2]^2 - 1 ≥ 0)
 
   return MathOptNLSModel(nls, F, name = "tp249")
 end

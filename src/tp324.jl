@@ -20,8 +20,8 @@ function tp324(args...)
   @expression(nls, F1, 0.1 * x[1])
   @expression(nls, F2, x[2])
 
-  @NLconstraint(nls, x[1] * x[2] - 25 ≥ 0)
-  @NLconstraint(nls, x[1]^2 + x[2]^2 - 25 ≥ 0)
+  @constraint(nls, x[1] * x[2] - 25 ≥ 0)
+  @constraint(nls, x[1]^2 + x[2]^2 - 25 ≥ 0)
 
   return MathOptNLSModel(nls, [F1; F2], name = "tp324")
 end

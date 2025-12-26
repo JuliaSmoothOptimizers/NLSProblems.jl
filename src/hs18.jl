@@ -19,8 +19,8 @@ function hs18(args...)
   @variable(model, lvar[i] ≤ x[i = 1:2] ≤ uvar[i], start = 2.0)
   @expression(model, F1, 0.1 * x[1])
   @expression(model, F2, x[2])
-  @NLconstraint(model, x[1] * x[2] ≥ 25)
-  @NLconstraint(model, x[1]^2 + x[2]^2 ≥ 25)
+  @constraint(model, x[1] * x[2] ≥ 25)
+  @constraint(model, x[1]^2 + x[2]^2 ≥ 25)
 
   return MathOptNLSModel(model, [F1; F2], name = "hs18")
 end

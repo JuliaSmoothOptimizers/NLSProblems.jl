@@ -32,7 +32,7 @@ function LVcon504(n::Int = 20)
   @NLexpression(model, F3[i = 1:N], tan(x[2i + 1] - x[2i + 2])^2)
   @NLexpression(model, F4[i = 1:N], x[2i - 1]^4)
   @expression(model, F5[i = 1:N], x[2i + 2] - 1)
-  @NLconstraint(
+  @constraint(
     model,
     c[k = 1:(n - 2)],
     8 * x[k + 1] * (x[k + 1]^2 - x[k]) - 2 * (1 - x[k + 1]) + 4 * (x[k + 1] - x[k + 2]^2) == 0.0

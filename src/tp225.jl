@@ -21,10 +21,10 @@ function tp225(args...)
   @expression(nls, F2, 1 * x[2])
 
   @constraint(nls, x[1] + x[2] - 1 ≥ 0)
-  @NLconstraint(nls, x[1]^2 + x[2]^2 - 1 ≥ 0)
-  @NLconstraint(nls, 9 * x[1]^2 + x[2]^2 - 9 ≥ 0)
-  @NLconstraint(nls, x[1]^2 - x[2] ≥ 0)
-  @NLconstraint(nls, x[2]^2 - x[1] ≥ 0)
+  @constraint(nls, x[1]^2 + x[2]^2 - 1 ≥ 0)
+  @constraint(nls, 9 * x[1]^2 + x[2]^2 - 9 ≥ 0)
+  @constraint(nls, x[1]^2 - x[2] ≥ 0)
+  @constraint(nls, x[2]^2 - x[1] ≥ 0)
 
   return MathOptNLSModel(nls, [F1; F2], name = "tp225")
 end

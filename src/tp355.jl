@@ -26,7 +26,7 @@ function tp355(args...)
     2 * x[1] + 20 * x[2] - 0.5 * x[3] + 2 * x[4] + 2 * x[2] * x[4] * (x[3] - 4 * x[1])
   )
 
-  @NLconstraint(nls, r1^2 + r2^2 - r3^2 - r4^2 == 0)
+  @constraint(nls, r1^2 + r2^2 - r3^2 - r4^2 == 0)
 
   return MathOptNLSModel(nls, [r1; r2], name = "tp355")
 end

@@ -19,7 +19,7 @@ function tp316(args...; d::Real = 100, version::String = "tp316")
   @expression(nls, F1, x[1] - 20)
   @expression(nls, F2, x[2] + 20)
 
-  @NLconstraint(nls, x[1]^2 / 100 + x[2]^2 / d - 1 == 0)
+  @constraint(nls, x[1]^2 / 100 + x[2]^2 / d - 1 == 0)
   return MathOptNLSModel(nls, [F1; F2], name = version)
 end
 

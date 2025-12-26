@@ -20,7 +20,7 @@ function hs65(args...)
   @expression(model, F1, x[1] - x[2])
   @expression(model, F2, (x[1] + x[2] - 10) / 3)
   @expression(model, F3, x[3] - 5)
-  @NLconstraint(model, 48 - x[1]^2 - x[2]^2 - x[3]^2 == 0)
+  @constraint(model, 48 - x[1]^2 - x[2]^2 - x[3]^2 == 0)
 
   return MathOptNLSModel(model, [F1; F2; F3], name = "hs65")
 end

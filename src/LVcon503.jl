@@ -34,8 +34,8 @@ function LVcon503(n::Int = 20)
   @expression(model, F2[i = 1:N], sqrt(5) * (x[2i + 1] - x[2i + 2]))
   @NLexpression(model, F3[i = 1:N], (x[2i] - 2 * x[2i + 1])^2)
   @NLexpression(model, F4[i = 1:N], sqrt(10) * (x[2i - 1] - x[2i + 2])^2)
-  @NLconstraint(model, 3 * x[1]^3 + 2 * x[2] + sin(x[1] - x[2]) * sin(x[1] + x[2]) == 5)
-  @NLconstraint(model, 4 * x[n] - x[n - 1] * exp(x[n - 1] - x[n]) == 3)
+  @constraint(model, 3 * x[1]^3 + 2 * x[2] + sin(x[1] - x[2]) * sin(x[1] + x[2]) == 5)
+  @constraint(model, 4 * x[n] - x[n - 1] * exp(x[n - 1] - x[n]) == 3)
 
   return MathOptNLSModel(model, [F1; F2; F3; F4], name = "Lukšan-Vlček 5.3")
 end
